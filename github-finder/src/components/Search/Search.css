@@ -1,0 +1,20 @@
+#Search-Form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#Search-Form .button {
+  margin: 0;
+  border: none;
+}
+
+#Search-Form input {
+  margin: 0.5rem 0;
+  font-size: large;
+}
+
+#Search-Form input[name="text"] {
+  padding: 0.3rem;
+  font-size: large;
+}
