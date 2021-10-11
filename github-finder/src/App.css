@@ -1,3 +1,4 @@
-.App {
-  text-align: center;
+:root {
+  --navbar-bg: rgb(60, 194, 204);
+  --navbar-text: #fff;
 }
