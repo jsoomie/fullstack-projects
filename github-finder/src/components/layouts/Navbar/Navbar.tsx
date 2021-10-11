@@ -8,7 +8,7 @@ interface InterProps {
 
 export class Navbar extends Component<InterProps> {
   render() {
-    const { title } = this.props;
+    const { title = "Github Finder" } = this.props;
     return (
       <nav id="Navbar">
         <div className="Navbar-LeftPanel">

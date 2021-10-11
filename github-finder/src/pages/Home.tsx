@@ -1,8 +1,14 @@
-import { Component } from "react";
-import { Navbar } from "../components";
+import { Fragment, Component } from "react";
+import { Navbar, UserItem } from "../components";
 
+const title = "Github Finder";
 export class Home extends Component {
   render() {
-    return <Navbar title={"Github Finder"} />;
+    return (
+      <Fragment>
+        <Navbar title={title} />
+        <UserItem />
+      </Fragment>
+    );
   }
 }
