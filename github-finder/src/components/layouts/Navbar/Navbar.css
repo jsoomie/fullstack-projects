@@ -1,5 +1,37 @@
 #Navbar {
-  padding: 1rem;
   color: var(--navbar-text);
   background-color: var(--navbar-bg);
+  display: flex;
+  align-items: center;
+}
+
+/* Container SVG */
+#Navbar svg {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Left panel and right panel */
+.Navbar-RightPanel,
+.Navbar-LeftPanel {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Right panel justify end */
+.Navbar-RightPanel {
+  justify-content: flex-end;
+}
+
+/* Right panel list display */
+.Navbar-RightPanel ul {
+  display: flex;
+}
+
+/* Right panel list items spacing */
+.Navbar-RightPanel ul > li {
+  padding-right: 0.5rem;
 }

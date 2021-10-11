@@ -2,3 +2,9 @@
   --navbar-bg: rgb(60, 194, 204);
   --navbar-text: #fff;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

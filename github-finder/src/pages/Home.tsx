@@ -3,6 +3,6 @@ import { Navbar } from "../components";
 
 export class Home extends Component {
   render() {
-    return <Navbar />;
+    return <Navbar title={"Github Finder"} />;
   }
 }
