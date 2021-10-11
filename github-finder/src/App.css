@@ -1,10 +1,46 @@
 :root {
   --navbar-bg: rgb(60, 194, 204);
   --navbar-text: #fff;
+
+  --btn-color: rgb(70, 165, 220);
+  --btn-hover-color: rgb(55, 130, 175);
 }
 
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+.button {
+  background-color: var(--btn-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 1rem; 
+  text-align: center;
+}
+
+.button:hover {
+  background-color: var(--btn-hover-color);
 }
