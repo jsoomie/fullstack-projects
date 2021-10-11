@@ -27,11 +27,11 @@
 }
 
 /* Right panel list display */
-.Navbar-RightPanel ul {
+.Navbar-RightPanel {
   display: flex;
 }
 
 /* Right panel list items spacing */
-.Navbar-RightPanel ul > li {
+.Navbar-RightPanel li {
   padding-right: 0.5rem;
 }
