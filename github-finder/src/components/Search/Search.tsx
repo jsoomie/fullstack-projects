@@ -6,13 +6,18 @@ export class Search extends Component {
     text: "",
   };
 
-  onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ text: e.currentTarget.value });
-  }
+  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ [e.target.name]: e.currentTarget.value });
+  };
+
+  onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(e);
+  };
 
   render() {
     return (
-      <form action="" id="Search-Form">
+      <form onSubmit={this.onSubmit} id="Search-Form">
         <input
           type="text"
           name="text"
