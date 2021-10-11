@@ -1,16 +1,18 @@
 import { Component } from "react";
 import "./UserItem.css";
 
-export class UserItem extends Component {
-  state = {
-    id: "id",
-    login: "mojombo",
-    avatarUrl: "https://avatars0.githubusercontent.com/u/1?v=4",
-    htmlUrl: "https://github.com/mojombo",
+interface UserProps {
+  user: {
+    id: number;
+    login: string;
+    avatarUrl: string;
+    htmlUrl: string;
   };
+}
 
+export class UserItem extends Component<UserProps> {
   render() {
-    const { login, avatarUrl, htmlUrl } = this.state;
+    const { login, avatarUrl, htmlUrl } = this.props.user;
 
     return (
       <div id="UserItem" className="card">

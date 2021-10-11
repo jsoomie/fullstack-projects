@@ -1,5 +1,5 @@
 import { Fragment, Component } from "react";
-import { Navbar, UserItem } from "../components";
+import { Navbar, User } from "../components";
 
 const title = "Github Finder";
 export class Home extends Component {
@@ -7,7 +7,7 @@ export class Home extends Component {
     return (
       <Fragment>
         <Navbar title={title} />
-        <UserItem />
+        <User />
       </Fragment>
     );
   }

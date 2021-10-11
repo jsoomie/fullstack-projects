@@ -3,6 +3,7 @@
   background-color: var(--navbar-bg);
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 /* Container SVG */
