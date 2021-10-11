@@ -2,6 +2,7 @@
 
 //  Layouts
 export { Navbar } from "./layouts/Navbar/Navbar";
+export { Spinner } from "./layouts/Spinner/Spinner";
 
 //  Users
 export { UserItem } from "./users/UserItem";

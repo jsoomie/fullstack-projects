@@ -1,23 +1,21 @@
-import { Component } from "react";
 import { UserItem } from "./UserItem";
-import data from "../../TestData.json";
-
-export class User extends Component {
-  state = {
-    users: data,
-  };
-
-  render() {
-    const res = this.state.users;
-    return (
-      <div style={styles.user}>
-        {res.map((data) => (
-          <UserItem key={data.id} user={data} />
-        ))}
-      </div>
-    );
-  }
+import { Spinner } from "../index";
+interface UserProps {
+  users: any[];
+  loading: boolean;
 }
+
+export const User = ({ loading, users }: UserProps) => {
+  if (loading) {
+    return <Spinner />;
+  }
+
+  return (
+    <div style={styles.user}>
+      {users && users.map((user) => <UserItem key={user.id} user={user} />)}
+    </div>
+  );
+};
 
 const styles = {
   user: {

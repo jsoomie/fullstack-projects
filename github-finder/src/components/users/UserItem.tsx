@@ -3,19 +3,19 @@ interface UserProps {
   user: {
     id: number;
     login: string;
-    avatarUrl: string;
-    htmlUrl: string;
+    avatar_url: string;
+    html_url: string;
   };
 }
 
 export const UserItem = ({
-  user: { login, avatarUrl, htmlUrl },
+  user: { login, avatar_url, html_url },
 }: UserProps) => {
   return (
     <div id="UserItem" className="card">
-      <img src={avatarUrl} alt={login} className="avatar" />
+      <img src={avatar_url} alt={login} className="avatar" />
       <h3>{login}</h3>
-      <a href={htmlUrl} className="button">
+      <a href={html_url} className="button">
         More
       </a>
     </div>
