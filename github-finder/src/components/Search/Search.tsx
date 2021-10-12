@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "./Search.css";
 
-export class Search extends Component {
+interface SearchProps {
+  searchUsers: Function;
+}
+
+export class Search extends Component<SearchProps> {
   state = {
     text: "",
   };
@@ -12,7 +16,8 @@ export class Search extends Component {
 
   onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: "" });
   };
 
   render() {
