@@ -13,15 +13,8 @@ interface ServerData {
 export class Home extends Component {
   state = {
     users: [],
-    loading: true,
+    loading: false,
   };
-
-  async componentDidMount() {
-    this.setState({ loading: true });
-    const url = `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
-    const res = await axios.get(url);
-    this.setState({ users: res.data, loading: false });
-  }
 
   searchUsers = async (text: string) => {
     this.setState({ loading: true });
@@ -32,14 +25,11 @@ export class Home extends Component {
   };
 
   render() {
-    if (this.state.loading) {
-      return <Spinner />;
-    }
-
     return (
       <Fragment>
         <Navbar title={title} />
         <Search searchUsers={this.searchUsers} />
+        {this.state.loading ?? <Spinner />}
         <User loading={this.state.loading} users={this.state.users} />
       </Fragment>
     );
