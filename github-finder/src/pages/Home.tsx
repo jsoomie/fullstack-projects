@@ -20,7 +20,6 @@ export class Home extends Component {
     this.setState({ loading: true });
     const url = `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
     const res: ServerData = await axios.get(url);
-    console.log(res.data.items);
     this.setState({ users: res.data.items, loading: false });
   };
 
