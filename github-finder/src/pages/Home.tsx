@@ -29,7 +29,13 @@ export class Home extends Component {
         <Navbar title={title} />
         <Search searchUsers={this.searchUsers} />
         {this.state.loading ?? <Spinner />}
-        <User loading={this.state.loading} users={this.state.users} />
+        {this.state.users.length ? (
+          <User loading={this.state.loading} users={this.state.users} />
+        ) : (
+          <p style={{ margin: "0 auto", width: "fit-content" }}>
+            Search for users using the search bar above
+          </p>
+        )}
       </Fragment>
     );
   }
