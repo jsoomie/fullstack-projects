@@ -1,0 +1,28 @@
+#Alert-Container {
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: medium;
+}
+
+#Alert-Container svg {
+  margin-right: 0.5rem;
+}
+
+.light {
+  color: #333;
+  background-color: yellow;
+}
+
+.dark {
+  color: #fff;
+  background-color: #333;
+}
+
+.warning {
+  color: #fff;
+  background-color: firebrick;
+}
