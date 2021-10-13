@@ -5,6 +5,7 @@ interface SearchProps {
   searchUsers: Function;
   clearUser: React.MouseEventHandler;
   showClear: boolean;
+  setAlert: Function;
 }
 
 export class Search extends Component<SearchProps> {
@@ -18,8 +19,12 @@ export class Search extends Component<SearchProps> {
 
   onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: "" });
+    if (this.state.text === "") {
+      this.props.setAlert("Please enter something", "warning");
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: "" });
+    }
   };
 
   render(): JSX.Element {
