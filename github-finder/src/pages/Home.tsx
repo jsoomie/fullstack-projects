@@ -29,17 +29,18 @@ export class Home extends Component {
   };
 
   render(): JSX.Element {
+    const { users, loading } = this.state;
     return (
       <Fragment>
         <Navbar title={title} />
         <Search
           searchUsers={this.searchUsers}
           clearUser={this.clearUser}
-          showClear={this.state.users.length > 0}
+          showClear={users.length > 0}
         />
-        {this.state.loading ?? <Spinner />}
-        {this.state.users.length ? (
-          <User loading={this.state.loading} users={this.state.users} />
+        {loading ?? <Spinner />}
+        {users.length ? (
+          <User loading={loading} users={users} />
         ) : (
           <p style={{ margin: "1rem auto", width: "fit-content" }}>
             Search for users using the search bar above

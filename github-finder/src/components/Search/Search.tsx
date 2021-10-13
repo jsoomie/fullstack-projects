@@ -23,6 +23,9 @@ export class Search extends Component<SearchProps> {
   };
 
   render(): JSX.Element {
+    const { text } = this.state;
+    const { clearUser, showClear } = this.props;
+
     return (
       <Fragment>
         <form onSubmit={this.onSubmit} id="Search-Form">
@@ -31,13 +34,13 @@ export class Search extends Component<SearchProps> {
             name="text"
             placeholder="Search Users..."
             onChange={(e) => this.onChange(e)}
-            value={this.state.text}
+            value={text}
           />
           <input type="submit" value="Search" className="button" />
         </form>
-        {this.props.showClear && (
+        {showClear && (
           <div className="clearButtonContainer">
-            <button className="clearButton" onClick={this.props.clearUser}>
+            <button className="clearButton" onClick={clearUser}>
               Clear
             </button>
           </div>
