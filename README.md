@@ -12,4 +12,4 @@ A small collection of full stack projects from scratch to fully deployed.
    - Starting new project called github finder. Using typescript and react as basis. For now cleaned up starter files and and changed to class style components for demo purposes only. This will change to full functional components down the line after serveral refactors. 
 
 **TWO**
--    Create search function and cerate clear button. Hardest part was figuring what the types should be for the passing props and implementing them.
+-    Create search function and cerate clear button. Hardest part was figuring what the types should be for the passing props and implementing them. Destructuring keeps code looking neater. 
