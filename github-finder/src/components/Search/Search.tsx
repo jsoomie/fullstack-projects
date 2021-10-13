@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./Search.css";
 
 interface SearchProps {
   searchUsers: Function;
+  clearUser: React.MouseEventHandler;
+  showClear: boolean;
 }
 
 export class Search extends Component<SearchProps> {
@@ -22,16 +24,25 @@ export class Search extends Component<SearchProps> {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} id="Search-Form">
-        <input
-          type="text"
-          name="text"
-          placeholder="Search Users..."
-          onChange={(e) => this.onChange(e)}
-          value={this.state.text}
-        />
-        <input type="submit" value="Search" className="button" />
-      </form>
+      <Fragment>
+        <form onSubmit={this.onSubmit} id="Search-Form">
+          <input
+            type="text"
+            name="text"
+            placeholder="Search Users..."
+            onChange={(e) => this.onChange(e)}
+            value={this.state.text}
+          />
+          <input type="submit" value="Search" className="button" />
+        </form>
+        {this.props.showClear && (
+          <div className="clearButtonContainer">
+            <button className="clearButton" onClick={this.props.clearUser}>
+              Clear
+            </button>
+          </div>
+        )}
+      </Fragment>
     );
   }
 }

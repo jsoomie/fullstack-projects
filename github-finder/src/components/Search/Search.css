@@ -1,5 +1,5 @@
 #Search-Form {
-  margin: 1rem;
+  margin: 0 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -17,4 +17,22 @@
 #Search-Form input[name="text"] {
   padding: 0.3rem;
   font-size: large;
+}
+
+.clearButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.clearButtonContainer button {
+  width: 100%;
+  border: none;
+  padding: 0.5rem;
+  font-size: large;
+}
+
+.clearButtonContainer button:hover {
+  background-color: lightgray;
 }

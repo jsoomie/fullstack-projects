@@ -23,16 +23,24 @@ export class Home extends Component {
     this.setState({ users: res.data.items, loading: false });
   };
 
+  clearUser = () => {
+    this.setState({ users: [] });
+  };
+
   render() {
     return (
       <Fragment>
         <Navbar title={title} />
-        <Search searchUsers={this.searchUsers} />
+        <Search
+          searchUsers={this.searchUsers}
+          clearUser={this.clearUser}
+          showClear={this.state.users.length > 0}
+        />
         {this.state.loading ?? <Spinner />}
         {this.state.users.length ? (
           <User loading={this.state.loading} users={this.state.users} />
         ) : (
-          <p style={{ margin: "0 auto", width: "fit-content" }}>
+          <p style={{ margin: "1rem auto", width: "fit-content" }}>
             Search for users using the search bar above
           </p>
         )}
