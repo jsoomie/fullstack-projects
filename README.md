@@ -5,7 +5,7 @@ A small collection of full stack projects from scratch to fully deployed.
 
 ## Projects
 1. [Github Finder](https://github.com/jsoomie/fullstack-projects/tree/main/github-finder)
-     - Create a github user finder application. First, start using class components then refactor into functional components.
+     - Create a github user finder application. Create fetch of github users with the use of a search bar. Create a clear bar after searching users. First, start using class components then refactor into functional components.
 
 ## Changelogs 
 **ONE** 
@@ -13,3 +13,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **TWO**
 -    Create search function and cerate clear button. Hardest part was figuring what the types should be for the passing props and implementing them. Destructuring keeps code looking neater. 
+
+**THREE**
+-  Create alerts letting user input some text before searching.
