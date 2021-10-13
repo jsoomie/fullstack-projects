@@ -1,5 +1,5 @@
 import { Fragment, Component } from "react";
-import { Navbar, User, Spinner, Search } from "../components";
+import { Navbar, User, Spinner, Search, Alert } from "../components";
 import axios from "axios";
 
 const title = "Github Finder";
@@ -15,6 +15,7 @@ export class Home extends Component {
   state = {
     users: [],
     loading: false,
+    alert: { msg: "", type: "", showAlert: false },
   };
 
   searchUsers = async (text: string): Promise<void> => {
@@ -28,15 +29,25 @@ export class Home extends Component {
     this.setState({ users: [] });
   };
 
+  setAlert = (msg: string, type: string): void => {
+    this.setState({ alert: { msg, type, showAlert: true } });
+    setTimeout(
+      () => this.setState({ alert: { ...alert, showAlert: false } }),
+      3000
+    );
+  };
+
   render(): JSX.Element {
     const { users, loading } = this.state;
     return (
       <Fragment>
         <Navbar title={title} />
+        <Alert alert={this.state.alert} />
         <Search
           searchUsers={this.searchUsers}
           clearUser={this.clearUser}
           showClear={users.length > 0}
+          setAlert={this.setAlert}
         />
         {loading ?? <Spinner />}
         {users.length ? (
