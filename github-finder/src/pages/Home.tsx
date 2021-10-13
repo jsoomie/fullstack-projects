@@ -10,24 +10,25 @@ interface Response {
 interface ServerData {
   data: Response;
 }
+
 export class Home extends Component {
   state = {
     users: [],
     loading: false,
   };
 
-  searchUsers = async (text: string) => {
+  searchUsers = async (text: string): Promise<void> => {
     this.setState({ loading: true });
     const url = `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
     const res: ServerData = await axios.get(url);
     this.setState({ users: res.data.items, loading: false });
   };
 
-  clearUser = () => {
+  clearUser = (): void => {
     this.setState({ users: [] });
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <Fragment>
         <Navbar title={title} />

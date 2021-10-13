@@ -5,7 +5,7 @@ interface InterProps {
   title: string;
 }
 
-export const Navbar = ({ title }: InterProps) => {
+export const Navbar = ({ title }: InterProps): JSX.Element => {
   return (
     <nav id="Navbar">
       <div className="Navbar-LeftPanel">

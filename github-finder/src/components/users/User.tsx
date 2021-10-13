@@ -5,7 +5,7 @@ interface UserProps {
   loading: boolean;
 }
 
-export const User = ({ loading, users }: UserProps) => {
+export const User = ({ loading, users }: UserProps): JSX.Element => {
   if (loading) {
     return <Spinner />;
   }
@@ -17,7 +17,14 @@ export const User = ({ loading, users }: UserProps) => {
   );
 };
 
-const styles = {
+type styleType = {
+  user: {
+    display: string;
+    gridTemplateColumns: string;
+  };
+};
+
+const styles: styleType = {
   user: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",

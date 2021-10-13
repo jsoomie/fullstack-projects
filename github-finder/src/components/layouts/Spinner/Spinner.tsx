@@ -1,6 +1,6 @@
 import { SpinnerDotted } from "spinners-react";
 
-export const Spinner = () => {
+export const Spinner = (): JSX.Element => {
   return <SpinnerDotted size="150" style={spinner} />;
 };
 

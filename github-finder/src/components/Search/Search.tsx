@@ -12,17 +12,17 @@ export class Search extends Component<SearchProps> {
     text: "",
   };
 
-  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ [e.target.name]: e.currentTarget.value });
   };
 
-  onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     this.props.searchUsers(this.state.text);
     this.setState({ text: "" });
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <Fragment>
         <form onSubmit={this.onSubmit} id="Search-Form">

@@ -10,7 +10,7 @@ interface UserProps {
 
 export const UserItem = ({
   user: { login, avatar_url, html_url },
-}: UserProps) => {
+}: UserProps): JSX.Element => {
   return (
     <div id="UserItem" className="card">
       <img src={avatar_url} alt={login} className="avatar" />
