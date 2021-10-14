@@ -10,5 +10,8 @@ export { UserItem } from "./users/UserItem";
 export { User } from "./users/User";
 export { Search } from "./Search/Search";
 
+//  UserDetails
+export { UserInfos } from "./UserDetails/UserInfo";
+
 //  About Page
 export { AboutContent } from "./AboutPage/AboutContent";
