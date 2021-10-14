@@ -12,6 +12,18 @@
   margin-right: 0.5rem;
 }
 
+/* Links in navbar */
+#Navbar a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#Navbar a:hover {
+  color: dodgerblue;
+}
+
 /* Left panel and right panel */
 .Navbar-RightPanel,
 .Navbar-LeftPanel {

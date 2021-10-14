@@ -1,4 +1,5 @@
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 interface InterProps {
@@ -11,15 +12,17 @@ export const Navbar = ({
   return (
     <nav id="Navbar">
       <div className="Navbar-LeftPanel">
-        <FaGithub />
-        <h1>{title}</h1>
+        <Link to="/">
+          <FaGithub />
+          {title}
+        </Link>
       </div>
       <ul className="Navbar-RightPanel">
         <li>
-          <h1>Home</h1>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <h1>About</h1>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </nav>
