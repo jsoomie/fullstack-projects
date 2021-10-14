@@ -11,7 +11,6 @@ interface AlertProp {
 }
 
 export const Alert = ({ alert }: AlertProp) => {
-  console.log(alert);
   return (
     <Fragment>
       {alert.showAlert && (
