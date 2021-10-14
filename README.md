@@ -16,3 +16,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **THREE**
 -  Create alerts letting user input some text before searching.
+
+**FOUR**
+-  Install react-router-dom and its type definitions to use with mulitple pages. First created an about page skeleton.
