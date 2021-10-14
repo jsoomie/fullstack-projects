@@ -12,6 +12,7 @@ interface ServerData {
 export class Home extends Component {
   state = {
     users: [],
+    user: {},
     loading: false,
     alert: { msg: "", type: "", showAlert: false },
   };
@@ -33,6 +34,15 @@ export class Home extends Component {
       () => this.setState({ alert: { ...alert, showAlert: false } }),
       3000
     );
+  };
+
+  getUser = async (username: string) => {
+    this.setState({ loading: true });
+
+    const res = await axios.get(
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`
+    );
+    this.setState({ user: res.data, loading: false });
   };
 
   render(): JSX.Element {
