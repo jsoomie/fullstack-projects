@@ -9,3 +9,6 @@ export { Alert } from "./layouts/Alert/Alert";
 export { UserItem } from "./users/UserItem";
 export { User } from "./users/User";
 export { Search } from "./Search/Search";
+
+//  About Page
+export { AboutContent } from "./AboutPage/AboutContent";

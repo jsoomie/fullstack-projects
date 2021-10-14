@@ -1,0 +1,21 @@
+#About {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+#About h1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0 10rem;
+  margin-bottom: 1rem;
+}
+
+#About .footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: medium;
+  font-weight: lighter;
+}
