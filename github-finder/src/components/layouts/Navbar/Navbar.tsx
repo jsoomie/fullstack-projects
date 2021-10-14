@@ -2,10 +2,12 @@ import { FaGithub } from "react-icons/fa";
 import "./Navbar.css";
 
 interface InterProps {
-  title: string;
+  title?: string;
 }
 
-export const Navbar = ({ title }: InterProps): JSX.Element => {
+export const Navbar = ({
+  title = "Github Finder",
+}: InterProps): JSX.Element => {
   return (
     <nav id="Navbar">
       <div className="Navbar-LeftPanel">

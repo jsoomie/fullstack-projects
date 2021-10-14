@@ -1,8 +1,6 @@
 import { Fragment, Component } from "react";
-import { Navbar, User, Spinner, Search, Alert } from "../components";
+import { User, Spinner, Search, Alert } from "../components";
 import axios from "axios";
-
-const title = "Github Finder";
 
 interface Response {
   items: Array<{}>;
@@ -41,7 +39,6 @@ export class Home extends Component {
     const { users, loading } = this.state;
     return (
       <Fragment>
-        <Navbar title={title} />
         <Alert alert={this.state.alert} />
         <Search
           searchUsers={this.searchUsers}
