@@ -19,3 +19,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **FOUR**
 -  Install react-router-dom and its type definitions to use with mulitple pages. First created an about page skeleton.
+
+**FIVE**
+-  Finish the styling of user info page and made it optional for some fields as they aren't always filled out.

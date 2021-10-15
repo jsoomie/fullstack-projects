@@ -1,4 +1,5 @@
 import "./UserItem.css";
+import { Link } from "react-router-dom";
 interface UserProps {
   user: {
     id: number;
@@ -15,9 +16,9 @@ export const UserItem = ({
     <div id="UserItem" className="card">
       <img src={avatar_url} alt={login} className="avatar" />
       <h3>{login}</h3>
-      <a href={html_url} className="button">
+      <Link to={`/user/${login}`} className="button">
         More
-      </a>
+      </Link>
     </div>
   );
 };
