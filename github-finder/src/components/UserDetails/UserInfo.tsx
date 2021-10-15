@@ -35,13 +35,8 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
       {!loading && data ? (
         <div id="UserDetails">
           <div className="LeftPanel">
-            {name ? (
-              <h2>
-                {name} ({login})
-              </h2>
-            ) : (
-              <h2>{login}</h2>
-            )}
+            {name ? <h2>{name}</h2> : <h2>{login}</h2>}
+            {name ? <p>({login})</p> : null}
             <img
               src={avatar_url}
               alt={login}
@@ -49,6 +44,7 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
               style={{ height: "10rem", width: "10rem" }}
             />
           </div>
+
           <div className="RightPanel">
             <p>
               <b>Hireable:</b>{" "}

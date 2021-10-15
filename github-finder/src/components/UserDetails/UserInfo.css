@@ -6,6 +6,7 @@
   border-radius: 6px;
   box-shadow: 2px 2px 5px rgba(150, 150, 150, 0.2);
   padding: 1rem;
+  line-height: 1.3rem;
 }
 
 #BackButtonUser {
@@ -27,9 +28,23 @@
   flex-direction: column;
 }
 
+#UserDetails .LeftPanel img {
+  margin: 0.5rem 0;
+}
+
 #UserDetails .RightPanel {
   /* border: 1px solid red; */
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid rgba(150, 150, 150, 0.4);
+  padding-left: 1rem;
+}
+
+#UserDetails .RightPanel p {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.4);
+  margin: 0.5rem 0;
 }
 
 #userinfo-button-container {
