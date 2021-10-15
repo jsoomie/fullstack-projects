@@ -1,0 +1,14 @@
+#UserDetails {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#UserDetails a {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}

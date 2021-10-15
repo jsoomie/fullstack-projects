@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { UserInfos } from "../components";
+import { UserInfo } from "../components";
 
 export interface InterData {
   name: string;
@@ -36,7 +36,7 @@ export const UserDetails = () => {
   }, [username]);
 
   return (
-    <Fragment>{data && <UserInfos loading={loading} data={data} />}</Fragment>
+    <Fragment>{data && <UserInfo loading={loading} data={data} />}</Fragment>
   );
 };
 
