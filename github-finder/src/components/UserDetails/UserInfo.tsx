@@ -28,13 +28,13 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
 
   return (
     <Fragment>
+      <Link to="/" id="BackButtonUser">
+        <FaChevronLeft />
+        Back to search
+      </Link>
       {!loading && data ? (
         <div id="UserDetails">
-          <Link to="/">
-            <FaChevronLeft />
-            Back to search
-          </Link>
-          <div className="card">
+          <div className="LeftPanel">
             {name ? (
               <h2>
                 {name} ({login})
@@ -48,8 +48,10 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
               className="avatar"
               style={{ height: "10rem", width: "10rem" }}
             />
+          </div>
+          <div className="RightPanel">
             <p>
-              Hireable:{" "}
+              <b>Hireable:</b>{" "}
               {hireable ? (
                 <FaCheck style={{ color: "green" }} />
               ) : (
@@ -63,9 +65,11 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
             {location ? <p>Location: {location}</p> : null}
             {public_gists ? <p>Public Gists: {public_gists}</p> : null}
             {public_repos ? <p>Public Repos: {public_repos}</p> : null}
-            <a href={html_url} className="button" style={{ color: "#fff" }}>
-              View Profile
-            </a>
+            <div id="userinfo-button-container">
+              <a href={html_url} style={{ color: "#fff" }}>
+                View Profile
+              </a>
+            </div>
           </div>
         </div>
       ) : (

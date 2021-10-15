@@ -1,14 +1,46 @@
 #UserDetails {
   margin: 1rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(150, 150, 150, 0.4);
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px rgba(150, 150, 150, 0.2);
+  padding: 1rem;
 }
 
-#UserDetails a {
+#BackButtonUser {
+  margin-left: 1rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-decoration: none;
   color: inherit;
+}
+
+#UserDetails .LeftPanel {
+  /* border: 1px solid green; */
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#UserDetails .RightPanel {
+  /* border: 1px solid red; */
+  width: 75%;
+}
+
+#userinfo-button-container {
+  padding: 0;
+  margin: 1rem 0;
+}
+
+#userinfo-button-container a {
+  position: relative;
+  background-color: dodgerblue;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
 }
