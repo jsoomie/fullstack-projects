@@ -21,4 +21,4 @@ A small collection of full stack projects from scratch to fully deployed.
 -  Install react-router-dom and its type definitions to use with mulitple pages. First created an about page skeleton.
 
 **FIVE**
--  Finish the styling of user info page and made it optional for some fields as they aren't always filled out.
+-  Finish the styling of user info page and made it optional for some fields as they aren't always filled out. Create badges for followers, following, public repos, and public gists instead of embedding it inside main card.
