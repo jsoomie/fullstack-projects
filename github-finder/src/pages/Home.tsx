@@ -13,16 +13,18 @@ interface Response {
   items: UserData[];
 }
 
-const initialUsers: UserData[] = [];
-
-export const Home = () => {
-  const [users, setUsers] = useState(initialUsers);
+export const Home = (): JSX.Element => {
+  const initialUsers: UserData[] = [];
+  const [users, setUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({ msg: "", type: "", showAlert: false });
 
   const searchUsers = async (text: string): Promise<void> => {
     setLoading(true);
-    const url = `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
+    const GITHUB_ID = `&client_id=${process.env.REACT_APP_GITHUB_ID}`;
+    const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
+    const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
+    const url = `https://api.github.com/search/users?q=${text}${CREDENTIALS}`;
     const res = await axios.get<Response>(url);
     setUsers(res.data.items);
     setLoading(false);
