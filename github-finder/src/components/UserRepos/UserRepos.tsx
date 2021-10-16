@@ -1,4 +1,5 @@
 import "./UserRepos.css";
+import { useState, useEffect } from "react";
 
 export const UserRepos = () => {
   return (
