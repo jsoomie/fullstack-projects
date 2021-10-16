@@ -13,5 +13,8 @@ export { Search } from "./Search/Search";
 //  UserDetails
 export { UserInfo } from "./UserDetails/UserInfo";
 
+//  UserRepos
+export { UserRepos } from "./UserRepos/UserRepos";
+
 //  About Page
 export { AboutContent } from "./AboutPage/AboutContent";
