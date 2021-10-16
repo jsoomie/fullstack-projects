@@ -1,0 +1,21 @@
+#RepoContainer {
+  margin: 1rem;
+}
+
+#RepoContainer li {
+  display: flex;
+  border: 1px solid rgba(150, 150, 150, 0.4);
+  box-shadow: 2px 2px 5px rgba(150, 150, 150, 0.2);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+#RepoContainer li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#RepoContainer li > a:hover {
+  color: rgb(75, 75, 75);
+}
