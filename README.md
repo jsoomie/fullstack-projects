@@ -22,3 +22,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **FIVE**
 -  Finish the styling of user info page and made it optional for some fields as they aren't always filled out. Create badges for followers, following, public repos, and public gists instead of embedding it inside main card.
+
+**SIX**
+-  Refactor all class components into functions and use hooks.
