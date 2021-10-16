@@ -25,9 +25,8 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
             <UserLeftPanel {...data} />
             <UserRightPanel {...data} />
           </div>
-
           <UserBadges {...data} />
-          <UserRepos />
+          <UserRepos {...data} />
         </Fragment>
       ) : (
         <Spinner />
