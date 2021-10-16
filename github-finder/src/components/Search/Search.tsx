@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import { Fragment, useState } from "react";
 import "./Search.css";
 
 interface SearchProps {
@@ -8,49 +8,47 @@ interface SearchProps {
   setAlert: Function;
 }
 
-export class Search extends Component<SearchProps> {
-  state = {
-    text: "",
+export const Search = ({
+  searchUsers,
+  clearUser,
+  showClear,
+  setAlert,
+}: SearchProps): JSX.Element => {
+  const [text, setText] = useState<string>("");
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setText(e.currentTarget.value);
   };
 
-  onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ [e.target.name]: e.currentTarget.value });
-  };
-
-  onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (this.state.text === "") {
-      this.props.setAlert("Please enter something", "warning");
+    if (text === "") {
+      setAlert("Please enter something", "warning");
     } else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: "" });
+      searchUsers(text);
+      setText("");
     }
   };
 
-  render(): JSX.Element {
-    const { text } = this.state;
-    const { clearUser, showClear } = this.props;
-
-    return (
-      <Fragment>
-        <form onSubmit={this.onSubmit} id="Search-Form">
-          <input
-            type="text"
-            name="text"
-            placeholder="Search Users..."
-            onChange={(e) => this.onChange(e)}
-            value={text}
-          />
-          <input type="submit" value="Search" className="button" />
-        </form>
-        {showClear && (
-          <div className="clearButtonContainer">
-            <button className="clearButton" onClick={clearUser}>
-              Clear
-            </button>
-          </div>
-        )}
-      </Fragment>
-    );
-  }
-}
+  return (
+    <Fragment>
+      <form onSubmit={onSubmit} id="Search-Form">
+        <input
+          type="text"
+          name="text"
+          placeholder="Search Users..."
+          onChange={(e) => onChange(e)}
+          value={text}
+        />
+        <input type="submit" value="Search" className="button" />
+      </form>
+      {showClear && (
+        <div className="clearButtonContainer">
+          <button className="clearButton" onClick={clearUser}>
+            Clear
+          </button>
+        </div>
+      )}
+    </Fragment>
+  );
+};
