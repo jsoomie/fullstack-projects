@@ -6,7 +6,7 @@
   border: 1px solid rgba(150, 150, 150, 0.4);
   border-radius: 6px;
   box-shadow: 2px 2px 5px rgba(150, 150, 150, 0.2);
-  padding: 1rem;
+  padding: 1.5rem;
   line-height: 1.3rem;
 }
 
@@ -29,7 +29,7 @@
 
 #UserDetails .LeftPanel {
   /* border: 1px solid green; */
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@
 
 #UserDetails .RightPanel {
   /* border: 1px solid red; */
-  width: 75%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
