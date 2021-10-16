@@ -1,6 +1,6 @@
-import { RepoRes } from "../UserRepos/UserRepos";
+import { RepoData } from "../../interface";
 
-export const SingleRepo = ({ name, description, html_url }: RepoRes) => {
+export const SingleRepo = ({ name, description, html_url }: RepoData) => {
   return (
     <li>
       <a href={html_url}>

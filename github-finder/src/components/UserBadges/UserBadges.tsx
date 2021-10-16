@@ -1,11 +1,11 @@
-import { InterData } from "../../pages/UserDetails";
+import { UserData } from "../../interface";
 
 export const UserBadges = ({
   followers,
   following,
   public_repos,
   public_gists,
-}: InterData) => {
+}: UserData) => {
   return (
     <div className="BottomPanel">
       <ul>

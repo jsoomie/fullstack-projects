@@ -1,6 +1,6 @@
-import { InterData } from "../../pages/UserDetails";
+import { UserData } from "../../interface";
 
-export const UserLeftPanel = ({ avatar_url, login, name }: InterData) => {
+export const UserLeftPanel = ({ avatar_url, login, name }: UserData) => {
   return (
     <div className="LeftPanel">
       <img

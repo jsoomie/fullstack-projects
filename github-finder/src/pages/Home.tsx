@@ -1,17 +1,7 @@
 import { Fragment, useState } from "react";
 import { User, Spinner, Search, Alert } from "../components";
+import { UserData, UserDataResponse } from "../interface";
 import axios from "axios";
-
-interface UserData {
-  id: number;
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
-
-interface Response {
-  items: UserData[];
-}
 
 export const Home = (): JSX.Element => {
   const initialUsers: UserData[] = [];
@@ -25,7 +15,7 @@ export const Home = (): JSX.Element => {
     const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
     const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
     const url = `https://api.github.com/search/users?q=${text}${CREDENTIALS}`;
-    const res = await axios.get<Response>(url);
+    const res = await axios.get<UserDataResponse>(url);
     setUsers(res.data.items);
     setLoading(false);
   };
