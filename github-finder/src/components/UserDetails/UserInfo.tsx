@@ -14,6 +14,7 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
   const {
     login,
     name,
+    company,
     avatar_url,
     html_url,
     hireable,
@@ -33,41 +34,53 @@ export const UserInfo = ({ loading, data }: UserInfoProps) => {
         Back to search
       </Link>
       {!loading && data ? (
-        <div id="UserDetails">
-          <div className="LeftPanel">
-            {name ? <h2>{name}</h2> : <h2>{login}</h2>}
-            {name ? <p>({login})</p> : null}
-            <img
-              src={avatar_url}
-              alt={login}
-              className="avatar"
-              style={{ height: "10rem", width: "10rem" }}
-            />
-          </div>
+        <Fragment>
+          <div id="UserDetails">
+            <div className="LeftPanel">
+              <img
+                src={avatar_url}
+                alt={login}
+                className="avatar"
+                style={{ height: "13rem", width: "13rem" }}
+              />
+              {name ? <h2>{name}</h2> : <h2>{login}</h2>}
+              {name ? <p>({login})</p> : null}
+            </div>
 
-          <div className="RightPanel">
-            <p>
-              <b>Hireable:</b>{" "}
-              {hireable ? (
-                <FaCheck style={{ color: "green" }} />
-              ) : (
-                <FaTimesCircle style={{ color: "red" }} />
-              )}{" "}
-            </p>
-            {bio ? <p>Bio: {bio}</p> : null}
-            {blog ? <p>Blog: {blog}</p> : null}
-            {followers ? <p>Followers: {followers}</p> : null}
-            {following ? <p>Following: {following}</p> : null}
-            {location ? <p>Location: {location}</p> : null}
-            {public_gists ? <p>Public Gists: {public_gists}</p> : null}
-            {public_repos ? <p>Public Repos: {public_repos}</p> : null}
-            <div id="userinfo-button-container">
-              <a href={html_url} style={{ color: "#fff" }}>
-                View Profile
-              </a>
+            <div className="RightPanel">
+              <p>
+                <b>Hireable:</b>{" "}
+                {hireable ? (
+                  <FaCheck style={{ color: "green" }} />
+                ) : (
+                  <FaTimesCircle style={{ color: "red" }} />
+                )}{" "}
+              </p>
+              {company ? <p>Company: {company}</p> : null}
+              {bio ? <p>Bio: {bio}</p> : null}
+              {blog ? (
+                <p>
+                  Blog: <a href={blog}>{blog}</a>
+                </p>
+              ) : null}
+              {location ? <p>Location: {location}</p> : null}
+              <div id="userinfo-button-container">
+                <a href={html_url} style={{ color: "#fff" }}>
+                  Visit Github Profile
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div className="BottomPanel">
+            <ul>
+              <li className="badge warning">Followers: {followers}</li>
+              <li className="badge primary">Following: {following}</li>
+              <li className="badge success">Public Repos: {public_repos}</li>
+              <li className="badge dark">Public Gists: {public_gists}</li>
+            </ul>
+          </div>
+        </Fragment>
       ) : (
         <Spinner />
       )}

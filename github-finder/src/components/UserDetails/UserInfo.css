@@ -1,4 +1,5 @@
-#UserDetails {
+#UserDetails,
+.BottomPanel {
   margin: 1rem;
   display: flex;
   justify-content: space-between;
@@ -17,6 +18,13 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
+  background-color: rgb(243, 243, 243);
+  width: fit-content;
+  padding: 0.5rem;
+}
+
+#BackButtonUser:hover {
+  background-color: rgb(226, 226, 226) ;
 }
 
 #UserDetails .LeftPanel {
@@ -29,7 +37,7 @@
 }
 
 #UserDetails .LeftPanel img {
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 }
 
 #UserDetails .RightPanel {
@@ -54,8 +62,18 @@
 
 #userinfo-button-container a {
   position: relative;
-  background-color: dodgerblue;
+  background-color: #333;
   padding: 0.5rem;
   border-radius: 5px;
   text-decoration: none;
+}
+
+.BottomPanel ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.BottomPanel ul > li {
+  margin: 0 0.5rem;
 }

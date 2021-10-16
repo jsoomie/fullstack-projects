@@ -16,6 +16,7 @@ export interface InterData {
   public_repos: number;
   public_gists: number;
   hireable: boolean;
+  company: string;
 }
 
 export const UserDetails = () => {
