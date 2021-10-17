@@ -15,10 +15,6 @@ export interface UserData {
   company: string;
 }
 
-export interface UserDataResponse {
-  items: UserData[];
-}
-
 export interface UserDataProps {
   data: UserData;
   loading: boolean;

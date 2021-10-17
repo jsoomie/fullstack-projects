@@ -5,3 +5,7 @@ export interface IState {
   repos: RepoData[];
   loading: boolean;
 }
+
+export interface ChildProps {
+  children?: JSX.Element;
+}

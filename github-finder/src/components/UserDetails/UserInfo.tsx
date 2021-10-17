@@ -7,10 +7,16 @@ import {
   UserRightPanel,
 } from "../index";
 import { Fragment } from "react";
-import { UserDataProps } from "../../interface";
+import { UserData } from "../../interface";
 import "./UserInfo.css";
 
-export const UserInfo = ({ loading, data }: UserDataProps) => {
+export const UserInfo = ({
+  loading,
+  data,
+}: {
+  loading: boolean;
+  data: UserData;
+}) => {
   return (
     <Fragment>
       <UserBackButton />

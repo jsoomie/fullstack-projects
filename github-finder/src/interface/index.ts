@@ -1,3 +1,3 @@
 export * from "./github.interface";
 export * from "./repo.interface";
-export * from "./conext.interface";
+export * from "./context.interface";

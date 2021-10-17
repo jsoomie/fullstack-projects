@@ -22,7 +22,9 @@ export const UserDetails = () => {
   }, [username]);
 
   return (
-    <Fragment>{data && <UserInfo loading={loading} data={data} />}</Fragment>
+    <Fragment>
+      {data ? <UserInfo loading={loading} data={data} /> : null}
+    </Fragment>
   );
 };
 

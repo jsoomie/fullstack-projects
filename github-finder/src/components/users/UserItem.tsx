@@ -1,17 +1,8 @@
 import "./UserItem.css";
 import { Link } from "react-router-dom";
-interface UserProps {
-  user: {
-    id: number;
-    login: string;
-    avatar_url: string;
-    html_url: string;
-  };
-}
+import { UserData } from "../../interface";
 
-export const UserItem = ({
-  user: { login, avatar_url, html_url },
-}: UserProps): JSX.Element => {
+export const UserItem = ({ login, avatar_url }: UserData): JSX.Element => {
   return (
     <div id="UserItem" className="card">
       <img src={avatar_url} alt={login} className="avatar" />

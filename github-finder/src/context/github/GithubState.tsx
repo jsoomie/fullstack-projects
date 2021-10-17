@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import axios from "axios";
 import { githubContext } from "./githubContext";
 import { githubReducer } from "./githubReducer";
-import { IState } from "../../interface";
+import { IState, ChildProps } from "../../interface";
 import {
   SEARCH_USERS,
   SET_LOADING,
@@ -10,10 +10,6 @@ import {
   GET_USER,
   GET_REPOS,
 } from "../actions";
-
-interface ChildProps {
-  children?: JSX.Element;
-}
 
 export const GithubState = ({ children }: ChildProps) => {
   const initialState: IState = {

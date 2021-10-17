@@ -1,18 +1,20 @@
 import { UserItem } from "./UserItem";
 import { Spinner } from "../index";
-interface UserProps {
-  users: any[];
-  loading: boolean;
-}
+import { UserData } from "../../interface";
 
-export const User = ({ loading, users }: UserProps): JSX.Element => {
+type UserDataType = {
+  loading: boolean;
+  users: UserData[];
+};
+
+export const User = ({ loading, users }: UserDataType): JSX.Element => {
   if (loading) {
     return <Spinner />;
   }
 
   return (
     <div style={styles.user}>
-      {users && users.map((user) => <UserItem key={user.id} user={user} />)}
+      {users && users.map((user) => <UserItem key={user.id} {...user} />)}
     </div>
   );
 };
