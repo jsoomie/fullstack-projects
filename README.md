@@ -25,3 +25,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **SIX**
 -  Refactor all class components into functions and use hooks.
+
+**SEVEN**
+-  Create reducer and context.
