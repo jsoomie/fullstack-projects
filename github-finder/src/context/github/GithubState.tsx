@@ -13,29 +13,38 @@ import {
 
 export const GithubState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
+  const GITHUB_ID = `client_id=${process.env.REACT_APP_GITHUB_ID}`;
+  const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
+  const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
 
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   const searchUsers = async (text: string): Promise<void> => {
     setLoading();
-    const GITHUB_ID = `&client_id=${process.env.REACT_APP_GITHUB_ID}`;
-    const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
-    const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
-    const url = `https://api.github.com/search/users?q=${text}${CREDENTIALS}`;
+    const url = `https://api.github.com/search/users?q=${text}&${CREDENTIALS}`;
     const res = await axios.get<{ items: UserData[] }>(url);
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
   };
 
   const clearUser = () => dispatch({ type: CLEAR_USERS });
 
+  const getUser = async (username: string): Promise<void> => {
+    setLoading();
+    const url = `https://api.github.com/users/${username}?${CREDENTIALS}`;
+    const res = await axios.get(url);
+    dispatch({ type: GET_USER, payload: res.data });
+  };
+
   return (
     <githubContext.Provider
       value={{
         users: state.users,
+        user: state.user,
         repos: state.repos,
         loading: state.loading,
         searchUsers,
         clearUser,
+        getUser,
       }}
     >
       {children}

@@ -6,28 +6,33 @@ import {
   UserLeftPanel,
   UserRightPanel,
 } from "../index";
-import { Fragment } from "react";
-import { UserData } from "../../interface";
+import { Fragment, useContext, useEffect } from "react";
 import "./UserInfo.css";
 
-export const UserInfo = ({
-  loading,
-  data,
-}: {
-  loading: boolean;
-  data: UserData;
-}) => {
+import { useParams } from "react-router-dom";
+import { githubContext } from "../../context";
+
+export const UserInfo = () => {
+  const { id: username } = useParams<{ id: string }>();
+  const { getUser, loading, user } = useContext(githubContext);
+
+  useEffect(() => {
+    getUser(username);
+  }, []);
+
+  const userData = JSON.parse(JSON.stringify(user));
+
   return (
     <Fragment>
       <UserBackButton />
-      {!loading && data ? (
+      {!loading && user ? (
         <Fragment>
           <div id="UserDetails">
-            <UserLeftPanel {...data} />
-            <UserRightPanel {...data} />
+            <UserLeftPanel {...userData} />
+            <UserRightPanel {...userData} />
           </div>
-          <UserBadges {...data} />
-          <UserRepos {...data} />
+          <UserBadges {...userData} />
+          <UserRepos {...userData} />
         </Fragment>
       ) : (
         <Spinner />

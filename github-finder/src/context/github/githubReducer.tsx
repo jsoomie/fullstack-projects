@@ -9,18 +9,22 @@ import {
 
 export interface IState {
   users: UserData[];
+  user: UserData[];
   repos: RepoData[];
   loading: boolean;
   searchUsers: Function;
   clearUser: React.MouseEventHandler;
+  getUser: Function;
 }
 
 export const initialState: IState = {
   loading: false,
   users: [],
+  user: [],
   repos: [],
   searchUsers: Function,
   clearUser: () => MouseEvent,
+  getUser: Function,
 };
 
 type Action =
@@ -37,6 +41,12 @@ type GithubReducer = (
 
 export const githubReducer: GithubReducer = (state, action) => {
   switch (action.type) {
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+      };
     case CLEAR_USERS:
       return {
         ...state,
@@ -55,6 +65,6 @@ export const githubReducer: GithubReducer = (state, action) => {
         loading: true,
       };
     default:
-      return state;
+      throw new Error("What did you just do?");
   }
 };
