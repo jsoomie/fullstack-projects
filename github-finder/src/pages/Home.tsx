@@ -9,17 +9,6 @@ export const Home = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({ msg: "", type: "", showAlert: false });
 
-  const searchUsers = async (text: string): Promise<void> => {
-    setLoading(true);
-    const GITHUB_ID = `&client_id=${process.env.REACT_APP_GITHUB_ID}`;
-    const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
-    const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
-    const url = `https://api.github.com/search/users?q=${text}${CREDENTIALS}`;
-    const res = await axios.get<{ items: UserData[] }>(url);
-    setUsers(res.data.items);
-    setLoading(false);
-  };
-
   const clearUser = (): void => {
     setUsers(initialValues);
   };
@@ -38,13 +27,7 @@ export const Home = (): JSX.Element => {
         setAlert={alerter}
       />
       {loading ?? <Spinner />}
-      {users.length ? (
-        <User users={users} loading={loading} />
-      ) : (
-        <p style={{ margin: "1rem auto", width: "fit-content" }}>
-          Search for users using the search bar above
-        </p>
-      )}
+      <User />
     </Fragment>
   );
 };

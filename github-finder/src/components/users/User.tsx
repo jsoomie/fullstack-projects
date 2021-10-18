@@ -1,13 +1,13 @@
 import { UserItem } from "./UserItem";
 import { Spinner } from "../index";
 import { UserData } from "../../interface";
+import { useContext } from "react";
+import { githubContext } from "../../context";
 
-type UserDataType = {
-  loading: boolean;
-  users: UserData[];
-};
+export const User = (): JSX.Element => {
+  const { users, loading } = useContext(githubContext);
+  console.log(users);
 
-export const User = ({ loading, users }: UserDataType): JSX.Element => {
   if (loading) {
     return <Spinner />;
   }
