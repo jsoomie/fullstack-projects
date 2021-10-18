@@ -1,22 +1,15 @@
 import { useState, useEffect } from "react";
 import { Spinner, SingleRepo } from "..";
-import { InterData } from "../../pages/UserDetails";
+import { UserData, RepoData } from "../../interface";
 import axios from "axios";
 import "./UserRepos.css";
 
 const CLIENT_ID = process.env.REACT_APP_GITHUB_ID;
 const CLIENT_SECRET = process.env.REACT_APP_GITHUB_SECRET;
 
-export interface RepoRes {
-  id: number;
-  name: string;
-  html_url: string;
-  description: string;
-}
-
-export const UserRepos = ({ login: username }: InterData) => {
+export const UserRepos = ({ login: username }: UserData) => {
   const [loading, setLoading] = useState(true);
-  const [repos, setRepos] = useState<RepoRes[]>([]);
+  const [repos, setRepos] = useState<RepoData[]>([]);
 
   useEffect(() => {
     setLoading(true);

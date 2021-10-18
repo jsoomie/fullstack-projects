@@ -2,26 +2,11 @@ import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { UserInfo } from "../components";
-
-export interface InterData {
-  name: string;
-  login: string;
-  avatar_url: string;
-  location: string;
-  bio: string;
-  blog: string;
-  html_url: string;
-  followers: number;
-  following: number;
-  public_repos: number;
-  public_gists: number;
-  hireable: boolean;
-  company: string;
-}
+import { UserData } from "../interface";
 
 export const UserDetails = () => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<InterData>();
+  const [data, setData] = useState<UserData>();
   const { id: username } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -37,7 +22,9 @@ export const UserDetails = () => {
   }, [username]);
 
   return (
-    <Fragment>{data && <UserInfo loading={loading} data={data} />}</Fragment>
+    <Fragment>
+      {data ? <UserInfo loading={loading} data={data} /> : null}
+    </Fragment>
   );
 };
 

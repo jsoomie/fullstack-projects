@@ -1,5 +1,5 @@
-import { InterData } from "../../pages/UserDetails";
 import { FaCheck, FaTimesCircle } from "react-icons/fa";
+import { UserData } from "../../interface";
 
 export const UserRightPanel = ({
   hireable,
@@ -8,7 +8,7 @@ export const UserRightPanel = ({
   blog,
   location,
   html_url,
-}: InterData) => {
+}: UserData) => {
   return (
     <div className="RightPanel">
       <p>
