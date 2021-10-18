@@ -4,6 +4,7 @@ export interface IState {
   users: UserData[];
   repos: RepoData[];
   loading: boolean;
+  searchUsers: Function;
 }
 
 export interface ChildProps {

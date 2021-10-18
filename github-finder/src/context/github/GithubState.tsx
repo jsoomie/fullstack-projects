@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import axios from "axios";
 import { githubContext } from "./githubContext";
-import { githubReducer } from "./githubReducer";
-import { IState, ChildProps } from "../../interface";
+import { githubReducer, initialState } from "./githubReducer";
+import { ChildProps, UserData } from "../../interface";
 import {
   SEARCH_USERS,
   SET_LOADING,
@@ -12,13 +12,9 @@ import {
 } from "../actions";
 
 export const GithubState = ({ children }: ChildProps) => {
-  const initialState: IState = {
-    users: [],
-    repos: [],
-    loading: false,
-  };
-
   const [state, dispatch] = useReducer(githubReducer, initialState);
+
+  const setLoading = () => dispatch({ type: SET_LOADING, payload: true });
 
   const searchUsers = async (text: string): Promise<void> => {
     setLoading();
@@ -27,14 +23,8 @@ export const GithubState = ({ children }: ChildProps) => {
     const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
     const url = `https://api.github.com/search/users?q=${text}${CREDENTIALS}`;
     const res = await axios.get<{ items: UserData[] }>(url);
-    setUsers(res.data.items);
-    dispatch({
-      type: SEARCH_USERS,
-      payload: res.data,
-    });
+    dispatch({ type: SEARCH_USERS, payload: res.data.items });
   };
-
-  const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
     <githubContext.Provider
@@ -42,6 +32,7 @@ export const GithubState = ({ children }: ChildProps) => {
         users: state.users,
         repos: state.repos,
         loading: state.loading,
+        searchUsers,
       }}
     >
       {children}

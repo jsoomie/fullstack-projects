@@ -33,7 +33,6 @@ export const Home = (): JSX.Element => {
     <Fragment>
       <Alert alert={alert} />
       <Search
-        searchUsers={searchUsers}
         clearUser={clearUser}
         showClear={users.length > 0}
         setAlert={alerter}

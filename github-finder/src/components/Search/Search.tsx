@@ -1,19 +1,19 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
+import { githubContext } from "../../context";
 import "./Search.css";
 
 interface SearchProps {
-  searchUsers: Function;
   clearUser: React.MouseEventHandler;
   showClear: boolean;
   setAlert: Function;
 }
 
 export const Search = ({
-  searchUsers,
   clearUser,
   showClear,
   setAlert,
 }: SearchProps): JSX.Element => {
+  const { searchUsers } = useContext(githubContext);
   const [text, setText] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
