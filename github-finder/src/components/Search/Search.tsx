@@ -3,17 +3,11 @@ import { githubContext } from "../../context";
 import "./Search.css";
 
 interface SearchProps {
-  clearUser: React.MouseEventHandler;
-  showClear: boolean;
   setAlert: Function;
 }
 
-export const Search = ({
-  clearUser,
-  showClear,
-  setAlert,
-}: SearchProps): JSX.Element => {
-  const { searchUsers } = useContext(githubContext);
+export const Search = ({ setAlert }: SearchProps): JSX.Element => {
+  const { searchUsers, clearUser, users } = useContext(githubContext);
   const [text, setText] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -42,12 +36,22 @@ export const Search = ({
         />
         <input type="submit" value="Search" className="button" />
       </form>
-      {showClear && (
+      {users.length ? (
         <div className="clearButtonContainer">
           <button className="clearButton" onClick={clearUser}>
             Clear
           </button>
         </div>
+      ) : (
+        <p
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1rem",
+          }}
+        >
+          Use the search bar to start searching!
+        </p>
       )}
     </Fragment>
   );

@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react";
 import { User, Spinner, Search, Alert } from "../components";
 import { UserData } from "../interface";
-import axios from "axios";
 
 export const Home = (): JSX.Element => {
   const initialValues: UserData[] = [];
@@ -21,11 +20,7 @@ export const Home = (): JSX.Element => {
   return (
     <Fragment>
       <Alert alert={alert} />
-      <Search
-        clearUser={clearUser}
-        showClear={users.length > 0}
-        setAlert={alerter}
-      />
+      <Search setAlert={alerter} />
       {loading ?? <Spinner />}
       <User />
     </Fragment>

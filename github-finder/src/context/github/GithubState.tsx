@@ -14,7 +14,7 @@ import {
 export const GithubState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  const setLoading = () => dispatch({ type: SET_LOADING, payload: true });
+  const setLoading = () => dispatch({ type: SET_LOADING });
 
   const searchUsers = async (text: string): Promise<void> => {
     setLoading();
@@ -26,6 +26,8 @@ export const GithubState = ({ children }: ChildProps) => {
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
   };
 
+  const clearUser = () => dispatch({ type: CLEAR_USERS });
+
   return (
     <githubContext.Provider
       value={{
@@ -33,6 +35,7 @@ export const GithubState = ({ children }: ChildProps) => {
         repos: state.repos,
         loading: state.loading,
         searchUsers,
+        clearUser,
       }}
     >
       {children}

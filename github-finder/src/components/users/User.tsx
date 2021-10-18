@@ -1,12 +1,10 @@
 import { UserItem } from "./UserItem";
 import { Spinner } from "../index";
-import { UserData } from "../../interface";
 import { useContext } from "react";
 import { githubContext } from "../../context";
 
 export const User = (): JSX.Element => {
   const { users, loading } = useContext(githubContext);
-  console.log(users);
 
   if (loading) {
     return <Spinner />;
