@@ -1,5 +1,5 @@
-import { useEffect, useContext } from "react";
-import { SingleRepo } from "..";
+import { useEffect, useContext, useState } from "react";
+import { SingleRepo, Spinner } from "..";
 import { useParams } from "react-router";
 import { githubContext } from "../../context";
 import "./UserRepos.css";
@@ -7,11 +7,18 @@ import "./UserRepos.css";
 export const UserRepos = () => {
   const { getRepos, repos } = useContext(githubContext);
   const { id: username } = useParams<{ id: string }>();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getRepos(username);
+    const fetch = async () => {
+      const res = await getRepos(username);
+      if (res) setLoading(false);
+    };
+    fetch();
     //eslint-disable-next-line
   }, []);
+
+  if (loading) return <Spinner />;
 
   return (
     <ul id="RepoContainer">

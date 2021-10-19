@@ -18,28 +18,49 @@ export const GithubState = ({ children }: ChildProps): JSX.Element => {
   const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
 
   const setLoading = (): void => dispatch({ type: SET_LOADING });
-
-  const searchUsers = async (text: string): Promise<void> => {
-    setLoading();
-    const url = `https://api.github.com/search/users?q=${text}&${CREDENTIALS}`;
-    const res = await axios.get<{ items: UserData[] }>(url);
-    dispatch({ type: SEARCH_USERS, payload: res.data.items });
-  };
-
   const clearUser = (): void => dispatch({ type: CLEAR_USERS });
 
-  const getUser = async (username: string): Promise<void> => {
+  const searchUsers = async (text: string): Promise<boolean> => {
     setLoading();
-    const url = `https://api.github.com/users/${username}?${CREDENTIALS}`;
-    const res = await axios.get(url);
-    dispatch({ type: GET_USER, payload: res.data });
+    try {
+      clearUser();
+      const url = `https://api.github.com/search/users?q=${text}&${CREDENTIALS}`;
+      const res = await axios.get<{ items: UserData[] }>(url);
+      dispatch({ type: SEARCH_USERS, payload: res.data.items });
+      if (res.status === 200) return !state.loading;
+      else return true;
+    } catch (error) {
+      console.log(error);
+      return true;
+    }
   };
 
-  const getRepos = async (username: string): Promise<void> => {
+  const getUser = async (username: string): Promise<boolean> => {
     setLoading();
-    const url = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&${CREDENTIALS}`;
-    const res = await axios.get(url);
-    dispatch({ type: GET_REPOS, payload: res.data });
+    try {
+      const url = `https://api.github.com/users/${username}?${CREDENTIALS}`;
+      const res = await axios.get(url);
+      dispatch({ type: GET_USER, payload: res.data });
+      if (res.status === 200) return !state.loading;
+      else return true;
+    } catch (error) {
+      console.log(error);
+      return true;
+    }
+  };
+
+  const getRepos = async (username: string): Promise<boolean> => {
+    setLoading();
+    try {
+      const url = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&${CREDENTIALS}`;
+      const res = await axios.get(url);
+      dispatch({ type: GET_REPOS, payload: res.data });
+      if (res.status === 200) return !state.loading;
+      else return true;
+    } catch (error) {
+      console.log(error);
+      return true;
+    }
   };
 
   return (
