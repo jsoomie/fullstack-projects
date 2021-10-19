@@ -22,8 +22,6 @@ export const UserInfo = () => {
 
   const userData = JSON.parse(JSON.stringify(user));
 
-  if (loading) return <Spinner />;
-
   return (
     <Fragment>
       <UserBackButton />
