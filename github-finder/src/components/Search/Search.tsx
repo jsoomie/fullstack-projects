@@ -1,4 +1,5 @@
 import { Fragment, useState, useContext } from "react";
+import { Spinner } from "..";
 import { githubContext } from "../../context";
 import "./Search.css";
 
@@ -9,17 +10,22 @@ interface SearchProps {
 export const Search = ({ setAlert }: SearchProps): JSX.Element => {
   const { searchUsers, clearUser, users } = useContext(githubContext);
   const [text, setText] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setText(e.currentTarget.value);
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const onSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    setLoading(true);
     e.preventDefault();
     if (text === "") {
       setAlert("Please enter something", "warning");
     } else {
-      searchUsers(text);
+      await searchUsers(text);
+      setLoading(false);
       setText("");
     }
   };
@@ -36,7 +42,9 @@ export const Search = ({ setAlert }: SearchProps): JSX.Element => {
         />
         <input type="submit" value="Search" className="button" />
       </form>
-      {users.length ? (
+      {loading ? (
+        <Spinner />
+      ) : users.length ? (
         <div className="clearButtonContainer">
           <button className="clearButton" onClick={clearUser}>
             Clear

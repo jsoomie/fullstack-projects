@@ -28,3 +28,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **SEVEN**
 -  Create reducer and context.
+
+**EIGHT**
+-  Create context and reducer for github states including users, repos, loading, etc. When using useEffect with in reducer state loading, rerenders components. Had to set loading outside of reducer forcing reducer's functions that has any axios request to have a return statement to catch in useEffect call.
