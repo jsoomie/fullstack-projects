@@ -23,7 +23,12 @@ export const UserRightPanel = ({
       ) : null}
       {location ? <p>Location: {location}</p> : null}
       <div id="userinfo-button-container">
-        <a href={html_url} style={{ color: "#fff" }}>
+        <a
+          href={html_url}
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: "#fff" }}
+        >
           Visit Github Profile
         </a>
       </div>
