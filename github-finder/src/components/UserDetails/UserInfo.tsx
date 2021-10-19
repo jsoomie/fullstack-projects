@@ -13,7 +13,7 @@ import "./UserInfo.css";
 
 export const UserInfo = () => {
   const { id: username } = useParams<{ id: string }>();
-  const { getUser, loading, user } = useContext(githubContext);
+  const { getUser, user } = useContext(githubContext);
 
   useEffect(() => {
     getUser(username);
