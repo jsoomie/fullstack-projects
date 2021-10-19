@@ -11,7 +11,7 @@ import {
   GET_REPOS,
 } from "../actions";
 
-export const GithubState = ({ children }: ChildProps) => {
+export const GithubState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
   const GITHUB_ID = `client_id=${process.env.REACT_APP_GITHUB_ID}`;
   const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
@@ -35,6 +35,13 @@ export const GithubState = ({ children }: ChildProps) => {
     dispatch({ type: GET_USER, payload: res.data });
   };
 
+  const getRepos = async (username: string): Promise<void> => {
+    setLoading();
+    const url = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&${CREDENTIALS}`;
+    const res = await axios.get(url);
+    dispatch({ type: GET_REPOS, payload: res.data });
+  };
+
   return (
     <githubContext.Provider
       value={{
@@ -45,6 +52,7 @@ export const GithubState = ({ children }: ChildProps) => {
         searchUsers,
         clearUser,
         getUser,
+        getRepos,
       }}
     >
       {children}

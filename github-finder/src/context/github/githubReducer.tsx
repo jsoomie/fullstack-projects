@@ -15,6 +15,7 @@ export interface IState {
   searchUsers: Function;
   clearUser: React.MouseEventHandler;
   getUser: Function;
+  getRepos: Function;
 }
 
 export const initialState: IState = {
@@ -25,6 +26,7 @@ export const initialState: IState = {
   searchUsers: Function,
   clearUser: () => MouseEvent,
   getUser: Function,
+  getRepos: Function,
 };
 
 type Action =
@@ -41,6 +43,12 @@ type GithubReducer = (
 
 export const githubReducer: GithubReducer = (state, action) => {
   switch (action.type) {
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: action.payload,
+        loading: false,
+      };
     case GET_USER:
       return {
         ...state,

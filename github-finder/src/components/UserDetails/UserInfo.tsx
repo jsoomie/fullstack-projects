@@ -7,10 +7,9 @@ import {
   UserRightPanel,
 } from "../index";
 import { Fragment, useContext, useEffect } from "react";
-import "./UserInfo.css";
-
 import { useParams } from "react-router-dom";
 import { githubContext } from "../../context";
+import "./UserInfo.css";
 
 export const UserInfo = () => {
   const { id: username } = useParams<{ id: string }>();
@@ -18,14 +17,17 @@ export const UserInfo = () => {
 
   useEffect(() => {
     getUser(username);
+    //eslint-disable-next-line
   }, []);
 
   const userData = JSON.parse(JSON.stringify(user));
 
+  if (loading) return <Spinner />;
+
   return (
     <Fragment>
       <UserBackButton />
-      {!loading && user ? (
+      {user ? (
         <Fragment>
           <div id="UserDetails">
             <UserLeftPanel {...userData} />

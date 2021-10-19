@@ -1,29 +1,17 @@
-import { useState, useEffect } from "react";
-import { Spinner, SingleRepo } from "..";
-import { UserData, RepoData } from "../../interface";
-import axios from "axios";
+import { useEffect, useContext } from "react";
+import { SingleRepo } from "..";
+import { useParams } from "react-router";
+import { githubContext } from "../../context";
 import "./UserRepos.css";
 
-const CLIENT_ID = process.env.REACT_APP_GITHUB_ID;
-const CLIENT_SECRET = process.env.REACT_APP_GITHUB_SECRET;
-
-export const UserRepos = ({ login: username }: UserData) => {
-  const [loading, setLoading] = useState(true);
-  const [repos, setRepos] = useState<RepoData[]>([]);
+export const UserRepos = () => {
+  const { getRepos, repos } = useContext(githubContext);
+  const { id: username } = useParams<{ id: string }>();
 
   useEffect(() => {
-    setLoading(true);
-    const URL = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
-    const fetch = async () => {
-      const res = await axios.get(URL);
-      setRepos(res.data);
-      setLoading(false);
-    };
-    fetch();
-    // eslint-disable-next-line
+    getRepos(username);
+    //eslint-disable-next-line
   }, []);
-
-  if (loading) return <Spinner />;
 
   return (
     <ul id="RepoContainer">
