@@ -19,7 +19,7 @@ export interface IState {
 }
 
 export const initialState: IState = {
-  loading: false,
+  loading: true,
   users: [],
   user: [],
   repos: [],

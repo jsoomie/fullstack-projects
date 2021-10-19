@@ -1,11 +1,8 @@
-import { UserData } from "../../interface";
+import { IPropsUserData } from "../../interface";
 
 export const UserBadges = ({
-  followers,
-  following,
-  public_repos,
-  public_gists,
-}: UserData) => {
+  user: { followers, following, public_repos, public_gists },
+}: IPropsUserData) => {
   return (
     <div className="BottomPanel">
       <ul>

@@ -1,14 +1,9 @@
 import { FaCheck, FaTimesCircle } from "react-icons/fa";
-import { UserData } from "../../interface";
+import { IPropsUserData } from "../../interface";
 
 export const UserRightPanel = ({
-  hireable,
-  company,
-  bio,
-  blog,
-  location,
-  html_url,
-}: UserData) => {
+  user: { hireable, company, bio, blog, location, html_url },
+}: IPropsUserData) => {
   return (
     <div className="RightPanel">
       <p>

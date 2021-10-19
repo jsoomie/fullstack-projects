@@ -17,7 +17,7 @@ export const GithubState = ({ children }: ChildProps): JSX.Element => {
   const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
   const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
 
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  const setLoading = (): void => dispatch({ type: SET_LOADING });
 
   const searchUsers = async (text: string): Promise<void> => {
     setLoading();
@@ -26,7 +26,7 @@ export const GithubState = ({ children }: ChildProps): JSX.Element => {
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
   };
 
-  const clearUser = () => dispatch({ type: CLEAR_USERS });
+  const clearUser = (): void => dispatch({ type: CLEAR_USERS });
 
   const getUser = async (username: string): Promise<void> => {
     setLoading();

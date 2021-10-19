@@ -1,6 +1,8 @@
-import { UserData } from "../../interface";
+import { IPropsUserData } from "../../interface";
 
-export const UserLeftPanel = ({ avatar_url, login, name }: UserData) => {
+export const UserLeftPanel = ({
+  user: { avatar_url, login, name },
+}: IPropsUserData) => {
   return (
     <div className="LeftPanel">
       <img

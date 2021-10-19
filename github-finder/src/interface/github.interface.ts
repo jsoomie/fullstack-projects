@@ -15,6 +15,10 @@ export interface UserData {
   company: string;
 }
 
+export interface IPropsUserData {
+  user: UserData;
+}
+
 export interface UserDataProps {
   data: UserData;
   loading: boolean;

@@ -1,42 +1,29 @@
 import {
-  Spinner,
   UserRepos,
   UserBadges,
   UserBackButton,
   UserLeftPanel,
   UserRightPanel,
 } from "../index";
-import { Fragment, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { githubContext } from "../../context";
+import { Fragment } from "react";
 import "./UserInfo.css";
 
-export const UserInfo = () => {
-  const { id: username } = useParams<{ id: string }>();
-  const { getUser, user } = useContext(githubContext);
+import { UserData } from "../../interface";
 
-  useEffect(() => {
-    getUser(username);
-    //eslint-disable-next-line
-  }, []);
-
+export const UserInfo = ({ user }: { user: UserData[] }) => {
   const userData = JSON.parse(JSON.stringify(user));
 
   return (
     <Fragment>
       <UserBackButton />
-      {user ? (
-        <Fragment>
-          <div id="UserDetails">
-            <UserLeftPanel {...userData} />
-            <UserRightPanel {...userData} />
-          </div>
-          <UserBadges {...userData} />
-          <UserRepos {...userData} />
-        </Fragment>
-      ) : (
-        <Spinner />
-      )}
+      <Fragment>
+        <div id="UserDetails">
+          <UserLeftPanel user={userData} />
+          <UserRightPanel user={userData} />
+        </div>
+        <UserBadges user={userData} />
+        <UserRepos />
+      </Fragment>
     </Fragment>
   );
 };
