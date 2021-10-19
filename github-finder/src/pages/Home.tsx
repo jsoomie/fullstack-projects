@@ -2,11 +2,17 @@ import { Fragment, useState } from "react";
 import { User, Search, Alert } from "../components";
 
 export const Home = (): JSX.Element => {
-  const [alert, setAlert] = useState({ msg: "", type: "", showAlert: false });
+  const initialAlert = {
+    msg: "",
+    type: "",
+    showAlert: false,
+  };
+
+  const [alert, setAlert] = useState(initialAlert);
 
   const alerter = (msg: string, type: string): void => {
     setAlert({ msg, type, showAlert: true });
-    setTimeout(() => setAlert({ msg: "", type: "", showAlert: false }), 3000);
+    setTimeout(() => setAlert(initialAlert), 3000);
   };
 
   return (
