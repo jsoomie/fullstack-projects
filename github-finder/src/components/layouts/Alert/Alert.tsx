@@ -1,19 +1,15 @@
 import { FaInfoCircle } from "react-icons/fa";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import "./Alert.css";
 
-interface AlertProp {
-  alert: {
-    msg: string;
-    type: string;
-    showAlert: boolean;
-  };
-}
+import { alertContext } from "../../../context";
 
-export const Alert = ({ alert }: AlertProp) => {
+export const Alert = () => {
+  const { alert } = useContext(alertContext);
+
   return (
     <Fragment>
-      {alert.showAlert && (
+      {alert.show && (
         <div id="Alert-Container" className={`${alert.type}`}>
           <FaInfoCircle /> {alert.msg}
         </div>

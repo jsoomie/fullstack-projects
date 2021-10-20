@@ -12,7 +12,7 @@ export const AlertState = ({ children }: ChildProps) => {
       type: SET_ALERT,
       payload: { alert: { msg, type, show: true } },
     });
-    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 3500);
+    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 3000);
   };
 
   return (

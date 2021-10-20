@@ -1,14 +1,12 @@
 import { Fragment, useState, useContext } from "react";
 import { Spinner } from "..";
-import { githubContext } from "../../context";
+import { githubContext, alertContext } from "../../context";
 import "./Search.css";
 
-interface SearchProps {
-  setAlert: Function;
-}
-
-export const Search = ({ setAlert }: SearchProps): JSX.Element => {
+export const Search = (): JSX.Element => {
   const { searchUsers, clearUser, users } = useContext(githubContext);
+  const { setAlert } = useContext(alertContext);
+
   const [text, setText] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
@@ -23,6 +21,7 @@ export const Search = ({ setAlert }: SearchProps): JSX.Element => {
     e.preventDefault();
     if (text === "") {
       setAlert("Please enter something", "warning");
+      setLoading(false);
     } else {
       await searchUsers(text);
       setLoading(false);
