@@ -12,9 +12,20 @@ import {
 } from "../actions";
 
 export const GithubState = ({ children }: ChildProps): JSX.Element => {
+  let clientId: string | undefined;
+  let clientSecret: string | undefined;
+
+  if (process.env.NODE_ENV !== "production") {
+    clientId = process.env.REACT_APP_GITHUB_ID;
+    clientSecret = process.env.REACT_APP_GITHUB_SECRET;
+  } else {
+    clientId = process.env.GITHUB_ID;
+    clientSecret = process.env.GITHUB_SECRET;
+  }
+
   const [state, dispatch] = useReducer(githubReducer, initialState);
-  const GITHUB_ID = `client_id=${process.env.REACT_APP_GITHUB_ID}`;
-  const GITHUB_SECRET = `&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`;
+  const GITHUB_ID = `client_id=${clientId}`;
+  const GITHUB_SECRET = `&client_secret=${clientSecret}`;
   const CREDENTIALS = `${GITHUB_ID}${GITHUB_SECRET}`;
 
   const setLoading = (): void => dispatch({ type: SET_LOADING });
