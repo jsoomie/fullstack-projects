@@ -29,10 +29,12 @@
 .clearButtonContainer button {
   width: 100%;
   border: none;
+  color: #fff;
   padding: 0.5rem;
   font-size: large;
+  background-color: rgb(163, 163, 163);
 }
 
 .clearButtonContainer button:hover {
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.5);
 }

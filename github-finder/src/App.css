@@ -1,5 +1,5 @@
 :root {
-  --navbar-bg: rgb(60, 194, 204);
+  --navbar-bg: dodgerblue;
   --navbar-text: #fff;
 
   --btn-color: rgb(70, 165, 220);
@@ -8,6 +8,14 @@
 
 * {
   box-sizing: border-box;
+}
+
+html { 
+  background: url(./assets/fakurian-design.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 ul {
@@ -22,10 +30,11 @@ ul {
   justify-content: center;
   align-items: center;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
-  border: 1px dotted rgba(0, 0, 0, 0.2);
   padding: 1rem;
   margin: 0.5rem;
   border-radius: 2px;
+  background-color: rgba(240, 248, 255, 0.4);
+  backdrop-filter: blur(8px);
 }
 
 .avatar {
