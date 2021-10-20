@@ -14,8 +14,10 @@ export const UserInfo = ({ user }: { user: UserData[] }) => {
   const userData = JSON.parse(JSON.stringify(user));
 
   return (
-    <Fragment>
-      <UserBackButton />
+    <div className="container">
+      <div id="BackButtonContainer">
+        <UserBackButton />
+      </div>
       <Fragment>
         <div id="UserDetails">
           <UserLeftPanel user={userData} />
@@ -24,6 +26,6 @@ export const UserInfo = ({ user }: { user: UserData[] }) => {
         <UserBadges user={userData} />
         <UserRepos />
       </Fragment>
-    </Fragment>
+    </div>
   );
 };

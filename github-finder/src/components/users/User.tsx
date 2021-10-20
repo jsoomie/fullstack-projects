@@ -1,29 +1,16 @@
 import { UserItem } from "./UserItem";
 import { useContext } from "react";
 import { githubContext } from "../../context";
+import "./User.css";
 
 export const User = (): JSX.Element => {
   const { users } = useContext(githubContext);
 
   return (
-    <div style={styles.user}>
+    <div id="Users">
       {users && users.map((user) => <UserItem key={user.id} {...user} />)}
     </div>
   );
-};
-
-type styleType = {
-  user: {
-    display: string;
-    gridTemplateColumns: string;
-  };
-};
-
-const styles: styleType = {
-  user: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-  },
 };
 
 export default User;

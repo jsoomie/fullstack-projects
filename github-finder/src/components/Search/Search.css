@@ -2,6 +2,7 @@
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 #Search-Form .button {
@@ -23,7 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1rem;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 .clearButtonContainer button {
@@ -31,6 +33,7 @@
   border: none;
   color: #fff;
   padding: 0.5rem;
+  margin: 0;
   font-size: large;
   background-color: rgb(163, 163, 163);
 }

@@ -1,12 +1,11 @@
-import { Fragment } from "react";
 import { User, Search, Alert } from "../components";
 
 export const Home = (): JSX.Element => {
   return (
-    <Fragment>
+    <div className="container">
       <Alert />
       <Search />
       <User />
-    </Fragment>
+    </div>
   );
 };
