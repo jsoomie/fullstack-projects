@@ -1,11 +1,16 @@
-# fullstack-projects
+# Full-Stack Projects
 
 ## Introductions
 A small collection of full stack projects from scratch to fully deployed.
 
+## Links
+Links to deployed sites here!
+
+[Github Finder](https://githubfinder-ts.netlify.app/)
+
 ## Projects
-1. [Github Finder](https://github.com/jsoomie/fullstack-projects/tree/main/github-finder)
-     - Create a github user finder application. Create fetch of github users with the use of a search bar. Create a clear bar after searching users. First, start using class components then refactor into functional components.
+1. [Github Finder Repo](https://github.com/jsoomie/fullstack-projects/tree/main/github-finder) || [Deployed Weblink](https://githubfinder-ts.netlify.app/)
+     - Create a github user finder application. Create fetch of github users with the use of a search bar. Create a clear bar after searching users. First, start using class components then refactor into functional components. Not fully full stack as there is no server, however this is just a stepping stone for what's to come.
 
 ## Changelogs 
 **ONE** 
@@ -31,3 +36,6 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **EIGHT**
 -  Create context and reducer for github states including users, repos, loading, etc. When using useEffect with in reducer state loading, rerenders components. Had to set loading outside of reducer forcing reducer's functions that has any axios request to have a return statement to catch in useEffect call. Create reducer and context for alerts. Nothing really of note, besides trying to type everything correctly was what gave me the most trouble. Create missing 404 page for the if chance of encounter."
+
+**NINE**
+-  Deploy github finder to netlify! Simple toml setup and netlify sign up!
