@@ -48,3 +48,9 @@ A small collection of full stack projects from scratch to fully deployed.
 
 **TEN**
 -  Prepping for new project on contact keeper. Full stack project using Mongo DB Atlas.
+
+---
+---
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
