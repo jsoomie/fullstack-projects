@@ -11,6 +11,8 @@ Links to deployed sites here!
 ## Projects
 1. [Github Finder Repo](https://github.com/jsoomie/fullstack-projects/tree/main/github-finder) || [Deployed Weblink](https://githubfinder-ts.netlify.app/)
      - Create a github user finder application. Create fetch of github users with the use of a search bar. Create a clear bar after searching users. First, start using class components then refactor into functional components. Not fully full stack as there is no server, however this is just a stepping stone for what's to come.
+2. [Contact Keeper Repo]() || [Deployed Link]()
+   -  Create full stack project as contact keeper. To be able to create contact info on certain user and save that info to MongoDB.
 
 ## Changelogs 
 **ONE** 
@@ -39,3 +41,6 @@ Links to deployed sites here!
 
 **NINE**
 -  Deploy github finder to netlify! Simple toml setup and netlify sign up!
+
+**TEN**
+-  Prepping for new project on contact keeper. Full stack project using Mongo DB Atlas.
