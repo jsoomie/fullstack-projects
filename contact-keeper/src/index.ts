@@ -10,7 +10,7 @@ app.use(compression());
 
 //  Route catcher
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.json({ msg: "Welcome to the Contact Keeper API" });
 });
 
 app.listen(PORT, () => {
