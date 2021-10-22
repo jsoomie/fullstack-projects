@@ -1,5 +1,21 @@
 ![Github Finder](../assets/githubfinder-splash.png)
 
+## INTRODUCTIONS
+[react-link]: https://reactjs.org/
+[github-api]: https://docs.github.com/en/developers/overview/about-githubs-apis
+[brad-traversy]: https://twitter.com/traversymedia
+[tutorial-link]: https://www.udemy.com/course/modern-react-front-to-back/
+[typescript-link]: https://www.typescriptlang.org/
+
+
+Welcome to the Github Finder page! It is a simple site created in [react][react-link]. The site simply utilizes the [github api][github-api] to be able to search through users and view any public info and a link to their github profile. The creation of this site was done following [Brad Traversy][brad-traversy] with his [tutorial][tutorial-link] on react.
+
+The intentions of following the tutorial was just to create a basic ground work for me to learn and implement [TypeScript][typescript-link].
+
+## GOALS
+-  ✅ Write a react application in full typescript
+-  ✅ Have deployed on the web using either netlify or heroku, etc.
+
 ## LOGS
 
 **ONE** 
