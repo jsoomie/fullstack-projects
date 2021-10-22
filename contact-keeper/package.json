@@ -17,12 +17,12 @@
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^16.11.3",
-    "compression": "^1.7.4",
     "nodemon": "^2.0.14",
     "parcel": "^2.0.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "concurrently": "^6.3.0",
     "config": "^3.3.6",
     "express": "^4.17.1",
