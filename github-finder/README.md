@@ -1,4 +1,4 @@
-# GITHUB-FINDER
+![Github Finder](../assets/githubfinder-splash.png)
 
 ## LOGS
 
