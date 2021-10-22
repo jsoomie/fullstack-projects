@@ -1,4 +1,8 @@
 *.parcel-cache
+*.cache
+
+.parcel-cache
+.cache
 
 # Logs
 logs
