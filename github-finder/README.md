@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# GITHUB-FINDER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## LOGS
 
-## Available Scripts
+**ONE** 
+   - Starting new project called github finder. Using typescript and react as basis. For now cleaned up starter files and and changed to class style components for demo purposes only. This will change to full functional components down the line after serveral refactors. 
 
-In the project directory, you can run:
+**TWO**
+-    Create search function and cerate clear button. Hardest part was figuring what the types should be for the passing props and implementing them. Destructuring keeps code looking neater. 
 
-### `yarn start`
+**THREE**
+-  Create alerts letting user input some text before searching.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**FOUR**
+-  Install react-router-dom and its type definitions to use with mulitple pages. First created an about page skeleton.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**FIVE**
+-  Finish the styling of user info page and made it optional for some fields as they aren't always filled out. Create badges for followers, following, public repos, and public gists instead of embedding it inside main card.
 
-### `yarn test`
+**SIX**
+-  Refactor all class components into functions and use hooks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**SEVEN**
+-  Create reducer and context.
 
-### `yarn build`
+**EIGHT**
+-  Create context and reducer for github states including users, repos, loading, etc. When using useEffect with in reducer state loading, rerenders components. Had to set loading outside of reducer forcing reducer's functions that has any axios request to have a return statement to catch in useEffect call. Create reducer and context for alerts. Nothing really of note, besides trying to type everything correctly was what gave me the most trouble. Create missing 404 page for the if chance of encounter."
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**NINE**
+-  Deploy github finder to netlify! Simple toml setup and netlify sign up!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**TEN**
+-  Prepping for new project on contact keeper. Full stack project using Mongo DB Atlas.
