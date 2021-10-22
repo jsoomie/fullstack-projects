@@ -4,16 +4,16 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * @route         GET api/users
- * @description   Gets all users
  * @access        Public
+ * @description   Gets all users
+ * @route         GET api/users
  */
 router.get("/", getUsers);
 
 /**
- * @route         POST api/users
- * @description   Registers user
  * @access        Public
+ * @description   Registers user
+ * @route         POST api/users
  */
 router.post("/", postUsers);
 

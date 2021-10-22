@@ -14,11 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 //  Routes
 app.use("/api", router);
 
-//  Route catcher
-app.get("/", (req, res) => {
-  res.json({ msg: "Welcome to the Contact Keeper API" });
-});
-
 app
   .listen(PORT, () => {
     console.log(`[SERVER] ⚡ started on PORT: ${PORT}`);
