@@ -30,6 +30,7 @@ A small collection of full stack projects from scratch to fully deployed.
 
 ## Changelogs 
 [Github Finder Logs](https://github.com/jsoomie/fullstack-projects/blob/main/github-finder/README.md)
+[Contact Keeper Logs](https://github.com/jsoomie/fullstack-projects/blob/main/contact-keeper/README.md)
 
 ---
 ---
