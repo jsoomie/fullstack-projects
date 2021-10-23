@@ -10,7 +10,7 @@ router.use("/contacts", contactRoutes);
 router.use("/auth", authRoutes);
 
 //  Route catch all
-router.get("/", (req: Request, res: Response) => {
+router.get("*", (req: Request, res: Response) => {
   res.json({ msg: "Welcome to the Contact Keeper API" });
 });
 

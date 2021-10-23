@@ -1,7 +1,14 @@
 //  USERS CONTROLLERS
 import { Response, Request } from "express";
 
-export const getUsers = (req: Request, res: Response) => {
+type Controllers = (req: Request, res: Response) => void;
+
+/**
+ * @access        Public
+ * @description   Gets all users
+ * @route         GET api/users
+ */
+export const getUsers: Controllers = (req, res) => {
   try {
     res.json({ msg: "[CONTROLLER] GET api/users/" });
   } catch (err) {
@@ -10,7 +17,12 @@ export const getUsers = (req: Request, res: Response) => {
   }
 };
 
-export const postUsers = (req: Request, res: Response) => {
+/**
+ * @access        Public
+ * @description   Registers user
+ * @route         POST api/users
+ */
+export const postUsers: Controllers = (req, res) => {
   try {
     res.json({ msg: "[CONTROLLER] POST api/users/" });
   } catch (err) {

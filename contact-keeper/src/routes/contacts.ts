@@ -1,8 +1,16 @@
-import { Router, Request, Response } from "express";
+import {
+  getContacts,
+  postContacts,
+  updateContacts,
+  deleteContacts,
+} from "../controllers";
+
+import { Router } from "express";
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.send("Contacts Routes");
-});
+router.get("/", getContacts);
+router.post("/", postContacts);
+router.put("/:id", updateContacts);
+router.delete("/:id", deleteContacts);
 
 export { router };
