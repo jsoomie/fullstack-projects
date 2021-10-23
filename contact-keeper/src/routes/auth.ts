@@ -1,5 +1,5 @@
 import { getAuth, postAuth } from "../controllers";
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 const router = Router();
 
 router.get("/", getAuth);
