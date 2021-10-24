@@ -9,3 +9,8 @@ export const userChecks = [
     `Please enter a password with ${pwLength} or more characters`
   ).isLength({ min: pwLength }),
 ];
+
+export const userLoginChecks = [
+  check("email", "Please enter a valid email").isEmail(),
+  check("password", "Password is required").exists(),
+];

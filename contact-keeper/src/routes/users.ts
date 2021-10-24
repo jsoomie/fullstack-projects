@@ -1,6 +1,6 @@
 //  USERS ROUTES
 import { getUsers, postUsers } from "../controllers";
-import { userChecks } from "./routeValidators";
+import { userChecks } from "../validations";
 import { Router } from "express";
 const router = Router();
 

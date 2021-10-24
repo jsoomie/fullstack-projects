@@ -1,8 +1,9 @@
 import { getAuth, postAuth } from "../controllers";
+import { userLoginChecks } from "../validations";
 import { Router } from "express";
 const router = Router();
 
 router.get("/", getAuth);
-router.post("/", postAuth);
+router.post("/", userLoginChecks, postAuth);
 
 export { router };
