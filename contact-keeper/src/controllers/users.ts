@@ -1,6 +1,7 @@
 //  USERS CONTROLLERS
 import { Response, Request } from "express";
 import { validationResult } from "express-validator";
+import bcrypt from "bcryptjs";
 import { User } from "../models";
 
 type Controllers = (req: Request, res: Response) => void;
@@ -24,15 +25,31 @@ export const getUsers: Controllers = (req, res) => {
  * @description   Registers user
  * @route         POST api/users
  */
-export const postUsers: Controllers = (req, res) => {
+export const postUsers: Controllers = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  type ControllerBody = { name: string; email: string; password: string };
+  const { name, email, password }: ControllerBody = req.body;
+
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+    let user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ msg: "User already exists" });
     }
 
-    res.send("passed");
-    res.json({ msg: "[CONTROLLER] POST api/users/" });
+    user = new User({
+      name,
+      email,
+      password,
+    });
+
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
+    await user.save();
+
+    res.json({ msg: "[CONTROLLER] POST api/users/ WORKED" });
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
