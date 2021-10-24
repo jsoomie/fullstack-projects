@@ -1,5 +1,7 @@
 //  USERS CONTROLLERS
 import { Response, Request } from "express";
+import { validationResult } from "express-validator";
+import { User } from "../models";
 
 type Controllers = (req: Request, res: Response) => void;
 
@@ -24,6 +26,12 @@ export const getUsers: Controllers = (req, res) => {
  */
 export const postUsers: Controllers = (req, res) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    res.send("passed");
     res.json({ msg: "[CONTROLLER] POST api/users/" });
   } catch (err) {
     console.error(err);
