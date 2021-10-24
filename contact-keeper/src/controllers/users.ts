@@ -1,7 +1,8 @@
 //  USERS CONTROLLERS
 import { Response, Request } from "express";
 import { validationResult } from "express-validator";
-import bcrypt from "bcryptjs";
+import { genSalt, hash } from "bcryptjs";
+import jwt from "jsonwebtoken";
 import { User } from "../models";
 
 type Controllers = (req: Request, res: Response) => void;
@@ -45,11 +46,22 @@ export const postUsers: Controllers = async (req, res) => {
       password,
     });
 
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
+    const salt = await genSalt(10);
+    user.password = await hash(password, salt);
     await user.save();
 
-    res.json({ msg: "[CONTROLLER] POST api/users/ WORKED" });
+    const payload = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    const hushies = process.env.JWT_HUSH;
+    if (payload && hushies)
+      jwt.sign(payload, hushies, { expiresIn: 36000 }, (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      });
   } catch (err) {
     console.error(err);
     res.json(err).status(500);

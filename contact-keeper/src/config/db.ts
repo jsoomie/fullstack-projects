@@ -1,7 +1,4 @@
 import { connect } from "mongoose";
-import { config } from "dotenv";
-
-config();
 
 const db: string | undefined = process.env.MONGO_URI;
 
