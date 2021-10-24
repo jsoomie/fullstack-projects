@@ -57,11 +57,12 @@ export const postUsers: Controllers = async (req, res) => {
     };
 
     const hushies = process.env.JWT_HUSH;
-    if (payload && hushies)
+    if (payload && hushies) {
       jwt.sign(payload, hushies, { expiresIn: 36000 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
+    }
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
