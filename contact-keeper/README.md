@@ -13,3 +13,5 @@ Welcome to the Contact Keeper Page!
 0.0.25 - Add login user and validations
 0.0.28 - Move validations into src folder instead
 0.0.30 - Update user routes to have proper validation
+0.0.33 - Create middleware to check authorization token
+0.0.35 - Made request as any for now to access user
