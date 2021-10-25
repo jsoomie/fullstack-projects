@@ -24,3 +24,7 @@ Welcome to the Contact Keeper Page!
 0.0.35 - Made request as any for now to access user
 
 0.0.40 - Create model for contacts
+
+0.0.43 - Create custom Request Interface
+
+0.0.45 - Create getContacts controller
