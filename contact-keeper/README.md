@@ -28,3 +28,5 @@ Welcome to the Contact Keeper Page!
 0.0.43 - Create custom Request Interface
 
 0.0.45 - Create getContacts controller
+
+0.0.48 - Remove second res.json in postContacts to prevent double headers being sent
