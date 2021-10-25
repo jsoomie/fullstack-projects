@@ -50,7 +50,6 @@ export const postContacts: Controllers = async (req, res) => {
 
       res.json(contact);
     }
-    res.json({ msg: "[CONTROLLER] POST api/contacts/" });
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
