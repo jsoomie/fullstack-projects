@@ -2,6 +2,7 @@
 import { Response, Request } from "express";
 import { User } from "../models";
 import { Contact } from "../models/Contact";
+import { validationResult } from "express-validator";
 
 type Controllers = (req: Request, res: Response) => void;
 
@@ -29,8 +30,26 @@ export const getContacts: Controllers = async (req, res) => {
  * @description   Creates contacts
  * @route         POST /api/contacts
  */
-export const postContacts: Controllers = (req, res) => {
+export const postContacts: Controllers = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const { name, email, phone, type } = req.body;
   try {
+    if (name && req.user) {
+      const newContact = new Contact({
+        name,
+        email,
+        phone,
+        type,
+        user: req.user.id,
+      });
+
+      const contact = await newContact.save();
+
+      res.json(contact);
+    }
     res.json({ msg: "[CONTROLLER] POST api/contacts/" });
   } catch (err) {
     console.error(err);

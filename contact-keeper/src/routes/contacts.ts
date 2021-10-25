@@ -5,14 +5,14 @@ import {
   deleteContacts,
 } from "../controllers";
 import { tokenChecker } from "../middlewares/auth";
-// import {  } from "../validations";
+import { contactsChecks } from "../validations";
 
 import { Router } from "express";
 const router = Router();
 
 router.get("/", tokenChecker, getContacts);
-router.post("/", postContacts);
-router.put("/:id", updateContacts);
-router.delete("/:id", deleteContacts);
+router.post("/", tokenChecker, contactsChecks, postContacts);
+router.put("/:id", tokenChecker, updateContacts);
+router.delete("/:id", tokenChecker, deleteContacts);
 
 export { router };
