@@ -2,6 +2,9 @@ import express from "express";
 import compression from "compression";
 import { connectDB } from "./config/db";
 import { router } from "./routes";
+import { config } from "dotenv";
+
+config();
 
 const app = express();
 

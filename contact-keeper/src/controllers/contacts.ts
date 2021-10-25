@@ -1,5 +1,7 @@
 //  CONTACTS CONTROLLERS
 import { Response, Request } from "express";
+import { Contact } from "../models/Contact";
+import { validationResult } from "express-validator";
 
 type Controllers = (req: Request, res: Response) => void;
 
@@ -8,9 +10,14 @@ type Controllers = (req: Request, res: Response) => void;
  * @description   Gets users contacts
  * @route         GET /api/contacts
  */
-export const getContacts: Controllers = (req, res) => {
+export const getContacts: Controllers = async (req, res) => {
   try {
-    res.json({ msg: "[CONTROLLER] GET api/contacts/" });
+    if (req.user) {
+      const contacts = await Contact.find({ user: req.user.id }).sort({
+        date: -1,
+      });
+      res.json(contacts);
+    }
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
@@ -22,9 +29,26 @@ export const getContacts: Controllers = (req, res) => {
  * @description   Creates contacts
  * @route         POST /api/contacts
  */
-export const postContacts: Controllers = (req, res) => {
+export const postContacts: Controllers = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const { name, email, phone, type } = req.body;
   try {
-    res.json({ msg: "[CONTROLLER] POST api/contacts/" });
+    if (name && req.user) {
+      const newContact = new Contact({
+        name,
+        email,
+        phone,
+        type,
+        user: req.user.id,
+      });
+
+      const contact = await newContact.save();
+
+      res.json(contact);
+    }
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
@@ -36,9 +60,33 @@ export const postContacts: Controllers = (req, res) => {
  * @description   Updates contacts
  * @route         PUT /api/contacts/:id
  */
-export const updateContacts: Controllers = (req, res) => {
+export const updateContacts: Controllers = async (req, res) => {
+  const { name, email, phone, type } = req.body;
+  const contactFields: {
+    name?: string;
+    email?: string;
+    phone?: number;
+    type?: string;
+  } = {};
+
+  if (name) contactFields.name = name;
+  if (email) contactFields.email = email;
+  if (phone) contactFields.phone = phone;
+  if (type) contactFields.type = type;
+
   try {
-    res.json({ msg: "[CONTROLLER] PUT api/contacts/" });
+    let contact = await Contact.findById(req.params.id);
+    if (!contact) return res.status(404).json({ msg: "Contact not found" });
+    if (req.user)
+      if (contact.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: "Not authorized" });
+      }
+    contact = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { $set: contactFields },
+      { new: true }
+    );
+    res.json(contact);
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
@@ -50,9 +98,18 @@ export const updateContacts: Controllers = (req, res) => {
  * @description   Deletes contacts
  * @route         DELETE /api/contacts/:id
  */
-export const deleteContacts: Controllers = (req, res) => {
+export const deleteContacts: Controllers = async (req, res) => {
   try {
-    res.json({ msg: "[CONTROLLER] DELETE api/contacts/" });
+    let contact = await Contact.findById(req.params.id);
+    if (!contact) return res.status(404).json({ msg: "Contact not found" });
+    if (req.user)
+      if (contact.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: "Not authorized" });
+      }
+
+    await Contact.findByIdAndRemove(req.params.id);
+
+    res.json({ msg: "Contact removed" });
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
