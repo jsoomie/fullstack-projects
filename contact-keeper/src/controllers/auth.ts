@@ -12,9 +12,10 @@ type Controllers = (req: Request, res: Response) => void;
  * @description   Gets logged in user
  * @route         GET api/auth
  */
-export const getAuth: Controllers = (req, res) => {
+export const getAuth: Controllers = async (req: any, res) => {
   try {
-    res.json({ msg: "[CONTROLLER] GET api/auth/" });
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
