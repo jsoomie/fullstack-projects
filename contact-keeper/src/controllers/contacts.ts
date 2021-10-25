@@ -1,5 +1,7 @@
 //  CONTACTS CONTROLLERS
 import { Response, Request } from "express";
+import { User } from "../models";
+import { Contact } from "../models/Contact";
 
 type Controllers = (req: Request, res: Response) => void;
 
@@ -8,9 +10,14 @@ type Controllers = (req: Request, res: Response) => void;
  * @description   Gets users contacts
  * @route         GET /api/contacts
  */
-export const getContacts: Controllers = (req, res) => {
+export const getContacts: Controllers = async (req, res) => {
   try {
-    res.json({ msg: "[CONTROLLER] GET api/contacts/" });
+    if (req.user) {
+      const contacts = await Contact.find({ user: req.user.id }).sort({
+        date: -1,
+      });
+      res.json(contacts);
+    }
   } catch (err) {
     console.error(err);
     res.json(err).status(500);

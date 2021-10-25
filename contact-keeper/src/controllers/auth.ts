@@ -12,10 +12,12 @@ type Controllers = (req: Request, res: Response) => void;
  * @description   Gets logged in user
  * @route         GET api/auth
  */
-export const getAuth: Controllers = async (req: any, res) => {
+export const getAuth: Controllers = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
-    res.json(user);
+    if (req.user) {
+      const user = await User.findById(req.user.id).select("-password");
+      res.json(user);
+    }
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
