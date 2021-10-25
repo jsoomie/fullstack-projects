@@ -1,6 +1,5 @@
 //  CONTACTS CONTROLLERS
 import { Response, Request } from "express";
-import { User } from "../models";
 import { Contact } from "../models/Contact";
 import { validationResult } from "express-validator";
 
@@ -99,9 +98,18 @@ export const updateContacts: Controllers = async (req, res) => {
  * @description   Deletes contacts
  * @route         DELETE /api/contacts/:id
  */
-export const deleteContacts: Controllers = (req, res) => {
+export const deleteContacts: Controllers = async (req, res) => {
   try {
-    res.json({ msg: "[CONTROLLER] DELETE api/contacts/" });
+    let contact = await Contact.findById(req.params.id);
+    if (!contact) return res.status(404).json({ msg: "Contact not found" });
+    if (req.user)
+      if (contact.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: "Not authorized" });
+      }
+
+    await Contact.findByIdAndRemove(req.params.id);
+
+    res.json({ msg: "Contact removed" });
   } catch (err) {
     console.error(err);
     res.json(err).status(500);
