@@ -5,11 +5,7 @@ interface IUserRequest extends Request {
   user: any;
 }
 
-type tokenChecker = (
-  req: IUserRequest,
-  res: Response,
-  next: NextFunction
-) => void;
+type tokenChecker = (req: any, res: Response, next: NextFunction) => void;
 export const tokenChecker: tokenChecker = (req, res, next) => {
   const token = <string>req.header("x-auth-token");
 
