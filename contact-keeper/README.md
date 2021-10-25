@@ -30,3 +30,7 @@ Welcome to the Contact Keeper Page!
 0.0.45 - Create getContacts controller
 
 0.0.48 - Remove second res.json in postContacts to prevent double headers being sent
+
+0.0.50 - Create update contacts
+
+0.0.53 - Create delete contacts 
