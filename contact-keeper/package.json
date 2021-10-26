@@ -8,7 +8,8 @@
   "scripts": {
     "dev:build": "parcel watch ./src/index.ts --dist-dir ./dist",
     "dev:server": "nodemon ./dist/index.js",
-    "start": "concurrently \"yarn dev:build\" \"yarn dev:server\" "
+    "dev:react": "cd client && yarn start",
+    "start": "concurrently \"yarn dev:build\" \"yarn dev:server\" \"yarn dev:react\" "
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
