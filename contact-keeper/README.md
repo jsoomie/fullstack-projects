@@ -34,3 +34,13 @@ Welcome to the Contact Keeper Page!
 0.0.50 - Create update contacts
 
 0.0.53 - Create delete contacts 
+
+0.0.60 - Create basic react application
+
+0.0.61 - React builds fails... using --openssl-legacy-provider to start react
+
+0.0.63 - Update package.json scripts to include running react in concurrenlty
+
+0.0.64 - Include proxy in package.json of client
+
+0.0.65 - Clean up of react project and included a couple more dependency in client
