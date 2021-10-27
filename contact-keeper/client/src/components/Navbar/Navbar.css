@@ -1,0 +1,28 @@
+#NavbarContainer {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  border-bottom: var(--borders);
+  width: 100%;
+  padding: 1rem;
+}
+
+#NavbarContainer svg {
+  font-size: 1.5rem;
+}
+
+#NavbarContainer .LeftContainer,
+#NavbarContainer .RightContainer {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+#NavbarContainer .LeftContainer {
+  align-items: center;
+}
+
+#NavbarContainer .RightContainer {
+  justify-content: flex-end;
+}
