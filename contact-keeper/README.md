@@ -44,3 +44,5 @@ Welcome to the Contact Keeper Page!
 0.0.64 - Include proxy in package.json of client
 
 0.0.65 - Clean up of react project and included a couple more dependency in client
+
+0.1.0 - Create a basic font end with home page and about page
