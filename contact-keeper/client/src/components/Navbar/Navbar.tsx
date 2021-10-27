@@ -10,6 +10,7 @@ export const Navbar = (): JSX.Element => {
         <p>Contact Keeper</p>
       </Link>
       <div className="RightContainer">
+        <p>Login</p>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </div>

@@ -6,6 +6,7 @@
   border-bottom: var(--borders);
   width: 100%;
   padding: 1rem;
+  gap: 1rem;
 }
 
 #NavbarContainer svg {
@@ -20,9 +21,35 @@
 }
 
 #NavbarContainer .LeftContainer {
+  justify-content: flex-start;
   align-items: center;
 }
 
 #NavbarContainer .RightContainer {
   justify-content: flex-end;
+}
+
+@media screen and (max-width: 900px) {
+  #NavbarContainer {
+    grid-template-columns: 1fr;
+  }
+
+  #NavbarContainer .LeftContainer,
+  #NavbarContainer .RightContainer {
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+
+  #NavbarContainer .RightContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #NavbarContainer .RightContainer > * {
+    border-bottom: var(--borders);
+    width: 100%;
+    text-align: center;
+  }
+  
 }
