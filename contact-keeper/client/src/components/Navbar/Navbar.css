@@ -8,6 +8,7 @@
   height: var(--nav-height);
   padding: var(--nav-padding);
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 #NavbarContainer svg {
