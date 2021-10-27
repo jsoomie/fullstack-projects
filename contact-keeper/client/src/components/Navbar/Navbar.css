@@ -5,7 +5,8 @@
   align-items: center;
   border-bottom: var(--borders);
   width: 100%;
-  padding: 1rem;
+  height: var(--nav-height);
+  padding: var(--nav-padding);
   gap: 1rem;
 }
 
@@ -25,6 +26,10 @@
   align-items: center;
 }
 
+#NavbarContainer .LeftContainer p {
+  font-size: 1.5rem;
+}
+
 #NavbarContainer .RightContainer {
   justify-content: flex-end;
 }
@@ -32,6 +37,11 @@
 @media screen and (max-width: 900px) {
   #NavbarContainer {
     grid-template-columns: 1fr;
+    height: calc(var(--nav-height) + 8rem);
+  }
+
+  #NavbarContainer svg {
+    display: none;
   }
 
   #NavbarContainer .LeftContainer,
@@ -51,5 +61,4 @@
     width: 100%;
     text-align: center;
   }
-  
 }
