@@ -48,3 +48,7 @@ Welcome to the Contact Keeper Page!
 0.1.00 - Create a basic font end with home page and about page
 
 0.1.05 - Create and styled navbar
+
+0.1.10 - Update * pages with container
+
+0.1.13 - Remove appc.css and moved utils and media queries inside only to remove them back into app.css as index.css is global
