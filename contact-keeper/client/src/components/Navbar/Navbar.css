@@ -6,7 +6,7 @@
   border-bottom: var(--borders);
   width: 100%;
   height: var(--nav-height);
-  padding: var(--nav-padding);
+  padding: var(--nav-padding) 3rem;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -33,33 +33,4 @@
 
 #NavbarContainer .RightContainer {
   justify-content: flex-end;
-}
-
-@media screen and (max-width: 900px) {
-  #NavbarContainer {
-    grid-template-columns: 1fr;
-    height: calc(var(--nav-height) + 8rem);
-  }
-
-  #NavbarContainer svg {
-    display: none;
-  }
-
-  #NavbarContainer .LeftContainer,
-  #NavbarContainer .RightContainer {
-    display: flex;
-    font-size: 1.2rem;
-    justify-content: center;
-  }
-
-  #NavbarContainer .RightContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #NavbarContainer .RightContainer > * {
-    border-bottom: var(--borders);
-    width: 100%;
-    text-align: center;
-  }
 }

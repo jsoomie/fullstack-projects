@@ -1,0 +1,45 @@
+#AboutPage .VersionBadge {
+  background-color: #333;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+#AboutPage .VersionBadge p {
+  color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  /* MAIN */
+  .container {
+    text-align: center;
+  }
+
+  /* NAVBAR */
+  #NavbarContainer {
+    grid-template-columns: 1fr;
+    height: calc(var(--nav-height) + 8rem);
+    border: 1px solid red;
+  }
+
+  #NavbarContainer svg {
+    display: none;
+  }
+
+  #NavbarContainer .LeftContainer,
+  #NavbarContainer .RightContainer {
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+
+  #NavbarContainer .RightContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #NavbarContainer .RightContainer > * {
+    border-bottom: var(--borders);
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -2,7 +2,7 @@ import { Navbar } from "../components";
 
 export const About = (): JSX.Element => {
   return (
-    <div>
+    <div id="AboutPage">
       <Navbar />
       <div className="container">
         <h1>Contact Keeper</h1>
@@ -11,6 +11,10 @@ export const About = (): JSX.Element => {
           Where you can create your own personal contacts books with name, phone
           numbers, emails and addresses!
         </p>
+
+        <div className="VersionBadge">
+          <p>Version: 0.1.10</p>
+        </div>
       </div>
     </div>
   );

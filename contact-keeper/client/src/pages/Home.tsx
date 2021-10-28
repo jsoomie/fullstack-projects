@@ -2,7 +2,7 @@ import { Navbar } from "../components";
 
 export const Home = (): JSX.Element => {
   return (
-    <div>
+    <div className="HomePage">
       <Navbar />
       <div className="container">
         <h1>Home Page</h1>
