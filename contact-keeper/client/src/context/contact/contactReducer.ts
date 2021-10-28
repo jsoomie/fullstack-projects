@@ -10,6 +10,7 @@ export interface IState {
   type: string;
 }
 
+// TODO: Temporary state, will remove
 export const initialState: IContact = {
   contacts: [
     {
@@ -19,9 +20,30 @@ export const initialState: IContact = {
       phone: "123-123-1234",
       type: "professional",
     },
+    {
+      id: 2,
+      name: "Lacie Liddel",
+      email: "Lacie@gmail.com",
+      phone: "098-098-9876",
+      type: "personal",
+    },
+    {
+      id: 3,
+      name: "Mad Hatter",
+      email: "hatter@gmail.com",
+      phone: "555-555-5555",
+      type: "personal",
+    },
   ],
 };
 
-export const contactReducer = () => {
-  console.log("CONTACT REDUCER");
+export const contactReducer = (state, action) => {
+  switch (action.type) {
+    case TEST:
+      return {
+        ...state,
+        contacts: action.payload,
+        loading: false,
+      };
+  }
 };
