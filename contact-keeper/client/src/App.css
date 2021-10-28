@@ -8,7 +8,11 @@
   color: #fff;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 735px) {
+  * {
+    font-size: 1.1rem;
+  }
+  
   /* MAIN */
   .container {
     text-align: center;
@@ -18,7 +22,6 @@
   #NavbarContainer {
     grid-template-columns: 1fr;
     height: calc(var(--nav-height) + 8rem);
-    border: 1px solid red;
   }
 
   #NavbarContainer svg {
