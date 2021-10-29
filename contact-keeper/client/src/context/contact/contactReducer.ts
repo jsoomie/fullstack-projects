@@ -24,7 +24,29 @@ export interface IState {
 
 // TODO: Temporary state, will remove
 export const initialState: IState = {
-  contacts: [],
+  contacts: [
+    {
+      id: 1,
+      name: "alice",
+      email: "alice@gmail.com",
+      phone: "123-123-1234",
+      type: "professional",
+    },
+    {
+      id: 2,
+      name: "lacie",
+      email: "lacie@gmail.com",
+      phone: "555-555-5555",
+      type: "personal",
+    },
+    {
+      id: 3,
+      name: "cheshire",
+      email: "cheshire@gmail.com",
+      phone: "777-123-4444",
+      type: "personal",
+    },
+  ],
 };
 
 type Action =

@@ -10,6 +10,10 @@ export {
   REMOVE_ALERT,
 } from "./actions";
 
+// Contacts
 export { contactContext } from "./contact/contactContext";
-export { contactReducer } from "./contact/contactReducer";
+export { contactReducer, initialState } from "./contact/contactReducer";
 export { ContactState } from "./contact/contactState";
+
+// Types
+export type { ContactData, IState } from "./contact/contactReducer";
