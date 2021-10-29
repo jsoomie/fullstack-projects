@@ -50,17 +50,17 @@ export const initialState: IContact = {
 };
 
 type Action =
-  | { type: typeof ADD_CONTACT; payload: IState }
-  | { type: typeof DELETE_CONTACT; payload: IState }
-  | { type: typeof SET_CURRENT; payload: IState }
-  | { type: typeof CLEAR_CURRENT; payload: IState }
-  | { type: typeof UPDATE_CONTACT; payload: IState }
-  | { type: typeof FILTER_CONTACTS; payload: IState }
-  | { type: typeof CLEAR_FILTER; payload: IState }
-  | { type: typeof SET_ALERT; payload: IState }
-  | { type: typeof REMOVE_ALERT; payload: IState };
+  | { type: typeof ADD_CONTACT; payload: IContact }
+  | { type: typeof DELETE_CONTACT; payload: IContact }
+  | { type: typeof SET_CURRENT; payload: IContact }
+  | { type: typeof CLEAR_CURRENT; payload: IContact }
+  | { type: typeof UPDATE_CONTACT; payload: IContact }
+  | { type: typeof FILTER_CONTACTS; payload: IContact }
+  | { type: typeof CLEAR_FILTER; payload: IContact }
+  | { type: typeof SET_ALERT; payload: IContact }
+  | { type: typeof REMOVE_ALERT; payload: IContact };
 
-type Reducer = (state: IState, action: Action) => IState;
+type Reducer = (state: IState[], action: Action) => IState[];
 
 export const contactReducer: Reducer = (state, action) => {
   switch (action.type) {
@@ -68,7 +68,6 @@ export const contactReducer: Reducer = (state, action) => {
       return {
         ...state,
         contacts: action.payload,
-        loading: false,
       };
     default:
       return state;

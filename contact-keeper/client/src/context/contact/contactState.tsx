@@ -19,5 +19,27 @@ type ChildProps = {
 
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
-  return <div>{children}</div>;
+  // Add contact
+
+  // Delete Contact
+
+  // Set Current Contact
+
+  // Clear current contact
+
+  // Update contact
+
+  // Filter contacts
+
+  // Clear filter
+
+  return (
+    <contactContext.Provider
+      value={{
+        contacts: state.contacts,
+      }}
+    >
+      {children}
+    </contactContext.Provider>
+  );
 };
