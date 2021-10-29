@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { IContact, initialState } from "./contactReducer";
+import { initialState } from "./contactReducer";
 
-export const contactContext = createContext<IContact>(initialState);
+export const contactContext = createContext<typeof initialState>(initialState);

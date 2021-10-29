@@ -10,11 +10,7 @@ import {
   REMOVE_ALERT,
 } from "../actions";
 
-export interface IContact {
-  contacts: IState[];
-}
-
-export interface IState {
+export interface ContactData {
   id: number;
   name: string;
   email: string;
@@ -22,49 +18,39 @@ export interface IState {
   type: string;
 }
 
+export interface IState {
+  contacts: ContactData[];
+}
+
 // TODO: Temporary state, will remove
-export const initialState: IContact = {
-  contacts: [
-    {
-      id: 1,
-      name: "Alice Liddel",
-      email: "alice@gmail.com",
-      phone: "123-123-1234",
-      type: "professional",
-    },
-    {
-      id: 2,
-      name: "Lacie Liddel",
-      email: "Lacie@gmail.com",
-      phone: "098-098-9876",
-      type: "personal",
-    },
-    {
-      id: 3,
-      name: "Mad Hatter",
-      email: "hatter@gmail.com",
-      phone: "555-555-5555",
-      type: "personal",
-    },
-  ],
+export const initialState: IState = {
+  contacts: [],
 };
 
 type Action =
-  | { type: typeof ADD_CONTACT; payload: IContact }
-  | { type: typeof DELETE_CONTACT; payload: IContact }
-  | { type: typeof SET_CURRENT; payload: IContact }
-  | { type: typeof CLEAR_CURRENT; payload: IContact }
-  | { type: typeof UPDATE_CONTACT; payload: IContact }
-  | { type: typeof FILTER_CONTACTS; payload: IContact }
-  | { type: typeof CLEAR_FILTER; payload: IContact }
-  | { type: typeof SET_ALERT; payload: IContact }
-  | { type: typeof REMOVE_ALERT; payload: IContact };
+  | { type: typeof ADD_CONTACT; payload: ContactData[] }
+  | { type: typeof DELETE_CONTACT; payload: ContactData[] }
+  | { type: typeof SET_CURRENT; payload: ContactData[] }
+  | { type: typeof CLEAR_CURRENT; payload: ContactData[] }
+  | { type: typeof UPDATE_CONTACT; payload: ContactData[] }
+  | { type: typeof FILTER_CONTACTS; payload: ContactData[] }
+  | { type: typeof CLEAR_FILTER }
+  | { type: typeof SET_ALERT }
+  | { type: typeof REMOVE_ALERT };
 
-type Reducer = (state: IState[], action: Action) => IState[];
+type ContactReducer = (
+  state: typeof initialState,
+  action: Action
+) => typeof initialState;
 
-export const contactReducer: Reducer = (state, action) => {
+export const contactReducer: ContactReducer = (state, action) => {
   switch (action.type) {
     case ADD_CONTACT:
+      return {
+        ...state,
+        contacts: action.payload,
+      };
+    case DELETE_CONTACT:
       return {
         ...state,
         contacts: action.payload,
