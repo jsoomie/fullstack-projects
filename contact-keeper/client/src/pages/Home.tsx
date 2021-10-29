@@ -1,4 +1,4 @@
-import { Navbar } from "../components";
+import { Navbar, Contacts } from "../components";
 
 export const Home = (): JSX.Element => {
   return (
@@ -6,6 +6,7 @@ export const Home = (): JSX.Element => {
       <Navbar />
       <div className="container">
         <h1>Home Page</h1>
+        <Contacts />
       </div>
     </div>
   );
