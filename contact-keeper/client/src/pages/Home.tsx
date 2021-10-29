@@ -5,8 +5,10 @@ export const Home = (): JSX.Element => {
     <div className="HomePage">
       <Navbar />
       <div className="container">
-        <h1>Home Page</h1>
-        <Contacts />
+        <div id="StageContainer">
+          <div id="AddContactContainer"></div>
+          <Contacts />
+        </div>
       </div>
     </div>
   );

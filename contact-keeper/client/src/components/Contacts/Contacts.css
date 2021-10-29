@@ -1,3 +1,32 @@
 #ContactContainer {
-  border: 1px solid red;
+  background-color: #fff;
+}
+
+.Contacts {
+  border: 1px solid lightgray;
+  background-color: aliceblue;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Contacts .Left {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.Contacts .Left p {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Contacts .Left h1 {
+  color: darkblue;
+}
+
+.Contacts .Right {
+  text-align: right;
 }

@@ -8,6 +8,13 @@
   color: #fff;
 }
 
+/* Placeholder for now */
+#StageContainer {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media screen and (max-width: 735px) {
   * {
     font-size: 1.1rem;
