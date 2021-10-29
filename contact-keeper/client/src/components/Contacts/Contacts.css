@@ -35,21 +35,30 @@
 
 .Contacts .Left .ButtonContainer button {
   background-color: rgb(167, 49, 49);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #fff;
-  padding: 0.3rem 1rem;
+  padding: 0.1rem 1rem;
   border: none;
   margin-top: 0.5rem;
 }
 
+.Contacts .Left .ButtonContainer button:last-child {
+  opacity: 0.5;
+}
+
 .Contacts .Left .ButtonContainer button:last-child:hover {
+  opacity: 1;
   background-color: red;
 }
 
 .Contacts .Left .ButtonContainer button:first-child {
-  border: 1px solid lightgray;
-  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid black;
+  color: #fff;
   background-color: transparent;
+  background-color: #333;
 }
 
 .Contacts .Left .ButtonContainer button:first-child:hover {
