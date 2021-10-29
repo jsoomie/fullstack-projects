@@ -12,8 +12,8 @@
 }
 
 .Contacts .Left {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 
 .Contacts .Left p {
@@ -25,8 +25,43 @@
 
 .Contacts .Left h1 {
   color: darkblue;
+  margin-bottom: 0.5rem;
+}
+
+.Contacts .Left .ButtonContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.Contacts .Left .ButtonContainer button {
+  background-color: rgb(167, 49, 49);
+  font-size: 0.7rem;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.Contacts .Left .ButtonContainer button:last-child:hover {
+  background-color: red;
+}
+
+.Contacts .Left .ButtonContainer button:first-child {
+  border: 1px solid lightgray;
+  color: #333;
+  background-color: transparent;
+}
+
+.Contacts .Left .ButtonContainer button:first-child:hover {
+  background-color: darkblue;
+  color: #fff;
 }
 
 .Contacts .Right {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Contacts .Right p {
+  font-size: 0.8rem;
 }

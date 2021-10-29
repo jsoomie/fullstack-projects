@@ -23,7 +23,13 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
         </div>
       </div>
       <div className="Right">
-        <p className="Badge">{contact.type}</p>
+        <p
+          className={
+            contact.type === "professional" ? "BadgeBlue" : "BadgeGreen"
+          }
+        >
+          {contact.type}
+        </p>
       </div>
     </li>
   );
