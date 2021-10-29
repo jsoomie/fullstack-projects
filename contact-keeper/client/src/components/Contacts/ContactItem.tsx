@@ -25,7 +25,7 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
       <div className="Right">
         <p
           className={
-            contact.type === "professional" ? "BadgeBlue" : "BadgeGreen"
+            contact.type === "professional" ? "BadgeBlue" : "BadgeGray"
           }
         >
           {contact.type}

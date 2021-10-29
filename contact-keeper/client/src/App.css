@@ -15,6 +15,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.BadgeGray,
 .BadgeBlue,
 .BadgeGreen {
   background-color: inherit;
@@ -31,6 +32,10 @@
 
 .BadgeGreen {
   background-color: darkgreen;
+}
+
+.BadgeGray {
+  background-color: #333;
 }
 
 @media screen and (max-width: 735px) {
