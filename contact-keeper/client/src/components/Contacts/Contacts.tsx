@@ -7,10 +7,10 @@ export const Contacts = (): JSX.Element => {
   const { contacts } = useContext(contactContext);
 
   return (
-    <div id="ContactContainer">
+    <ul id="ContactContainer">
       {contacts.map((contact) => (
         <ContactItems contact={contact} />
       ))}
-    </div>
+    </ul>
   );
 };

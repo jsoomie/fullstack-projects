@@ -1,5 +1,4 @@
 import { ContactData } from "../../context";
-import { Fragment } from "react";
 
 interface IProp {
   contact: ContactData;
@@ -7,11 +6,11 @@ interface IProp {
 
 export const ContactItems = ({ contact }: IProp): JSX.Element => {
   return (
-    <Fragment>
+    <li>
       <h1>{contact.name}</h1>
       <p>{contact.email}</p>
       <p>{contact.phone}</p>
       <p>{contact.type}</p>
-    </Fragment>
+    </li>
   );
 };
