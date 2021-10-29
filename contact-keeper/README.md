@@ -52,3 +52,5 @@ Welcome to the Contact Keeper Page!
 0.1.10 - Update * pages with container
 
 0.1.13 - Remove appc.css and moved utils and media queries inside only to remove them back into app.css as index.css is global
+
+0.1.20 - Create reducer and context for contacts and prep for contact components 
