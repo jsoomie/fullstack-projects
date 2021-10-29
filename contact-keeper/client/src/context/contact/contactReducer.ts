@@ -1,3 +1,15 @@
+import {
+  ADD_CONTACT,
+  DELETE_CONTACT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_CONTACT,
+  FILTER_CONTACTS,
+  CLEAR_FILTER,
+  SET_ALERT,
+  REMOVE_ALERT,
+} from "../actions";
+
 export interface IContact {
   contacts: IState[];
 }
@@ -37,13 +49,28 @@ export const initialState: IContact = {
   ],
 };
 
-export const contactReducer = (state, action) => {
+type Action =
+  | { type: typeof ADD_CONTACT; payload: IState }
+  | { type: typeof DELETE_CONTACT; payload: IState }
+  | { type: typeof SET_CURRENT; payload: IState }
+  | { type: typeof CLEAR_CURRENT; payload: IState }
+  | { type: typeof UPDATE_CONTACT; payload: IState }
+  | { type: typeof FILTER_CONTACTS; payload: IState }
+  | { type: typeof CLEAR_FILTER; payload: IState }
+  | { type: typeof SET_ALERT; payload: IState }
+  | { type: typeof REMOVE_ALERT; payload: IState };
+
+type Reducer = (state: IState, action: Action) => IState;
+
+export const contactReducer: Reducer = (state, action) => {
   switch (action.type) {
-    case TEST:
+    case ADD_CONTACT:
       return {
         ...state,
         contacts: action.payload,
         loading: false,
       };
+    default:
+      return state;
   }
 };
