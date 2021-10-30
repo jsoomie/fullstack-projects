@@ -1,0 +1,41 @@
+#AddContactsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+#AddContactsContainer input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding: 0.25rem 0;
+}
+
+#AddContactsContainer .RadioContainer {
+  padding: 1rem;
+  border: 1px solid lightgray;
+}
+
+#AddContactsContainer .RadioContainer p {
+  margin-bottom: 0.5rem;
+}
+
+#AddContactsContainer .RadioContainer label {
+  padding-right: 1rem;
+  padding-left: 0.25rem;
+}
+
+#AddContactsContainer .ButtonContainer {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#AddContactsContainer .ButtonContainer input {
+  width: 100%;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}

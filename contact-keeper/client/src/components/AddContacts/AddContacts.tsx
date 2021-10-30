@@ -1,6 +1,6 @@
 import "./AddContacts.css";
-import { useState } from "react";
-import { ContactData } from "../../context";
+import { ChangeEvent, useState } from "react";
+import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
   const initialContactData: ContactData = {
@@ -11,11 +11,11 @@ export const AddContacts = () => {
     type: "personal",
   };
 
-  const [{ name, email, phone, type }, setContact] =
-    useState<ContactData>(initialContactData);
+  const [contact, setContact] = useState<ContactData>(initialContactData);
+  const { name, email, phone, type } = contact;
 
-  const onChange = () => {
-    console.log("ON CHANGE");
+  const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    setContact({ ...contact, [target.name]: target.value });
   };
 
   return (
@@ -42,22 +42,26 @@ export const AddContacts = () => {
         value={phone}
         onChange={onChange}
       />
-      <h5>Contact Type</h5>
-      <input
-        type="radio"
-        name="type"
-        value="personal"
-        checked={type === "personal"}
-      />
-      Personal
-      <input
-        type="radio"
-        name="type"
-        value="personal"
-        checked={type === "professional"}
-      />
-      Professional
-      <div>
+      <div className="RadioContainer">
+        <p>Contact Type</p>
+        <input
+          className="PersonalRadio"
+          type="radio"
+          name="type"
+          value="personal"
+          checked={type === "personal"}
+        />
+        <label htmlFor="type">Personal</label>
+        <input
+          className="ProfessionalRadio"
+          type="radio"
+          name="type"
+          value="personal"
+          checked={type === "professional"}
+        />
+        <label>Professional</label>
+      </div>
+      <div className="ButtonContainer">
         <input type="submit" value="Add Contact" />
       </div>
     </form>
