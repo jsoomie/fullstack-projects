@@ -40,6 +40,7 @@
   padding: 0.1rem 1rem;
   border: none;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .Contacts .Left .ButtonContainer button:last-child {
