@@ -5,17 +5,18 @@ interface IProp {
 }
 
 export const ContactItems = ({ contact }: IProp): JSX.Element => {
+  const { name, email, phone, type } = contact;
   return (
     <li className="Contacts">
       <div className="Left">
-        <h1>{contact.name}</h1>
+        <h1>{name}</h1>
         <p>
           <HiOutlineMail />
-          {contact.email}
+          {email ? email : "No listed email"}
         </p>
         <p>
           <HiOutlinePhone />
-          {contact.phone}
+          {phone ? phone : "No listed phone number"}
         </p>
         <div className="ButtonContainer">
           <button>Edit</button>
@@ -23,12 +24,8 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
         </div>
       </div>
       <div className="Right">
-        <p
-          className={
-            contact.type === "professional" ? "BadgeBlue" : "BadgeGray"
-          }
-        >
-          {contact.type}
+        <p className={type === "professional" ? "BadgeBlue" : "BadgeGray"}>
+          {type}
         </p>
       </div>
     </li>
