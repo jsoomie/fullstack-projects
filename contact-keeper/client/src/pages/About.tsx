@@ -13,7 +13,7 @@ export const About = (): JSX.Element => {
         </p>
 
         <div className="VersionBadge">
-          <p>Version: 0.1.10</p>
+          <p>Version: 0.1.25</p>
         </div>
       </div>
     </div>
