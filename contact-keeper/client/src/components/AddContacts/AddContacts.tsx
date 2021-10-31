@@ -1,8 +1,9 @@
 import "./AddContacts.css";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState, useContext } from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
+  const context = useContext(contactContext);
   const initialContactData: ContactData = {
     id: 0,
     name: "",
@@ -18,8 +19,18 @@ export const AddContacts = () => {
     setContact({ ...contact, [target.name]: target.value });
   };
 
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // context.addContact(contact);
+    console.log("SUBMITTED");
+    setContact({
+      ...contact,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  };
+
   return (
-    <form id="AddContactsContainer">
+    <form id="AddContactsContainer" onSubmit={onSubmit}>
       <h2>Add Contacts</h2>
       <input
         type="text"
