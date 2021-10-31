@@ -11,7 +11,7 @@ import {
 } from "../actions";
 
 export interface ContactData {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;
@@ -26,21 +26,21 @@ export interface IState {
 export const initialState: IState = {
   contacts: [
     {
-      id: 1,
+      id: "1",
       name: "alice",
       email: "alice@gmail.com",
       phone: "123-123-1234",
       type: "professional",
     },
     {
-      id: 2,
+      id: "2",
       name: "lacie",
       email: "lacie@gmail.com",
       phone: "555-555-5555",
       type: "personal",
     },
     {
-      id: 3,
+      id: "3",
       name: "cheshire",
       email: "cheshire@gmail.com",
       phone: "777-123-4444",

@@ -12,6 +12,7 @@ import {
   FILTER_CONTACTS,
   CLEAR_FILTER,
 } from "../actions";
+import { ContactData } from "..";
 
 type ChildProps = {
   children?: JSX.Element;
@@ -20,6 +21,13 @@ type ChildProps = {
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
   // Add contact
+  const addContact = (contact: ContactData[]) => {
+    contact[0].id = uuid();
+    dispatch({
+      type: ADD_CONTACT,
+      payload: contact,
+    });
+  };
 
   // Delete Contact
 

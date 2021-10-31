@@ -3,9 +3,9 @@ import { ChangeEvent, FormEvent, useState, useContext } from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
-  const context = useContext(contactContext);
+  // const context = useContext(contactContext);
   const initialContactData: ContactData = {
-    id: 0,
+    id: "0",
     name: "",
     email: "",
     phone: "",
