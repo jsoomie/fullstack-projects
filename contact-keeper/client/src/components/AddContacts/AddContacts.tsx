@@ -1,5 +1,11 @@
 import "./AddContacts.css";
-import { ChangeEvent, FormEvent, useState, useContext } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  useState,
+  useContext,
+  HTMLAttributes,
+} from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
@@ -29,8 +35,16 @@ export const AddContacts = () => {
     });
   };
 
+  // type Style<T extends HTMLElement> = HTMLAttributes<T>["style"];
+  // const testStyles: Style<HTMLDivElement> = {
+  //   border: "1px solid red",
+  //   backgroundColor: "yellow",
+  //   padding: "1rem",
+  // };
+
   return (
     <form id="AddContactsContainer" onSubmit={onSubmit}>
+      {/* <div style={testStyles}>Hello</div> */}
       <h2>Add Contacts</h2>
       <input
         type="text"

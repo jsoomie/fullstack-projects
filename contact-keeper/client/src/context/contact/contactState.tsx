@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import { v4 as uuid } from "uuid";
 import { contactContext } from "./contactContext";
-import { contactReducer } from "./contactReducer";
-import { initialState } from "./contactReducer";
+import { contactReducer, GlobalUser } from "./contactReducer";
+
 import {
   ADD_CONTACT,
   DELETE_CONTACT,
@@ -19,13 +19,18 @@ type ChildProps = {
 };
 
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
-  const [state, dispatch] = useReducer(contactReducer, initialState);
+  const [state, dispatch] = useReducer(contactReducer, GlobalUser);
   // Add contact
-  const addContact = (contact: ContactData[]) => {
-    contact[0].id = uuid();
+  const addContacts = (contact: ContactData[]) => {
+    // TEMPORARY!!!!!!!!!!
+    // only used to create id whereas mongo will create one for us
+    for (let key in contact) {
+      contact[key].id = uuid();
+    }
+
     dispatch({
       type: ADD_CONTACT,
-      payload: contact,
+      payload: ,
     });
   };
 
@@ -44,7 +49,8 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   return (
     <contactContext.Provider
       value={{
-        contacts: state.contacts,
+        contacts: GlobalUser.contacts,
+        addContacts,
       }}
     >
       {children}

@@ -1,4 +1,5 @@
 import { createContext } from "react";
-import { initialState } from "./contactReducer";
+import { IState } from "..";
+import { GlobalUser } from "./contactReducer";
 
-export const contactContext = createContext<typeof initialState>(initialState);
+export const contactContext = createContext<IState>(GlobalUser);
