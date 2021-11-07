@@ -21,6 +21,7 @@ export interface ContactData {
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
+  addContacts: Function;
 }
 
 // TODO: Temporary state, will remove
@@ -47,10 +48,6 @@ export const initialState: ContactData[] = [
     type: "personal",
   },
 ];
-
-export const GlobalUser: IState = {
-  contacts: initialState,
-};
 
 type Action = { type: typeof ADD_CONTACT; payload: ContactData[] };
 

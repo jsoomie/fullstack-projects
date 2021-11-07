@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { v4 as uuid } from "uuid";
 import { contactContext } from "./contactContext";
-import { contactReducer, GlobalUser } from "./contactReducer";
+import { contactReducer, initialState, IState } from "./contactReducer";
 
 import {
   ADD_CONTACT,
@@ -18,6 +18,11 @@ type ChildProps = {
   children?: JSX.Element;
 };
 
+export const GlobalUser: IState = {
+  contacts: initialState,
+  addContacts: Function,
+};
+
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, GlobalUser);
   // Add contact
@@ -27,9 +32,9 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     for (let key in contact) {
       contact[key].id = uuid();
     }
-  };
 
-  console.log(state);
+    dispatch({ type: ADD_CONTACT, payload: contact });
+  };
 
   // Delete Contact
 
@@ -46,7 +51,8 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   return (
     <contactContext.Provider
       value={{
-        contacts: GlobalUser.contacts,
+        contacts: state.contacts,
+        addContacts,
       }}
     >
       {children}

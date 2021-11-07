@@ -1,11 +1,5 @@
 import "./AddContacts.css";
-import {
-  ChangeEvent,
-  FormEvent,
-  useState,
-  useContext,
-  HTMLAttributes,
-} from "react";
+import { ChangeEvent, FormEvent, useState, useContext } from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
