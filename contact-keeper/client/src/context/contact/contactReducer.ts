@@ -18,20 +18,10 @@ export interface ContactData {
   type: "professional" | "personal";
 }
 
-export interface Contacts {
-  contacts: ContactData[];
-}
-
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
-  addContacts: Function;
 }
-
-export const GlobalUser: IState = {
-  contacts: [],
-  addContacts: Function,
-};
 
 // TODO: Temporary state, will remove
 export const initialState: ContactData[] = [
@@ -58,25 +48,15 @@ export const initialState: ContactData[] = [
   },
 ];
 
-type Action =
-  | { type: typeof ADD_CONTACT; payload: ContactData }
-  | { type: typeof DELETE_CONTACT; payload: ContactData[] }
-  | { type: typeof SET_CURRENT; payload: ContactData[] }
-  | { type: typeof CLEAR_CURRENT; payload: ContactData[] }
-  | { type: typeof UPDATE_CONTACT; payload: ContactData[] }
-  | { type: typeof FILTER_CONTACTS; payload: ContactData[] }
-  | { type: typeof CLEAR_FILTER }
-  | { type: typeof SET_ALERT }
-  | { type: typeof REMOVE_ALERT };
+export const GlobalUser: IState = {
+  contacts: initialState,
+};
 
-export const contactReducer = (state: IState, action: Action) => {
+type Action = { type: typeof ADD_CONTACT; payload: ContactData[] };
+
+export const contactReducer = (state: IState, action: Action): IState => {
   switch (action.type) {
     case ADD_CONTACT:
-      return {
-        ...state,
-        contacts: [...state.contacts, action.payload],
-      };
-    case DELETE_CONTACT:
       return {
         ...state,
         contacts: action.payload,

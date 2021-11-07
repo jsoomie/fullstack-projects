@@ -27,12 +27,9 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     for (let key in contact) {
       contact[key].id = uuid();
     }
-
-    dispatch({
-      type: ADD_CONTACT,
-      payload: ,
-    });
   };
+
+  console.log(state);
 
   // Delete Contact
 
@@ -50,7 +47,6 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     <contactContext.Provider
       value={{
         contacts: GlobalUser.contacts,
-        addContacts,
       }}
     >
       {children}
