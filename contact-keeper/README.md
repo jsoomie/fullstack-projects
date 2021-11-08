@@ -56,3 +56,5 @@ Welcome to the Contact Keeper Page!
 0.1.20 - Create reducer and context for contacts and prep for contact components 
 
 0.1.25 - Prep for add form for contacts
+
+0.1.50 - Create reducer and context for global user state
