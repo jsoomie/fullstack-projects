@@ -4,17 +4,15 @@ import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
   const { contacts, addContacts } = useContext(contactContext);
-  const initialContactData: ContactData[] = [
-    {
-      id: "0",
-      name: "",
-      email: "",
-      phone: "",
-      type: "personal",
-    },
-  ];
-
-  const [contact, setContact] = useState<ContactData[]>(initialContactData);
+  const initialContactData: ContactData = {
+    id: "0",
+    name: "",
+    email: "",
+    phone: "",
+    type: "personal",
+  };
+  const [contact, setContact] = useState<ContactData>(initialContactData);
+  const { name, email, phone, type } = contact;
 
   const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setContact({ ...contact, [target.name]: target.value });

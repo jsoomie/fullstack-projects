@@ -19,20 +19,28 @@ type ChildProps = {
 };
 
 export const GlobalUser: IState = {
-  contacts: [],
+  contacts: initialState,
+  contact: {
+    id: "100",
+    name: "Hello",
+    email: "whatever@gmail.com",
+    phone: "123-009-9087",
+    type: "personal",
+  },
   addContacts: Function,
 };
 
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, GlobalUser);
   // Add contact
-  const addContacts = (contact: ContactData[]) => {
+  const addContacts = (contact: ContactData) => {
     // TEMPORARY: only use until mongo automatically adds id
     // for (let key in contact) {
     //   contact[key].id = uuid();
     // }
-    console.log(contact);
+    // console.log(contact);
     dispatch({ type: ADD_CONTACT, payload: contact });
+    console.log(state.contacts);
   };
 
   // Delete Contact
@@ -51,6 +59,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     <contactContext.Provider
       value={{
         contacts: state.contacts,
+        contact: state.contact,
         addContacts,
       }}
     >

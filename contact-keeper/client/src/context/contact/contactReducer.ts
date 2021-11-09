@@ -21,6 +21,7 @@ export interface ContactData {
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
+  contact: ContactData;
   addContacts: Function;
 }
 
@@ -49,16 +50,15 @@ export const initialState: ContactData[] = [
   },
 ];
 
-type Action = { type: typeof ADD_CONTACT; payload: ContactData[] };
+type Action = { type: typeof ADD_CONTACT; payload: ContactData };
 
 export const contactReducer = (state: IState, action: Action): IState => {
-  console.log(state);
-  console.log(action.payload);
   switch (action.type) {
     case ADD_CONTACT:
       return {
         ...state,
-        contacts: action.payload,
+        contact: action.payload,
+        contacts: [...state.contacts, action.payload],
       };
     default:
       return state;

@@ -9,10 +9,10 @@ export const Contacts = (): JSX.Element => {
   return (
     <Fragment>
       <ul id="ContactContainer">
-        {/* {contacts &&
+        {contacts &&
           contacts.map((contact) => (
             <ContactItems contact={contact} key={contact.id} />
-          ))} */}
+          ))}
       </ul>
     </Fragment>
   );
