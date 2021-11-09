@@ -27,6 +27,10 @@ export const AddContacts = () => {
     addContacts(contact);
   };
 
+  const radioChange = () => {
+    console.log("Radio buttons");
+  };
+
   return (
     <form id="AddContactsContainer" onSubmit={onSubmit}>
       <h2>Add Contacts</h2>
@@ -59,6 +63,7 @@ export const AddContacts = () => {
           name="type"
           value="personal"
           checked={type === "personal"}
+          onChange={radioChange}
         />
         <label htmlFor="type">Personal</label>
         <input
@@ -67,6 +72,7 @@ export const AddContacts = () => {
           name="type"
           value="personal"
           checked={type === "professional"}
+          onChange={radioChange}
         />
         <label>Professional</label>
       </div>
