@@ -19,7 +19,7 @@ type ChildProps = {
 };
 
 export const GlobalUser: IState = {
-  contacts: initialState,
+  contacts: [],
   addContacts: Function,
 };
 
@@ -28,10 +28,10 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   // Add contact
   const addContacts = (contact: ContactData[]) => {
     // TEMPORARY: only use until mongo automatically adds id
-    for (let key in contact) {
-      contact[key].id = uuid();
-    }
-
+    // for (let key in contact) {
+    //   contact[key].id = uuid();
+    // }
+    console.log(contact);
     dispatch({ type: ADD_CONTACT, payload: contact });
   };
 

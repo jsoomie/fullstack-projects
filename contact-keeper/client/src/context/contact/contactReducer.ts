@@ -52,6 +52,8 @@ export const initialState: ContactData[] = [
 type Action = { type: typeof ADD_CONTACT; payload: ContactData[] };
 
 export const contactReducer = (state: IState, action: Action): IState => {
+  console.log(state);
+  console.log(action.payload);
   switch (action.type) {
     case ADD_CONTACT:
       return {

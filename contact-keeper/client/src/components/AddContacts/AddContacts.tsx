@@ -4,17 +4,17 @@ import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
   const { contacts, addContacts } = useContext(contactContext);
-  console.log(contacts);
-  const initialContactData: ContactData = {
-    id: "0",
-    name: "",
-    email: "",
-    phone: "",
-    type: "personal",
-  };
+  const initialContactData: ContactData[] = [
+    {
+      id: "0",
+      name: "",
+      email: "",
+      phone: "",
+      type: "personal",
+    },
+  ];
 
-  const [contact, setContact] = useState<ContactData>(initialContactData);
-  const { name, email, phone, type } = contact;
+  const [contact, setContact] = useState<ContactData[]>(initialContactData);
 
   const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setContact({ ...contact, [target.name]: target.value });
@@ -22,12 +22,14 @@ export const AddContacts = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("SUBMITTED");
+    console.log("SUBMITTING...");
     setContact({
       ...contact,
       [e.currentTarget.name]: e.currentTarget.value,
     });
     addContacts(contact);
+    // Problem now is that it is not return as an array
+    console.log("SUBMITTED DONE");
   };
 
   return (
