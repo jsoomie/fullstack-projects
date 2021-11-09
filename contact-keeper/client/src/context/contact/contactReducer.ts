@@ -21,7 +21,6 @@ export interface ContactData {
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
-  contact: ContactData;
   addContacts: Function;
 }
 
@@ -57,7 +56,6 @@ export const contactReducer = (state: IState, action: Action): IState => {
     case ADD_CONTACT:
       return {
         ...state,
-        contact: action.payload,
         contacts: [...state.contacts, action.payload],
       };
     default:

@@ -20,13 +20,6 @@ type ChildProps = {
 
 export const GlobalUser: IState = {
   contacts: initialState,
-  contact: {
-    id: "100",
-    name: "Hello",
-    email: "whatever@gmail.com",
-    phone: "123-009-9087",
-    type: "personal",
-  },
   addContacts: Function,
 };
 
@@ -54,7 +47,6 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     <contactContext.Provider
       value={{
         contacts: state.contacts,
-        contact: state.contact,
         addContacts,
       }}
     >
