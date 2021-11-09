@@ -34,8 +34,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, GlobalUser);
   // Add contact
   const addContacts = (contact: ContactData) => {
-    // TEMPORARY: only use until mongo automatically adds id
-    contact.id = uuid();
+    contact.id = uuid(); // TEMPORARY: only use until mongo automatically adds id
     dispatch({ type: ADD_CONTACT, payload: contact });
   };
 
