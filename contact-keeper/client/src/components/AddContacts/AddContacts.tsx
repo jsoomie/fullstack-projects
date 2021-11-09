@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useState, useContext } from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
-  const { contacts, addContacts } = useContext(contactContext);
+  const { addContacts } = useContext(contactContext);
   const initialContactData: ContactData = {
     id: "0",
     name: "",
@@ -20,14 +20,11 @@ export const AddContacts = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("SUBMITTING...");
     setContact({
       ...contact,
       [e.currentTarget.name]: e.currentTarget.value,
     });
     addContacts(contact);
-    // Problem now is that it is not return as an array
-    console.log("SUBMITTED DONE");
   };
 
   return (

@@ -35,12 +35,8 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   // Add contact
   const addContacts = (contact: ContactData) => {
     // TEMPORARY: only use until mongo automatically adds id
-    // for (let key in contact) {
-    //   contact[key].id = uuid();
-    // }
-    // console.log(contact);
+    contact.id = uuid();
     dispatch({ type: ADD_CONTACT, payload: contact });
-    console.log(state.contacts);
   };
 
   // Delete Contact
