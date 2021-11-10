@@ -6,12 +6,11 @@ interface IProp {
 }
 
 export const ContactItems = ({ contact }: IProp): JSX.Element => {
-  const { name, email, phone, type } = contact;
+  const { id, name, email, phone, type } = contact;
   const { deleteContact } = useContext(contactContext);
 
   const onDelete = () => {
-    console.log("Delete");
-    deleteContact("id");
+    deleteContact(id);
   };
 
   return (
