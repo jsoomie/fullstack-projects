@@ -16,6 +16,7 @@ import { ContactData } from "..";
 
 export const GlobalUser: IState = {
   contacts: initialState,
+  contact: { id: "123", name: "", email: "", phone: "", type: "personal" },
   addContacts: Function,
   deleteContact: Function,
 };
@@ -51,6 +52,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
     <contactContext.Provider
       value={{
         contacts: state.contacts,
+        contact: state.contact,
         addContacts,
         deleteContact,
       }}

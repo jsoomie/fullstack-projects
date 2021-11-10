@@ -21,6 +21,7 @@ export interface ContactData {
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
+  contact: ContactData;
   addContacts: Function;
   deleteContact: Function;
 }
