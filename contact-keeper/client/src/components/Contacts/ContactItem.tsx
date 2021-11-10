@@ -7,10 +7,12 @@ interface IProp {
 
 export const ContactItems = ({ contact }: IProp): JSX.Element => {
   const { id, name, email, phone, type } = contact;
-  const { deleteContact } = useContext(contactContext);
+  const { deleteContact, setCurrent, clearCurrent } =
+    useContext(contactContext);
 
   const onDelete = () => {
     deleteContact(id);
+    clearCurrent();
   };
 
   return (
@@ -26,7 +28,7 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
           {phone ? phone : "No listed phone number"}
         </p>
         <div className="ButtonContainer">
-          <button>Edit</button>
+          <button onClick={() => setCurrent(contact)}>Edit</button>
           <button onClick={onDelete}>Delete</button>
         </div>
       </div>
