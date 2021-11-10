@@ -14,15 +14,14 @@ import {
 } from "../actions";
 import { ContactData } from "..";
 
-type ChildProps = {
-  children?: JSX.Element;
-};
-
 export const GlobalUser: IState = {
   contacts: initialState,
   addContacts: Function,
 };
 
+type ChildProps = {
+  children?: JSX.Element;
+};
 export const ContactState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(contactReducer, GlobalUser);
   // Add contact
