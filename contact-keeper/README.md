@@ -58,3 +58,7 @@ Welcome to the Contact Keeper Page!
 0.1.25 - Prep for add form for contacts
 
 0.1.50 - Create reducer and context for global user state
+
+0.1.55 - Create add contacts
+
+0.1.58 - Create delete contacts (fliter)
