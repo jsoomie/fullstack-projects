@@ -6,8 +6,8 @@ import { contactReducer, initialState, IState } from "./contactReducer";
 import {
   ADD_CONTACT,
   DELETE_CONTACT,
-  // SET_CURRENT,
-  // CLEAR_CURRENT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
   // UPDATE_CONTACT,
   // FILTER_CONTACTS,
   // CLEAR_FILTER,
@@ -16,9 +16,11 @@ import { ContactData } from "..";
 
 export const GlobalUser: IState = {
   contacts: initialState,
-  contact: { id: "123", name: "", email: "", phone: "", type: "personal" },
+  contact: null,
   addContacts: Function,
   deleteContact: Function,
+  setCurrent: Function,
+  clearCurrent: Function,
 };
 
 type ChildProps = {
@@ -39,8 +41,14 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // Set Current Contact
+  const setCurrent = (contact: ContactData) => {
+    dispatch({ type: SET_CURRENT, payload: contact });
+  };
 
   // Clear current contact
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
 
   // Update contact
 
@@ -55,6 +63,8 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
         contact: state.contact,
         addContacts,
         deleteContact,
+        setCurrent,
+        clearCurrent,
       }}
     >
       {children}
