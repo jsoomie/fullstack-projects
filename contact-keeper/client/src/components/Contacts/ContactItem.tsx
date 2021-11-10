@@ -16,7 +16,7 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
   return (
     <li className="Contacts">
       <div className="Left">
-        <h1>{name}</h1>
+        <h1>{name ? name : "No name listed"}</h1>
         <p>
           <HiOutlineMail />
           {email ? email : "No listed email"}
