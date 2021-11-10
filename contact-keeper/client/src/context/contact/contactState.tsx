@@ -17,6 +17,7 @@ import { ContactData } from "..";
 export const GlobalUser: IState = {
   contacts: initialState,
   addContacts: Function,
+  deleteContact: Function,
 };
 
 type ChildProps = {
@@ -31,6 +32,9 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // Delete Contact
+  const deleteContact = (contact: number) => {
+    console.log("hello delete");
+  };
 
   // Set Current Contact
 
@@ -47,6 +51,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
       value={{
         contacts: state.contacts,
         addContacts,
+        deleteContact,
       }}
     >
       {children}

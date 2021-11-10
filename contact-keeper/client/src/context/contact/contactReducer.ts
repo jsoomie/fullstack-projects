@@ -1,6 +1,6 @@
 import {
   ADD_CONTACT,
-  // DELETE_CONTACT,
+  DELETE_CONTACT,
   // SET_CURRENT,
   // CLEAR_CURRENT,
   // UPDATE_CONTACT,
@@ -22,6 +22,7 @@ export interface ContactData {
 export interface IState {
   contacts: ContactData[];
   addContacts: Function;
+  deleteContact: Function;
 }
 
 // TODO: Temporary state, will remove
@@ -49,7 +50,9 @@ export const initialState: ContactData[] = [
   },
 ];
 
-type Action = { type: typeof ADD_CONTACT; payload: ContactData };
+type Action =
+  | { type: typeof ADD_CONTACT; payload: ContactData }
+  | { type: typeof DELETE_CONTACT };
 
 export const contactReducer = (state: IState, action: Action): IState => {
   switch (action.type) {
@@ -57,6 +60,10 @@ export const contactReducer = (state: IState, action: Action): IState => {
       return {
         ...state,
         contacts: [...state.contacts, action.payload],
+      };
+    case DELETE_CONTACT:
+      return {
+        ...state,
       };
     default:
       return state;

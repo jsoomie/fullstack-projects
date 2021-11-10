@@ -1,11 +1,18 @@
-import { ContactData } from "../../context";
+import { ContactData, contactContext } from "../../context";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import { useContext } from "react";
 interface IProp {
   contact: ContactData;
 }
 
 export const ContactItems = ({ contact }: IProp): JSX.Element => {
   const { name, email, phone, type } = contact;
+  const { deleteContact } = useContext(contactContext);
+
+  const onDelete = () => {
+    console.log("Delete");
+  };
+
   return (
     <li className="Contacts">
       <div className="Left">
