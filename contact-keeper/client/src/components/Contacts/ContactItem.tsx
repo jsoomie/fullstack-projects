@@ -11,6 +11,7 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
 
   const onDelete = () => {
     console.log("Delete");
+    deleteContact("id");
   };
 
   return (
@@ -27,7 +28,7 @@ export const ContactItems = ({ contact }: IProp): JSX.Element => {
         </p>
         <div className="ButtonContainer">
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={onDelete}>Delete</button>
         </div>
       </div>
       <div className="Right">

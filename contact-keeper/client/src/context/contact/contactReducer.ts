@@ -52,7 +52,7 @@ export const initialState: ContactData[] = [
 
 type Action =
   | { type: typeof ADD_CONTACT; payload: ContactData }
-  | { type: typeof DELETE_CONTACT };
+  | { type: typeof DELETE_CONTACT; payload: string };
 
 export const contactReducer = (state: IState, action: Action): IState => {
   switch (action.type) {
@@ -64,6 +64,9 @@ export const contactReducer = (state: IState, action: Action): IState => {
     case DELETE_CONTACT:
       return {
         ...state,
+        contacts: state.contacts.filter(
+          (contact) => contact.id !== action.payload
+        ),
       };
     default:
       return state;

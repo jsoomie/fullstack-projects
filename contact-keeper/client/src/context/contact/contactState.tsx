@@ -5,7 +5,7 @@ import { contactReducer, initialState, IState } from "./contactReducer";
 
 import {
   ADD_CONTACT,
-  // DELETE_CONTACT,
+  DELETE_CONTACT,
   // SET_CURRENT,
   // CLEAR_CURRENT,
   // UPDATE_CONTACT,
@@ -32,8 +32,8 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // Delete Contact
-  const deleteContact = (contact: number) => {
-    console.log("hello delete");
+  const deleteContact = (id: string) => {
+    dispatch({ type: DELETE_CONTACT, payload: id });
   };
 
   // Set Current Contact
