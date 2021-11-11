@@ -33,11 +33,13 @@ export const AddContacts = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setContact({
-      ...contact,
-      [e.currentTarget.name]: e.currentTarget.value,
-    });
-    addContacts(contact);
+    if (contactEdit === undefined) {
+      setContact({
+        ...contact,
+        [e.currentTarget.name]: e.currentTarget.value,
+      });
+      addContacts(contact);
+    }
   };
 
   const clearAll = () => {
