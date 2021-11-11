@@ -38,4 +38,14 @@
   color: #fff;
   padding: 0.5rem;
   font-size: 0.8rem;
+  cursor: pointer;
+}
+
+#AddContactsContainer .ClearButton {
+  border: none;
+  width: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
 }

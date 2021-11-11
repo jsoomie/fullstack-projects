@@ -1,9 +1,13 @@
 import "./AddContacts.css";
-import { ChangeEvent, FormEvent, useState, useContext } from "react";
+import { ChangeEvent, FormEvent, useState, useContext, useEffect } from "react";
 import { contactContext, ContactData } from "../../context";
 
 export const AddContacts = () => {
-  const { addContacts } = useContext(contactContext);
+  const {
+    addContacts,
+    contact: contactEdit,
+    clearCurrent,
+  } = useContext(contactContext);
   const initialContactData: ContactData = {
     id: "0",
     name: "",
@@ -13,6 +17,15 @@ export const AddContacts = () => {
   };
   const [contact, setContact] = useState<ContactData>(initialContactData);
   const { name, email, phone, type } = contact;
+
+  useEffect(() => {
+    if (contactEdit !== undefined) {
+      setContact(contactEdit);
+    } else {
+      setContact(initialContactData);
+    }
+    //eslint-disable-next-line
+  }, [contactContext, contactEdit]);
 
   const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setContact({ ...contact, [target.name]: target.value });
@@ -27,9 +40,13 @@ export const AddContacts = () => {
     addContacts(contact);
   };
 
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
     <form id="AddContactsContainer" onSubmit={onSubmit}>
-      <h2>Add Contacts</h2>
+      <h2>{contactEdit ? "Edit Contact" : "Add Contact"}</h2>
       <input
         type="text"
         placeholder="Name"
@@ -73,7 +90,15 @@ export const AddContacts = () => {
         <label>Professional</label>
       </div>
       <div className="ButtonContainer">
-        <input type="submit" value="Add Contact" />
+        <input
+          type="submit"
+          value={contactEdit ? "Update Contact" : "Add Contact"}
+        />
+        {contactEdit && (
+          <button className="ClearButton" onClick={clearAll}>
+            Clear
+          </button>
+        )}
       </div>
     </form>
   );
