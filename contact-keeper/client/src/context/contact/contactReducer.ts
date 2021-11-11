@@ -3,7 +3,7 @@ import {
   DELETE_CONTACT,
   SET_CURRENT,
   CLEAR_CURRENT,
-  // UPDATE_CONTACT,
+  UPDATE_CONTACT,
   // FILTER_CONTACTS,
   // CLEAR_FILTER,
   // SET_ALERT,
@@ -26,6 +26,7 @@ export interface IState {
   deleteContact: Function;
   setCurrent: Function;
   clearCurrent: Function;
+  updateContact: Function;
 }
 
 // TODO: Temporary state, will remove
@@ -57,7 +58,8 @@ type Action =
   | { type: typeof ADD_CONTACT; payload: ContactData }
   | { type: typeof DELETE_CONTACT; payload: string }
   | { type: typeof SET_CURRENT; payload: ContactData }
-  | { type: typeof CLEAR_CURRENT };
+  | { type: typeof CLEAR_CURRENT }
+  | { type: typeof UPDATE_CONTACT; payload: ContactData };
 
 export const contactReducer = (state: IState, action: Action): IState => {
   switch (action.type) {
@@ -65,6 +67,13 @@ export const contactReducer = (state: IState, action: Action): IState => {
       return {
         ...state,
         contacts: [...state.contacts, action.payload],
+      };
+    case UPDATE_CONTACT:
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === action.payload.id ? action.payload : contact
+        ),
       };
     case DELETE_CONTACT:
       return {

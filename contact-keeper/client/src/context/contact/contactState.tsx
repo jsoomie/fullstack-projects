@@ -8,7 +8,7 @@ import {
   DELETE_CONTACT,
   SET_CURRENT,
   CLEAR_CURRENT,
-  // UPDATE_CONTACT,
+  UPDATE_CONTACT,
   // FILTER_CONTACTS,
   // CLEAR_FILTER,
 } from "../actions";
@@ -21,6 +21,7 @@ export const GlobalUser: IState = {
   deleteContact: Function,
   setCurrent: Function,
   clearCurrent: Function,
+  updateContact: Function,
 };
 
 type ChildProps = {
@@ -51,6 +52,9 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // Update contact
+  const updateContact = (contact: ContactData) => {
+    dispatch({ type: UPDATE_CONTACT, payload: contact });
+  };
 
   // Filter contacts
 
@@ -65,6 +69,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
         deleteContact,
         setCurrent,
         clearCurrent,
+        updateContact,
       }}
     >
       {children}

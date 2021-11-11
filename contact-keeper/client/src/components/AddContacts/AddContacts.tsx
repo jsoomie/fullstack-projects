@@ -7,6 +7,7 @@ export const AddContacts = () => {
     addContacts,
     contact: contactEdit,
     clearCurrent,
+    updateContact,
   } = useContext(contactContext);
   const initialContactData: ContactData = {
     id: "0",
@@ -39,6 +40,8 @@ export const AddContacts = () => {
         [e.currentTarget.name]: e.currentTarget.value,
       });
       addContacts(contact);
+    } else {
+      updateContact(contact);
     }
   };
 
