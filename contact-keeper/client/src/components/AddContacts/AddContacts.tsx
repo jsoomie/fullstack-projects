@@ -9,6 +9,7 @@ export const AddContacts = () => {
     clearCurrent,
     updateContact,
   } = useContext(contactContext);
+
   const initialContactData: ContactData = {
     id: "0",
     name: "",
