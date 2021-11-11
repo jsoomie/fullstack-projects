@@ -16,7 +16,7 @@ import { ContactData } from "..";
 
 export const GlobalUser: IState = {
   contacts: initialState,
-  contact: null,
+  contact: undefined,
   addContacts: Function,
   deleteContact: Function,
   setCurrent: Function,

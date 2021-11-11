@@ -21,7 +21,7 @@ export interface ContactData {
 //GLOBAL STATE
 export interface IState {
   contacts: ContactData[];
-  contact: ContactData | null;
+  contact: ContactData | undefined;
   addContacts: Function;
   deleteContact: Function;
   setCurrent: Function;
@@ -81,7 +81,7 @@ export const contactReducer = (state: IState, action: Action): IState => {
     case CLEAR_CURRENT:
       return {
         ...state,
-        contact: null,
+        contact: undefined,
       };
     default:
       return state;
