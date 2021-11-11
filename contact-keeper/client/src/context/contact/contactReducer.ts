@@ -6,8 +6,6 @@ import {
   UPDATE_CONTACT,
   // FILTER_CONTACTS,
   // CLEAR_FILTER,
-  // SET_ALERT,
-  // REMOVE_ALERT,
 } from "../actions";
 
 export interface ContactData {
