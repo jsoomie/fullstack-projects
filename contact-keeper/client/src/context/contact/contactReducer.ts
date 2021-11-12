@@ -4,8 +4,8 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_CONTACT,
-  // FILTER_CONTACTS,
-  // CLEAR_FILTER,
+  FILTER_CONTACTS,
+  CLEAR_FILTER,
 } from "../actions";
 
 export interface ContactData {
@@ -20,11 +20,14 @@ export interface ContactData {
 export interface IState {
   contacts: ContactData[];
   contact: ContactData | undefined;
+  filtered: ContactData[] | undefined;
   addContacts: Function;
   deleteContact: Function;
   setCurrent: Function;
   clearCurrent: Function;
   updateContact: Function;
+  filteredContacts: Function;
+  clearFiltered: Function;
 }
 
 // TODO: Temporary state, will remove
@@ -57,7 +60,9 @@ type Action =
   | { type: typeof DELETE_CONTACT; payload: string }
   | { type: typeof SET_CURRENT; payload: ContactData }
   | { type: typeof CLEAR_CURRENT }
-  | { type: typeof UPDATE_CONTACT; payload: ContactData };
+  | { type: typeof UPDATE_CONTACT; payload: ContactData }
+  | { type: typeof FILTER_CONTACTS; payload: string }
+  | { type: typeof CLEAR_FILTER };
 
 export const contactReducer = (state: IState, action: Action): IState => {
   switch (action.type) {

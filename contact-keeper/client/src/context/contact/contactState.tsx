@@ -9,19 +9,22 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_CONTACT,
-  // FILTER_CONTACTS,
-  // CLEAR_FILTER,
+  FILTER_CONTACTS,
+  CLEAR_FILTER,
 } from "../actions";
 import { ContactData } from "..";
 
 export const GlobalUser: IState = {
   contacts: initialState,
   contact: undefined,
+  filtered: undefined,
   addContacts: Function,
   deleteContact: Function,
   setCurrent: Function,
   clearCurrent: Function,
   updateContact: Function,
+  filteredContacts: Function,
+  clearFiltered: Function,
 };
 
 type ChildProps = {
@@ -57,8 +60,14 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // Filter contacts
+  const filteredContacts = (text: string) => {
+    dispatch({ type: FILTER_CONTACTS, payload: text });
+  };
 
   // Clear filter
+  const clearFiltered = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
 
   return (
     <contactContext.Provider
@@ -67,9 +76,12 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
         contact: state.contact,
         addContacts,
         deleteContact,
+        filtered: state.filtered,
         setCurrent,
         clearCurrent,
         updateContact,
+        filteredContacts,
+        clearFiltered,
       }}
     >
       {children}
