@@ -1,9 +1,17 @@
-import { useContext, useRef, ChangeEvent } from "react";
+import { useContext, useRef, ChangeEvent, useEffect } from "react";
 import { contactContext } from "../../context";
+import "./FilterContacts.css";
 
 export const ContactFilter = () => {
-  const { filteredContacts, clearFiltered } = useContext(contactContext);
-  const text = useRef<HTMLInputElement>(null);
+  const { filteredContacts, clearFiltered, filtered } =
+    useContext(contactContext);
+  const text = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (filtered === null) {
+      text.current = null;
+    }
+  });
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (text.current !== null) {
@@ -14,7 +22,7 @@ export const ContactFilter = () => {
   };
 
   return (
-    <form>
+    <form id="FilterContacts">
       <input
         ref={text}
         type="text"

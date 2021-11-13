@@ -1,0 +1,10 @@
+#FilterContacts {
+  width: 100%;
+}
+
+#FilterContacts input {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  outline: none;
+}

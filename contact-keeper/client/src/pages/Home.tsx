@@ -1,4 +1,4 @@
-import { Navbar, Contacts, AddContacts } from "../components";
+import { Navbar, Contacts, AddContacts, ContactFilter } from "../components";
 
 export const Home = (): JSX.Element => {
   return (
@@ -7,7 +7,10 @@ export const Home = (): JSX.Element => {
       <div className="container">
         <div id="StageContainer">
           <AddContacts />
-          <Contacts />
+          <div>
+            <ContactFilter />
+            <Contacts />
+          </div>
         </div>
       </div>
     </div>
