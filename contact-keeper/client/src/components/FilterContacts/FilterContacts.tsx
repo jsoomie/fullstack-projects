@@ -2,7 +2,7 @@ import { useContext, useRef, ChangeEvent, useEffect } from "react";
 import { contactContext } from "../../context";
 import "./FilterContacts.css";
 
-export const ContactFilter = () => {
+export const ContactFilter = (): JSX.Element => {
   const { filteredContacts, clearFiltered, filtered } =
     useContext(contactContext);
   const text = useRef<HTMLInputElement | null>(null);

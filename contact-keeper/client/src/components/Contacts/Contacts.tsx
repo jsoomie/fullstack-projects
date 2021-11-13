@@ -4,15 +4,22 @@ import { contactContext } from "../../context";
 import "./Contacts.css";
 
 export const Contacts = (): JSX.Element => {
-  const { contacts } = useContext(contactContext);
+  const { contacts, filtered } = useContext(contactContext);
+
+  if (contacts.length === 0) {
+    return <h4>Please add a contact</h4>;
+  }
 
   return (
     <Fragment>
       <ul id="ContactContainer">
-        {contacts &&
-          contacts.map((contact) => (
-            <ContactItems contact={contact} key={contact.id} />
-          ))}
+        {filtered !== undefined
+          ? filtered?.map((contact) => (
+              <ContactItems contact={contact} key={contact.id} />
+            ))
+          : contacts.map((contact) => (
+              <ContactItems contact={contact} key={contact.id} />
+            ))}
       </ul>
     </Fragment>
   );
