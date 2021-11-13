@@ -3,10 +3,10 @@ import { contactContext } from "../../context";
 
 export const ContactFilter = () => {
   const { filteredContacts, clearFiltered } = useContext(contactContext);
-  const text = useRef("");
+  const text = useRef<HTMLInputElement>(null);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (text.current !== "") {
+    if (text.current !== null) {
       filteredContacts(e.currentTarget.value);
     } else {
       clearFiltered();
@@ -15,7 +15,12 @@ export const ContactFilter = () => {
 
   return (
     <form>
-      <input type="text" placeholder="Filter Contacts..." onChange={onChange} />
+      <input
+        ref={text}
+        type="text"
+        placeholder="Filter Contacts..."
+        onChange={onChange}
+      />
     </form>
   );
 };
