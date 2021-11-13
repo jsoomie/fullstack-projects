@@ -7,7 +7,7 @@ export const Contacts = (): JSX.Element => {
   const { contacts, filtered } = useContext(contactContext);
 
   if (contacts.length === 0) {
-    return <h4>Please add a contact</h4>;
+    return <h4 style={{ marginTop: "1rem" }}>Please add a contact</h4>;
   }
 
   return (
