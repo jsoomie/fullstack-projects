@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext, ChangeEvent } from "react";
 import { contactContext } from "../../context";
 import "./FilterContacts.css";
 
 export const ContactFilter = (): JSX.Element => {
   const { filteredContacts, clearFiltered } = useContext(contactContext);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.value === "") {
       clearFiltered();
     } else {
