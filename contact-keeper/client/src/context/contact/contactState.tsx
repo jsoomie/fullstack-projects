@@ -17,7 +17,7 @@ import { ContactData } from "..";
 export const GlobalUser: IState = {
   contacts: initialState,
   contact: undefined,
-  filtered: undefined,
+  filtered: [],
   addContacts: Function,
   deleteContact: Function,
   setCurrent: Function,
@@ -66,6 +66,7 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
 
   // Clear filter
   const clearFiltered = () => {
+    console.log("RAN");
     dispatch({ type: CLEAR_FILTER });
   };
 

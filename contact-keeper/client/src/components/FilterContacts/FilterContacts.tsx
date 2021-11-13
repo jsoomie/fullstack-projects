@@ -1,34 +1,21 @@
-import { useContext, useRef, ChangeEvent, useEffect } from "react";
+import React, { useContext } from "react";
 import { contactContext } from "../../context";
 import "./FilterContacts.css";
 
 export const ContactFilter = (): JSX.Element => {
-  const { filteredContacts, clearFiltered, filtered } =
-    useContext(contactContext);
-  const text = useRef<HTMLInputElement | null>(null);
+  const { filteredContacts, clearFiltered } = useContext(contactContext);
 
-  useEffect(() => {
-    if (filtered === null) {
-      text.current = null;
-    }
-  });
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (text.current !== null) {
-      filteredContacts(e.currentTarget.value);
-    } else {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.value === "") {
       clearFiltered();
+    } else {
+      filteredContacts(e.currentTarget.value);
     }
   };
 
   return (
     <form id="FilterContacts">
-      <input
-        ref={text}
-        type="text"
-        placeholder="Filter Contacts..."
-        onChange={onChange}
-      />
+      <input type="text" placeholder="Filter Contacts..." onChange={onChange} />
     </form>
   );
 };

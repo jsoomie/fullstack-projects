@@ -13,7 +13,7 @@ export const Contacts = (): JSX.Element => {
   return (
     <Fragment>
       <ul id="ContactContainer">
-        {filtered !== undefined
+        {filtered.length !== 0
           ? filtered?.map((contact) => (
               <ContactItems contact={contact} key={contact.id} />
             ))

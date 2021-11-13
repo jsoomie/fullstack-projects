@@ -20,7 +20,7 @@ export interface ContactData {
 export interface IState {
   contacts: ContactData[];
   contact: ContactData | undefined;
-  filtered: ContactData[] | undefined;
+  filtered: ContactData[];
   addContacts: Function;
   deleteContact: Function;
   setCurrent: Function;
@@ -106,7 +106,7 @@ export const contactReducer = (state: IState, action: Action): IState => {
     case CLEAR_FILTER:
       return {
         ...state,
-        filtered: undefined,
+        filtered: [],
       };
     default:
       return state;
