@@ -62,3 +62,7 @@ Welcome to the Contact Keeper Page!
 0.1.55 - Create add contacts
 
 0.1.58 - Create delete contacts (fliter)
+
+0.1.65 - Create filter function with reducer
+
+0.1.70 - Change useRef to be a state of an array instead as reducer cant dispatch null
