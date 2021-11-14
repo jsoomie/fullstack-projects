@@ -30,11 +30,11 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
   return (
     <AuthContext.Provider
       value={{
-        token: localStorage.getItem("token"),
-        isAuthenticated: false,
-        loading: true,
-        error: { msg: "" },
-        user: "",
+        token: state.token,
+        isAuthenticated: state.isAuthenticated,
+        loading: state.loading,
+        error: state.error,
+        user: state.user,
       }}
     >
       {children}

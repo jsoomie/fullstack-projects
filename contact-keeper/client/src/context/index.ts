@@ -1,3 +1,4 @@
+// Actions
 export {
   ADD_CONTACT,
   DELETE_CONTACT,
@@ -12,6 +13,10 @@ export {
 export { contactContext } from "./contact/contactContext";
 export { contactReducer, initialState } from "./contact/contactReducer";
 export { ContactState } from "./contact/contactState";
+
+// Auth
+export { AuthContext } from "./auth/authContext";
+export { AuthState } from "./auth/AuthState";
 
 // Types
 export type { ContactData, IState } from "./contact/contactReducer";
