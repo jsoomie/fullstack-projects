@@ -34,3 +34,7 @@
   padding: 0.25rem;
   border-radius: 5px;
 }
+
+.FormContainer .LoginRegister {
+  border-bottom: 1px solid gray;
+}
