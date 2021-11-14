@@ -66,3 +66,7 @@ Welcome to the Contact Keeper Page!
 0.1.65 - Create filter function with reducer
 
 0.1.70 - Change useRef to be a state of an array instead as reducer cant dispatch null
+
+0.1.75 - Create Landing page of login and register
+
+0.1.80 - Add link to login in navbar and style login and register
