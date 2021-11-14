@@ -7,7 +7,6 @@ import {
   FILTER_CONTACTS,
   CLEAR_FILTER,
 } from "../actions";
-
 export interface ContactData {
   id: string;
   name: string;
