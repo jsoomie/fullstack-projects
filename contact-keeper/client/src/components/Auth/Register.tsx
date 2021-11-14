@@ -17,7 +17,7 @@ export const Register = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
+    console.log(user);
   };
 
   return (
@@ -46,7 +46,7 @@ export const Register = () => {
         <div className="FormGroup">
           <label htmlFor="passConfirm">Confrim Password</label>
           <input
-            type="passConfirm"
+            type="password"
             name="passConfirm"
             value={passConfirm}
             onChange={onChange}
