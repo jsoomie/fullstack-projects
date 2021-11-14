@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Link } from "react-router-dom";
 import "./LoginRegister.css";
 
 export const Register = () => {
@@ -54,6 +55,9 @@ export const Register = () => {
         </div>
         <input type="submit" value="Register" className="SubmitButton" />
       </form>
+      <Link to="/login" className="LoginRegister">
+        Click here to login!
+      </Link>
     </div>
   );
 };
