@@ -5,6 +5,7 @@ export interface IAuth {
   isAuthenticated: boolean;
   loading: boolean;
   error: { msg: string };
+  user: unknown;
 }
 
 export const GlobalAuth: IAuth = {
@@ -12,6 +13,7 @@ export const GlobalAuth: IAuth = {
   isAuthenticated: false,
   loading: true,
   error: { msg: "" },
+  user: "",
 };
 
 export const AuthContext = createContext<IAuth>(GlobalAuth);

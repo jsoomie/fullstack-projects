@@ -16,6 +16,17 @@ type ChildProps = {
 };
 export const AuthState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(authReducer, GlobalAuth);
+
+  // load user
+
+  // register user
+
+  // login user
+
+  // logout
+
+  // clear errors
+
   return (
     <AuthContext.Provider
       value={{
@@ -23,6 +34,7 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
         isAuthenticated: false,
         loading: true,
         error: { msg: "" },
+        user: "",
       }}
     >
       {children}
