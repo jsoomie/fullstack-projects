@@ -66,7 +66,6 @@ export const ContactState = ({ children }: ChildProps): JSX.Element => {
 
   // Clear filter
   const clearFiltered = () => {
-    console.log("RAN");
     dispatch({ type: CLEAR_FILTER });
   };
 
