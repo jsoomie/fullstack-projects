@@ -1,0 +1,40 @@
+.FormContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0.5rem;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.FormContainer .RegisterText {
+  color: dodgerblue;
+}
+
+.FormContainer .FormGroup {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.FormContainer .FormGroup input {
+  width: 100%;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+.FormContainer .SubmitButton {
+  width: 100%;
+  border: none;
+  background-color: dodgerblue;
+  color: #fff;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+
+.FormContainer .LoginRegister {
+  border-bottom: 1px solid gray;
+}
