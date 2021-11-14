@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-import "./Register.css";
+import "./LoginRegister.css";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -21,7 +21,7 @@ export const Register = () => {
   };
 
   return (
-    <div id="FormContainer">
+    <div className="FormContainer">
       <h1>
         Account <span className="RegisterText">Register</span>
       </h1>
