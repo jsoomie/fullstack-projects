@@ -7,7 +7,6 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from "../actions";
-
 import { IAuth } from "./authContext";
 
 type Action =
