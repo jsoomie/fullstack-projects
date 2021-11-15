@@ -11,18 +11,21 @@ export const AlertState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(alertReducer, GlobalAlert);
 
   // Set Alert
-  const setAlert = (msg: string, type: string) => {
+  const setAlert = (msg: string, type: string, timeout = 5000) => {
     const id = uuid();
     dispatch({
       type: SET_ALERT,
       payload: { msg, type, id },
     });
+
+    setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), timeout);
   };
 
   return (
     <AlertContext.Provider
       value={{
         msg: "",
+        setAlert,
       }}
     >
       {children}
