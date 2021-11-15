@@ -1,12 +1,12 @@
 import { createContext } from "react";
 
 export interface IAlert {
-  msg: string;
+  alerts: string[];
   setAlert: Function;
 }
 
 export const GlobalAlert: IAlert = {
-  msg: "Error",
+  alerts: [],
   setAlert: Function,
 };
 

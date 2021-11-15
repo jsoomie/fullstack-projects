@@ -24,7 +24,7 @@ export const AlertState = ({ children }: ChildProps): JSX.Element => {
   return (
     <AlertContext.Provider
       value={{
-        msg: "",
+        alerts: state,
         setAlert,
       }}
     >
