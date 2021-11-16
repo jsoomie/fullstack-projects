@@ -1,6 +1,11 @@
 import { SET_ALERT, REMOVE_ALERT } from "../actions";
+import { IAlert } from "./alertContext";
 
-export const alertReducer = (state: any, action: any) => {
+type Actions =
+  | { type: typeof SET_ALERT; payload: [] }
+  | { type: typeof REMOVE_ALERT; payload: any };
+
+export const alertReducer = (state: any, action: Actions): any => {
   switch (action.type) {
     case SET_ALERT:
       return [...state, action.payload];
