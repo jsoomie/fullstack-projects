@@ -1,4 +1,4 @@
-import { Navbar, Contacts, AddContacts, ContactFilter } from "../components";
+import { Navbar, Contacts, AddContacts, ContactFilter } from "components";
 
 export const Home = (): JSX.Element => {
   return (

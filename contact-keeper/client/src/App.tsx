@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home, About, Login, Register } from "./pages";
-import { ContactState, AuthState, AlertState } from "./context";
+import { Home, About, Login, Register } from "pages";
+import { ContactState, AuthState, AlertState } from "context";
 import "./App.css";
 
 function App() {

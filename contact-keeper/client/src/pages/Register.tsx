@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Register as RegisterComp, Navbar } from "../components";
+import { Register as RegisterComp, Navbar } from "components";
 
 export const Register = () => {
   return (
