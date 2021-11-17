@@ -1,0 +1,17 @@
+#AlertContainer {
+  border: 1px solid red;
+  background-color: crimson;
+  padding: 0.25rem;
+}
+
+#AlertContainer p {
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#AlertContainer .AlertMessage svg {
+  color: #fff;
+}

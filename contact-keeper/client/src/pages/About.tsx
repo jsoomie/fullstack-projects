@@ -1,4 +1,4 @@
-import { Navbar } from "../components";
+import { Navbar, Alert } from "../components";
 
 export const About = (): JSX.Element => {
   return (
@@ -15,6 +15,8 @@ export const About = (): JSX.Element => {
         <div className="VersionBadge">
           <p>Version: 0.1.25</p>
         </div>
+        <h1>===============================</h1>
+        <Alert />
       </div>
     </div>
   );

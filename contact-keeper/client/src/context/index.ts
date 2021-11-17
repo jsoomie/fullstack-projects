@@ -18,9 +18,5 @@ export { ContactState } from "./contact/contactState";
 export { AuthContext } from "./auth/authContext";
 export { AuthState } from "./auth/AuthState";
 
-// Alert
-export { AlertState } from "./alert/AlertState";
-export { AlertContext } from "./alert/alertContext";
-
 // Types
 export type { ContactData, IState } from "./contact/contactReducer";

@@ -6,4 +6,4 @@ export { ContactFilter } from "./FilterContacts/FilterContacts";
 export { Login } from "./Auth/Login";
 export { Register } from "./Auth/Register";
 
-export { Alerts } from "./Alerts";
+export { Alert } from "./Alerts";
