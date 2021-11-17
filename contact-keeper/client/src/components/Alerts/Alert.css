@@ -2,6 +2,7 @@
   border: 1px solid red;
   background-color: crimson;
   padding: 0.25rem;
+  width: 100%;
 }
 
 #AlertContainer p {

@@ -1,8 +1,12 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { AlertContext } from "../../context";
+import { Alert } from "..";
 import "./LoginRegister.css";
 
 export const Register = () => {
+  const { setAlert, alerts } = useContext(AlertContext);
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -18,7 +22,13 @@ export const Register = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(user);
+    if (name === "" || email === "" || email === "") {
+      setAlert("Please enter all fields", "Warning");
+    } else if (password !== passConfirm) {
+      setAlert("Passwords do not match", "Warning");
+    } else {
+      console.log("Registered!");
+    }
   };
 
   return (
@@ -26,14 +36,27 @@ export const Register = () => {
       <h1>
         Account <span className="RegisterText">Register</span>
       </h1>
+      {alerts.length > 0 && <Alert />}
       <form onSubmit={onSubmit}>
         <div className="FormGroup">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={name} onChange={onChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={onChange}
+            required
+          />
         </div>
         <div className="FormGroup">
           <label htmlFor="email">Email Address</label>
-          <input type="email" name="email" value={email} onChange={onChange} />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            required
+          />
         </div>
         <div className="FormGroup">
           <label htmlFor="password">Password</label>
@@ -42,6 +65,8 @@ export const Register = () => {
             name="password"
             value={password}
             onChange={onChange}
+            minLength={6}
+            required
           />
         </div>
         <div className="FormGroup">
@@ -51,6 +76,7 @@ export const Register = () => {
             name="passConfirm"
             value={passConfirm}
             onChange={onChange}
+            required
           />
         </div>
         <input type="submit" value="Register" className="SubmitButton" />
