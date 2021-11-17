@@ -1,12 +1,26 @@
 import { createContext } from "react";
 
+export interface AlertData {
+  msg: string;
+  type: string;
+  timeout?: number;
+  id: string;
+}
+
 export interface IAlert {
-  alerts: [];
+  alerts: AlertData;
   setAlert: Function;
 }
 
+export const initialAlert: AlertData = {
+  msg: "",
+  type: "",
+  timeout: 5000,
+  id: "",
+};
+
 export const GlobalAlert: IAlert = {
-  alerts: [],
+  alerts: initialAlert,
   setAlert: Function,
 };
 
