@@ -70,3 +70,5 @@ Welcome to the Contact Keeper Page!
 0.1.75 - Create Landing page of login and register
 
 0.1.80 - Add link to login in navbar and style login and register
+
+0.1.90 - Create alert context and reducer
