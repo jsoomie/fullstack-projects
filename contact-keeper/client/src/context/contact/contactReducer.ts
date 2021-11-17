@@ -6,7 +6,7 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER,
-} from "../actions";
+} from "context";
 export interface ContactData {
   id: string;
   name: string;
