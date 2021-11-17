@@ -1,6 +1,6 @@
 import { useContext, Fragment } from "react";
 import { ContactItems } from "./ContactItem";
-import { contactContext } from "../../context";
+import { contactContext } from "context";
 import "./Contacts.css";
 
 export const Contacts = (): JSX.Element => {

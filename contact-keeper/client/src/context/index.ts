@@ -1,13 +1,5 @@
 // Actions
-export {
-  ADD_CONTACT,
-  DELETE_CONTACT,
-  SET_CURRENT,
-  CLEAR_CURRENT,
-  UPDATE_CONTACT,
-  FILTER_CONTACTS,
-  CLEAR_FILTER,
-} from "./actions";
+export * from "./actions";
 
 // Contacts
 export { contactContext } from "./contact/contactContext";
@@ -19,8 +11,9 @@ export { AuthContext } from "./auth/authContext";
 export { AuthState } from "./auth/AuthState";
 
 // ALert
-export { AlertContext } from "./alert/alertContext";
+export { AlertContext, initialAlert } from "./alert/alertContext";
 export { AlertState } from "./alert/AlertState";
+export { alertReducer } from "./alert/alertReducer";
 
 // Types
 export type { ContactData, IState } from "./contact/contactReducer";

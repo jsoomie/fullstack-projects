@@ -1,7 +1,7 @@
 import "./Alert.css";
 import { FaExclamationCircle } from "react-icons/fa";
 import { useContext, Fragment } from "react";
-import { AlertContext } from "../../context";
+import { AlertContext } from "context";
 
 export const Alert = () => {
   const { alerts } = useContext(AlertContext);

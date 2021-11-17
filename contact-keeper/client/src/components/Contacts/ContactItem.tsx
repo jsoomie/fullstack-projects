@@ -1,4 +1,4 @@
-import { ContactData, contactContext } from "../../context";
+import { ContactData, contactContext } from "context";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { useContext } from "react";
 interface IProp {

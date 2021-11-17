@@ -9,7 +9,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
-} from "../actions";
+} from "context";
 
 type ChildProps = {
   children?: JSX.Element;

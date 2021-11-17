@@ -1,6 +1,6 @@
 import { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { AlertContext } from "../../context";
+import { AlertContext } from "context";
 import { Alert } from "..";
 import "./LoginRegister.css";
 

@@ -12,9 +12,9 @@ export interface IAlert {
   setAlert: Function;
 }
 
-export const initalALert: IAlert = {
+export const initialAlert: IAlert = {
   alerts: [],
   setAlert: Function,
 };
 
-export const AlertContext = createContext(initalALert);
+export const AlertContext = createContext(initialAlert);

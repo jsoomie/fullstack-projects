@@ -1,6 +1,6 @@
 import "./AddContacts.css";
 import { ChangeEvent, FormEvent, useState, useContext, useEffect } from "react";
-import { contactContext, ContactData } from "../../context";
+import { contactContext, ContactData } from "context";
 
 export const AddContacts = () => {
   const {

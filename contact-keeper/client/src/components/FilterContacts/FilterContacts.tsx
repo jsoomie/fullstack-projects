@@ -1,5 +1,5 @@
 import { useContext, ChangeEvent } from "react";
-import { contactContext } from "../../context";
+import { contactContext } from "context";
 import "./FilterContacts.css";
 
 export const ContactFilter = (): JSX.Element => {
