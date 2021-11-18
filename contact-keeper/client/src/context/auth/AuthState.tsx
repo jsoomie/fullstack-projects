@@ -40,7 +40,6 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
           payload: error.message,
         });
       }
-      console.error(error);
     }
   };
 

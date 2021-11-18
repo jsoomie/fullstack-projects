@@ -4,7 +4,7 @@ export interface IAuth {
   token: string | null;
   isAuthenticated: boolean;
   loading: boolean;
-  error: { msg: string };
+  error: string;
   user: unknown; // TODO: Fix type
   register: Function;
 }
@@ -13,7 +13,7 @@ export const GlobalAuth: IAuth = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
   loading: true,
-  error: { msg: "" },
+  error: "",
   user: "",
   register: Function,
 };
