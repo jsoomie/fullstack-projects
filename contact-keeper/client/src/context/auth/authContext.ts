@@ -6,6 +6,7 @@ export interface IAuth {
   loading: boolean;
   error: { msg: string };
   user: unknown; // TODO: Fix type
+  register: Function;
 }
 
 export const GlobalAuth: IAuth = {
@@ -14,6 +15,7 @@ export const GlobalAuth: IAuth = {
   loading: true,
   error: { msg: "" },
   user: "",
+  register: Function,
 };
 
 export const AuthContext = createContext<IAuth>(GlobalAuth);

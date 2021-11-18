@@ -4,11 +4,11 @@ import { useReducer } from "react";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  USER_LOADED,
-  AUTH_ERROR,
-  LOGIN_FAIL,
-  LOGOUT,
-  CLEAR_ERRORS,
+  // USER_LOADED,
+  // AUTH_ERROR,
+  // LOGIN_FAIL,
+  // LOGOUT,
+  // CLEAR_ERRORS,
 } from "context";
 import axios from "axios";
 
@@ -33,7 +33,13 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
-    } catch (error) {
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        dispatch({
+          type: REGISTER_FAIL,
+          payload: error.message,
+        });
+      }
       console.error(error);
     }
   };
@@ -52,6 +58,7 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
         loading: state.loading,
         error: state.error,
         user: state.user,
+        register,
       }}
     >
       {children}

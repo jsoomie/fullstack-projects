@@ -11,7 +11,7 @@ import { IAuth } from "./authContext";
 
 type Action =
   | { type: typeof REGISTER_SUCCESS; payload: any } // TODO: fix type
-  | { type: typeof REGISTER_FAIL }
+  | { type: typeof REGISTER_FAIL; payload: string }
   | { type: typeof USER_LOADED }
   | { type: typeof AUTH_ERROR }
   | { type: typeof LOGIN_FAIL }
