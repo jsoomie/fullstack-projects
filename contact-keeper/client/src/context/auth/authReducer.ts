@@ -28,8 +28,14 @@ export const authReducer = (state: IAuth, action: Action): IAuth => {
         loading: false,
       };
     case REGISTER_FAIL:
+      localStorage.removeItem("token");
       return {
         ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        user: null,
+        error: action.payload,
       };
     case USER_LOADED:
       return {
