@@ -5,7 +5,7 @@ export interface IAuth {
   isAuthenticated: boolean;
   loading: boolean;
   error: { msg: string };
-  user: unknown;
+  user: unknown; // TODO: Fix type
 }
 
 export const GlobalAuth: IAuth = {

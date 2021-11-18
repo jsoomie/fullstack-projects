@@ -10,6 +10,7 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from "context";
+import axios from "axios";
 
 type ChildProps = {
   children?: JSX.Element;
@@ -20,6 +21,22 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
   // load user
 
   // register user
+  const register = async (formData: any) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.post("/api/users", formData, config);
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // login user
 

@@ -10,7 +10,7 @@ import {
 import { IAuth } from "./authContext";
 
 type Action =
-  | { type: typeof REGISTER_SUCCESS }
+  | { type: typeof REGISTER_SUCCESS; payload: any } // TODO: fix type
   | { type: typeof REGISTER_FAIL }
   | { type: typeof USER_LOADED }
   | { type: typeof AUTH_ERROR }
