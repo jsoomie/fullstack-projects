@@ -56,6 +56,7 @@ export const authReducer = (state: IAuth, action: Action): IAuth => {
     case CLEAR_ERRORS:
       return {
         ...state,
+        error: "",
       };
     default:
       return state;

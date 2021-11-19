@@ -24,7 +24,10 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // register user
-  const register = async (formData: any) => {
+  interface FormData {
+    formData: { name: string; email: string; password: string };
+  }
+  const register = async (formData: FormData) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +62,7 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
 
   // clear errors
   const clearErrors = () => {
-    console.log(CLEAR_ERRORS);
+    dispatch({ type: CLEAR_ERRORS });
   };
 
   return (

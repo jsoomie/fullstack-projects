@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent, FormEvent } from "react";
+import { useState, useContext, ChangeEvent, FormEvent, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AlertContext, AuthContext } from "context";
 import { Alert } from "..";
@@ -6,7 +6,15 @@ import "./LoginRegister.css";
 
 export const Register = () => {
   const { setAlert, alerts } = useContext(AlertContext);
-  const { register } = useContext(AuthContext);
+  const { register, error, clearErrors } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (error === "User already exits") {
+      setAlert(error, "Warning");
+      clearErrors();
+    }
+    // eslint-disable-next-line
+  }, [error]);
 
   const [user, setUser] = useState({
     name: "",
