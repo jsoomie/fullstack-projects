@@ -1,11 +1,12 @@
 import { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { AlertContext } from "context";
+import { AlertContext, AuthContext } from "context";
 import { Alert } from "..";
 import "./LoginRegister.css";
 
 export const Register = () => {
   const { setAlert, alerts } = useContext(AlertContext);
+  const { register } = useContext(AuthContext);
 
   const [user, setUser] = useState({
     name: "",
@@ -27,7 +28,11 @@ export const Register = () => {
     } else if (password !== passConfirm) {
       setAlert("Passwords do not match", "Warning");
     } else {
-      console.log("Registered!");
+      register({
+        name,
+        email,
+        password,
+      });
     }
   };
 

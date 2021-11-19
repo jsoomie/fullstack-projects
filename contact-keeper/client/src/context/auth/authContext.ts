@@ -7,6 +7,10 @@ export interface IAuth {
   error: string;
   user: unknown; // TODO: Fix type
   register: Function;
+  loadUser: Function;
+  login: Function;
+  logout: Function;
+  clearErrors: Function;
 }
 
 export const GlobalAuth: IAuth = {
@@ -16,6 +20,10 @@ export const GlobalAuth: IAuth = {
   error: "",
   user: "",
   register: Function,
+  loadUser: Function,
+  login: Function,
+  logout: Function,
+  clearErrors: Function,
 };
 
 export const AuthContext = createContext<IAuth>(GlobalAuth);

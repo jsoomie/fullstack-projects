@@ -4,11 +4,11 @@ import { useReducer } from "react";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  // USER_LOADED,
-  // AUTH_ERROR,
-  // LOGIN_FAIL,
-  // LOGOUT,
-  // CLEAR_ERRORS,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_FAIL,
+  LOGOUT,
+  CLEAR_ERRORS,
 } from "context";
 import axios from "axios";
 
@@ -19,6 +19,9 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
   const [state, dispatch] = useReducer(authReducer, GlobalAuth);
 
   // load user
+  const loadUser = () => {
+    console.log(USER_LOADED);
+  };
 
   // register user
   const register = async (formData: any) => {
@@ -44,10 +47,20 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
   };
 
   // login user
+  const login = () => {
+    console.log(LOGIN_FAIL);
+    console.log(AUTH_ERROR);
+  };
 
   // logout
+  const logout = () => {
+    console.log(LOGOUT);
+  };
 
   // clear errors
+  const clearErrors = () => {
+    console.log(CLEAR_ERRORS);
+  };
 
   return (
     <AuthContext.Provider
@@ -58,6 +71,10 @@ export const AuthState = ({ children }: ChildProps): JSX.Element => {
         error: state.error,
         user: state.user,
         register,
+        loadUser,
+        login,
+        logout,
+        clearErrors,
       }}
     >
       {children}
