@@ -1,9 +1,6 @@
 import { Fragment, useState } from "react";
-
-interface Cards {
-  id?: number;
-  src: string;
-}
+import { SingleCard } from "components";
+import { ICards } from "interfaces";
 
 const imageName = [
   "helmet-1",
@@ -14,7 +11,7 @@ const imageName = [
   "sword-1",
 ];
 
-const cardImages: Cards[] = [];
+const cardImages: ICards[] = [];
 for (let i = 0; i < imageName.length; i++) {
   cardImages.push({
     src: `/img/${imageName[i]}.png`,
@@ -22,7 +19,7 @@ for (let i = 0; i < imageName.length; i++) {
 }
 
 export const Home = () => {
-  const [cards, setCards] = useState<Cards[] | null>(null);
+  const [cards, setCards] = useState<ICards[] | null>(null);
   const [turns, setTurns] = useState<number>(0);
 
   const shuffleCards = () => {
@@ -33,22 +30,12 @@ export const Home = () => {
     setTurns(0);
   };
 
-  console.log(cards, turns);
-
   return (
     <Fragment>
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
       <div className="card-grid">
-        {cards &&
-          cards.map((card) => (
-            <div key={card.id} className="card">
-              <div>
-                <img className="front" src={card.src} alt="card front" />
-                <img className="back" src="/img/cover.png" alt="card back" />
-              </div>
-            </div>
-          ))}
+        {cards && cards.map((card) => <SingleCard card={card} key={card.id} />)}
       </div>
     </Fragment>
   );

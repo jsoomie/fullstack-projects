@@ -1,1 +1,1 @@
-export {};
+export { SingleCard } from "./SingleCard/SingleCard";
