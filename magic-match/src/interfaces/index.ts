@@ -1,5 +1,5 @@
 export interface ICard {
-  id?: number;
+  id: number;
   src: string;
   matched: boolean;
 }

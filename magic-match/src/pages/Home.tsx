@@ -14,6 +14,7 @@ const imageName = [
 const cardImages: ICard[] = [];
 for (let i = 0; i < imageName.length; i++) {
   cardImages.push({
+    id: Math.random(),
     src: `/img/${imageName[i]}.png`,
     matched: false,
   });
@@ -46,13 +47,24 @@ export const Home = () => {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("Win");
+        setCards((prev: any) => {
+          if (prev)
+            return prev.map((card: ICard) => {
+              if (card.src === choiceOne.src) {
+                return { ...card, matched: true };
+              } else {
+                return card;
+              }
+            });
+        });
       } else {
         console.log("Not win");
       }
       resetTurn();
     }
   }, [choiceOne, choiceTwo]);
+
+  console.log(cards);
 
   return (
     <Fragment>
