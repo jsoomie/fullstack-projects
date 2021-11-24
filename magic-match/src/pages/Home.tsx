@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 
 interface Cards {
+  id?: number;
   src: string;
 }
 
@@ -38,6 +39,17 @@ export const Home = () => {
     <Fragment>
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
+      <div className="card-grid">
+        {cards &&
+          cards.map((card) => (
+            <div key={card.id} className="card">
+              <div>
+                <img className="front" src={card.src} alt="card front" />
+                <img className="back" src="/img/cover.png" alt="card back" />
+              </div>
+            </div>
+          ))}
+      </div>
     </Fragment>
   );
 };
