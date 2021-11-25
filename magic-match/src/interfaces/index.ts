@@ -8,4 +8,5 @@ export interface IProps {
   card: ICard;
   handleChoice: Function;
   flipped: boolean;
+  disabled: boolean;
 }

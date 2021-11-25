@@ -25,6 +25,7 @@ export const Home = () => {
   const [turns, setTurns] = useState<number>(0);
   const [choiceOne, setChoiceOne] = useState<ICard | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<ICard | null>(null);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -42,20 +43,21 @@ export const Home = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prev) => prev + 1);
+    setDisabled(false);
   };
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      if (choiceOne.src === choiceTwo.src) {
+      setDisabled(true);
+      if (choiceOne.src === choiceTwo.src && choiceOne.id !== choiceTwo.id) {
         setCards((prev: any) => {
-          if (prev)
-            return prev.map((card: ICard) => {
-              if (card.src === choiceOne.src) {
-                return { ...card, matched: true };
-              } else {
-                return card;
-              }
-            });
+          return prev.map((card: ICard) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
         });
       } else {
         console.log("Not win");
@@ -76,6 +78,7 @@ export const Home = () => {
               key={card.id}
               handleChoice={handleChoice}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
+              disabled={disabled}
             />
           ))}
       </div>

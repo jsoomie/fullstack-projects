@@ -2,9 +2,16 @@ import { Fragment } from "react";
 import { IProps } from "interfaces";
 import "./SingleCard.css";
 
-export const SingleCard = ({ card, handleChoice, flipped }: IProps) => {
+export const SingleCard = ({
+  card,
+  handleChoice,
+  flipped,
+  disabled,
+}: IProps) => {
   const handleClick = () => {
-    handleChoice(card);
+    if (!disabled) {
+      handleChoice(card);
+    }
   };
 
   return (
