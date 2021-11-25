@@ -16,9 +16,13 @@ export const SingleCard = ({
 
   return (
     <Fragment>
-      <div className="card">
+      <div className={card.matched ? "card highlight" : "card"}>
         <div className={flipped ? "flipped" : ""}>
-          <img className="front" src={card.src} alt="card front" />
+          <img
+            className={card.matched ? "front highlight" : "front"}
+            src={card.src}
+            alt="card front"
+          />
           <img
             className="back"
             src="/img/cover.png"
