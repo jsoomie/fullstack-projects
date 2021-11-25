@@ -1,5 +1,12 @@
 .card {
   position: relative;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; 
+   -khtml-user-select: none;
+     -moz-user-select: none; 
+      -ms-user-select: none; 
+          user-select: none;
 }
 .card img {
   width: 100%;
@@ -28,4 +35,7 @@
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0s;
+}
+.highlight {
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
 }

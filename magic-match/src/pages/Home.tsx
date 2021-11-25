@@ -1,6 +1,8 @@
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { SingleCard } from "components";
 import { ICard } from "interfaces";
+import { motion } from "framer-motion";
+import { fadeIn, slideDown } from "animations";
 
 const imageName = [
   "helmet-1",
@@ -74,10 +76,10 @@ export const Home = () => {
   }, []);
 
   return (
-    <Fragment>
-      <h1>Magic Match</h1>
+    <motion.div variants={fadeIn} animate="to" initial="from">
+      <motion.h1 variants={slideDown}>Magic Match</motion.h1>
       <button onClick={shuffleCards}>New Game</button>
-      <div className="card-grid">
+      <motion.div variants={fadeIn} className="card-grid">
         {cards &&
           cards.map((card) => (
             <SingleCard
@@ -88,8 +90,8 @@ export const Home = () => {
               disabled={disabled}
             />
           ))}
-      </div>
+      </motion.div>
       <p>Turns: {turns}</p>
-    </Fragment>
+    </motion.div>
   );
 };
