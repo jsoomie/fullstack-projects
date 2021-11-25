@@ -7,4 +7,5 @@ export interface ICard {
 export interface IProps {
   card: ICard;
   handleChoice: Function;
+  flipped: boolean;
 }

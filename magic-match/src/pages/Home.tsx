@@ -60,11 +60,9 @@ export const Home = () => {
       } else {
         console.log("Not win");
       }
-      resetTurn();
+      setTimeout(() => resetTurn(), 600);
     }
   }, [choiceOne, choiceTwo]);
-
-  console.log(cards);
 
   return (
     <Fragment>
@@ -73,7 +71,12 @@ export const Home = () => {
       <div className="card-grid">
         {cards &&
           cards.map((card) => (
-            <SingleCard card={card} key={card.id} handleChoice={handleChoice} />
+            <SingleCard
+              card={card}
+              key={card.id}
+              handleChoice={handleChoice}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
+            />
           ))}
       </div>
     </Fragment>

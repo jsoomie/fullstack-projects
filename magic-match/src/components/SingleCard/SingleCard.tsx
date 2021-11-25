@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { IProps } from "interfaces";
 import "./SingleCard.css";
 
-export const SingleCard = ({ card, handleChoice }: IProps) => {
+export const SingleCard = ({ card, handleChoice, flipped }: IProps) => {
   const handleClick = () => {
     handleChoice(card);
   };
@@ -10,7 +10,7 @@ export const SingleCard = ({ card, handleChoice }: IProps) => {
   return (
     <Fragment>
       <div className="card">
-        <div>
+        <div className={flipped ? "flipped" : ""}>
           <img className="front" src={card.src} alt="card front" />
           <img
             className="back"
