@@ -9,7 +9,7 @@ export const SingleCard = ({
   disabled,
 }: IProps) => {
   const handleClick = () => {
-    if (!disabled) {
+    if (!disabled && !flipped) {
       handleChoice(card);
     }
   };

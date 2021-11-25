@@ -49,7 +49,7 @@ export const Home = () => {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
-      if (choiceOne.src === choiceTwo.src && choiceOne.id !== choiceTwo.id) {
+      if (choiceOne.src === choiceTwo.src) {
         setCards((prev: any) => {
           return prev.map((card: ICard) => {
             if (card.src === choiceOne.src) {
@@ -62,7 +62,7 @@ export const Home = () => {
       } else {
         console.log("Not win");
       }
-      setTimeout(() => resetTurn(), 600);
+      setTimeout(() => resetTurn(), 700);
     }
   }, [choiceOne, choiceTwo]);
 
