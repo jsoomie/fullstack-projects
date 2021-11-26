@@ -50,6 +50,8 @@ A small collection of full stack projects from scratch to fully deployed.
 
 [Contact Keeper Logs](https://github.com/jsoomie/fullstack-projects/blob/main/contact-keeper/README.md)
 
+[Magic Match Logs](https://github.com/jsoomie/fullstack-projects/blob/main/magic-match/README.md)
+
 ---
 ---
 
