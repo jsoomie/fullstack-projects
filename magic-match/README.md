@@ -15,7 +15,7 @@ Welcome to the Magic Match page! This [react][react-link] project was a simple p
 The overall project was a simple project utilizing typescript. The most difficult problem to overcome was working out problems that were created within the game logic itself. A bug had occured where if a user was quick enough, the user could've double clicked a card and it would automatically turn over the correct card elsewhere on the card grid. The problem occured because the logic was to compare the first card with the second card against the the card's path name. Unfortunately, since the paths are the same, in the sense that it is utilizing the same image to render the card, then it would have counted as the 'same' click, thus flipping over the correct card in the end.
 
 This problem was solved by adding a !flipped check inside of the handleClick function.
-```javascript
+```typescript
 const handleClick = () => {
   if (!disabled && !flipped) {
     handleChoice(card);
