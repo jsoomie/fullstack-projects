@@ -54,8 +54,8 @@ export const Home = () => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
-        setCards((prev: any) => {
-          return prev.map((card: ICard) => {
+        setCards((prev: ICard[] | null) => {
+          return prev!.map((card: ICard) => {
             if (card.src === choiceOne.src) {
               return { ...card, matched: true };
             } else {
