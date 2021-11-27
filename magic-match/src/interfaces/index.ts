@@ -6,7 +6,7 @@ export interface ICard {
 
 export interface IProps {
   card: ICard;
-  handleChoice: Function;
+  handleChoice: (card: ICard) => void;
   flipped: boolean;
   disabled: boolean;
 }
