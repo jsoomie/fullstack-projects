@@ -1,0 +1,19 @@
+#ErrorPage {
+  margin: 1rem auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#ErrorPage img {
+  border-radius: 75px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 10px lightgray;
+  margin: 2rem;
+}
+
+#ErrorPage a {
+  color: #333;
+}
