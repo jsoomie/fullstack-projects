@@ -1,6 +1,6 @@
-export { HomePage } from "./HomePage";
-export { CreatePage } from "./CreatePage";
-export { RecipePage } from "./RecipePage";
-export { SearchPage } from "./SearchPage";
+export { Home } from "./Home/Home";
+export { Create } from "./Create/Create";
+export { Search } from "./Search/Search";
+export { Recipe } from "./Recipe/Recipe";
 
-export { ErrorPage } from "./ErrorPage";
+export { Error } from "./Error/Error";
