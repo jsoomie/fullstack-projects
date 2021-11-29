@@ -8,10 +8,11 @@
 }
 
 #ErrorPage img {
-  border-radius: 75px;
+  border-radius: 25px;
   border: 1px solid lightgray;
   box-shadow: 0 0 10px lightgray;
   margin: 2rem;
+  width: 25%;
 }
 
 #ErrorPage a {
