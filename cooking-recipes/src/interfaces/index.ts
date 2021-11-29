@@ -5,3 +5,7 @@ export interface IRecipe {
   method: string;
   cookingTime: string;
 }
+
+export interface IProps {
+  recipes: IRecipe[];
+}
