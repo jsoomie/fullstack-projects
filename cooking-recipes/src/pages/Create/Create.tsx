@@ -1,14 +1,27 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from "react";
 import "./Create.css";
 
 export const Create = () => {
   const [title, setTitle] = useState<string>("");
   const [method, setMethod] = useState<string>("");
   const [cookingTime, setCookingTime] = useState<string>("");
+  const [newIngredient, setNewIngredient] = useState<string>("");
+  const [ingredients, setIngredients] = useState<string[]>([]);
+  const ingredientInput = useRef<HTMLInputElement | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(title, method, cookingTime);
+    console.log(title, method, cookingTime, ingredients);
+  };
+
+  const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const ing = newIngredient.trim();
+    if (ing && !ingredients.includes(ing)) {
+      setIngredients((prev: string[]) => [...prev, ing]);
+    }
+    setNewIngredient("");
+    ingredientInput.current!.focus();
   };
 
   return (
@@ -27,7 +40,31 @@ export const Create = () => {
           />
         </label>
 
-        {/* ingredients go here */}
+        <label>
+          <span>Recipe ingredients: </span>
+          <div className="ingredients">
+            <input
+              type="text"
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNewIngredient(e.target.value)
+              }
+              value={newIngredient}
+              ref={ingredientInput}
+            />
+            <button className="btn" onClick={handleAdd}>
+              add
+            </button>
+          </div>
+        </label>
+
+        {ingredients.length ? (
+          <p>
+            Current Ingredients:{" "}
+            {ingredients.map((i) => (
+              <em key={i}>{i}, </em>
+            ))}
+          </p>
+        ) : null}
 
         <label>
           <span>Recipe Method: </span>
