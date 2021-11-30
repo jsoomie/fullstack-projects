@@ -4,7 +4,7 @@ import { RecipeList } from "components";
 import "./Home.css";
 
 export const Home = () => {
-  const localURL = "http://localhost:3000/recipes";
+  const localURL = "http://localhost:8000/recipes";
   const { data, isPending, error } = useFetch<IRecipe[]>(localURL);
 
   return (
