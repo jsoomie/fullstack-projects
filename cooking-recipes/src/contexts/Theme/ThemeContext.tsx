@@ -2,8 +2,14 @@ import { createContext, useReducer } from "react";
 import { Actions, themeReducer } from "contexts";
 import { IChild, IThemeState } from "interfaces";
 
+export enum Theme {
+  PRIMARY = "#58249c",
+  SECONDARY = "#249c6b",
+  TERTIARY = "#b70233",
+}
+
 const initialTheme: IThemeState = {
-  color: "blue",
+  color: Theme.PRIMARY,
   changeColor: (color: string) => {},
 };
 
