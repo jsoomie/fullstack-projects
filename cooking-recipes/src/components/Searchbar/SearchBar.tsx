@@ -10,6 +10,7 @@ export const SearchBar = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     navigate(`/search?q=${term}`);
+    setTerm("");
   };
 
   return (
@@ -22,6 +23,7 @@ export const SearchBar = () => {
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setTerm(e.target.value)
           }
+          value={term || ""}
           required
         />
       </form>
