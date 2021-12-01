@@ -1,16 +1,17 @@
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { useFetch } from "hooks";
+import { useFetch, useTheme } from "hooks";
 import { IRecipe } from "interfaces";
 import "./Recipe.css";
 
 export const Recipe = () => {
+  const { mode } = useTheme();
   const { id } = useParams();
   const localURL = `http://localhost:8000/recipes/${id}`;
   const { data, isPending, error } = useFetch<IRecipe>(localURL);
 
   return (
-    <div className="recipe">
+    <div className={`recipe ${mode}`}>
       {error && <p className="error">{error}</p>}
       {isPending && <p className="loading">Loading...</p>}
       {data && (

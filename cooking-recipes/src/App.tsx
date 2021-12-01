@@ -1,11 +1,14 @@
 import { Home, Create, Recipe, Search, Error } from "pages";
 import { Navbar, ThemeSelector } from "components";
+import { useTheme } from "hooks";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
+  const { mode } = useTheme();
+
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <Navbar />
       <ThemeSelector />
       <Routes>
