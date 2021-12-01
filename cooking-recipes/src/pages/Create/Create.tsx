@@ -1,5 +1,13 @@
-import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+} from "react";
 import { useFetch, Method } from "hooks";
+import { useNavigate } from "react-router-dom";
 import "./Create.css";
 
 export const Create = () => {
@@ -10,8 +18,20 @@ export const Create = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const ingredientInput = useRef<HTMLInputElement | null>(null);
 
+  const navigate = useNavigate();
+
   const localURL = "http://localhost:8000/recipes";
   const { postData, data, error } = useFetch(localURL, Method.POST);
+
+  useEffect(() => {
+    if (data && !error) {
+      navigate("/");
+    } else if (error) {
+      throw new Error(error);
+    } else {
+      return;
+    }
+  }, [data, navigate, error]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -19,7 +39,7 @@ export const Create = () => {
       title,
       ingredients,
       method,
-      cookingTime: cookingTime + " minutes",
+      cookingTime: `${cookingTime} minutes`,
     });
   };
 
