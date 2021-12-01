@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 export enum Method {
-  "GET" = "GET",
-  "POST" = "POST",
-  "PUT" = "PUT",
-  "DELETE" = "DELETE",
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
 }
 
 export interface IOptions {
