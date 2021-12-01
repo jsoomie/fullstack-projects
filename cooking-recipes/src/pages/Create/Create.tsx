@@ -1,4 +1,5 @@
 import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from "react";
+import { useFetch, Method } from "hooks";
 import "./Create.css";
 
 export const Create = () => {
@@ -9,9 +10,17 @@ export const Create = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const ingredientInput = useRef<HTMLInputElement | null>(null);
 
+  const localURL = "http://localhost:8000/recipes";
+  const { postData, data, error } = useFetch(localURL, Method.POST);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(title, method, cookingTime, ingredients);
+    postData({
+      title,
+      ingredients,
+      method,
+      cookingTime: cookingTime + " minutes",
+    });
   };
 
   const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {

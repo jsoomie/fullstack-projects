@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-enum Method {
+export enum Method {
   "GET" = "GET",
   "POST" = "POST",
   "PUT" = "PUT",

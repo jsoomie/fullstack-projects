@@ -1,1 +1,1 @@
-export { useFetch } from "./useFetch";
+export { useFetch, Method } from "./useFetch";
