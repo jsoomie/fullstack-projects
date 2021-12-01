@@ -1,7 +1,9 @@
-import { Actions } from "contexts";
+import { Actions, Mode } from "contexts";
 import { IThemeState } from "interfaces";
 
-type Action = { type: Actions; payload: string };
+type Action =
+  | { type: Actions.CHANGE_COLOR; payload: string }
+  | { type: Actions.CHANGE_MODE; payload: Mode };
 
 export const themeReducer = (state: IThemeState, action: Action) => {
   switch (action.type) {
@@ -9,6 +11,11 @@ export const themeReducer = (state: IThemeState, action: Action) => {
       return {
         ...state,
         color: action.payload,
+      };
+    case Actions.CHANGE_MODE:
+      return {
+        ...state,
+        mode: action.payload,
       };
     default:
       return state;

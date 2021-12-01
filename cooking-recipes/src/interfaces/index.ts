@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Mode, Theme } from "contexts";
 
 // Recipes States
 export interface IRecipe {
@@ -21,5 +22,7 @@ export interface IChild {
 // Theme States
 export interface IThemeState {
   color: string;
-  changeColor: (color: string) => void;
+  mode: "dark" | "light";
+  changeColor: (color: Theme) => void;
+  changeMode: (mode: Mode) => void;
 }
