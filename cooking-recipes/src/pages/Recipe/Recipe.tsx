@@ -1,14 +1,38 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useFetch, useTheme } from "hooks";
+import { useTheme } from "hooks";
 import { IRecipe } from "interfaces";
+import { projectFirestore } from "firebase";
 import "./Recipe.css";
 
 export const Recipe = () => {
+  const [data, setData] = useState<IRecipe | null>(null);
+  const [isPending, setIsPending] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const { mode } = useTheme();
   const { id } = useParams();
-  const localURL = `http://localhost:8000/recipes/${id}`;
-  const { data, isPending, error } = useFetch<IRecipe>(localURL);
+
+  useEffect(() => {
+    setIsPending(true);
+
+    const fetchData = async () => {
+      const res = await projectFirestore.collection("recipes").doc(id).get();
+      try {
+        if (res.exists) {
+          setData({ id: res.id, ...res.data() } as IRecipe);
+          setIsPending(false);
+        } else {
+          setError("Could not find that recipe");
+          setIsPending(false);
+        }
+      } catch (err: any) {
+        setError(err.message);
+        setIsPending(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   return (
     <div className={`recipe ${mode}`}>

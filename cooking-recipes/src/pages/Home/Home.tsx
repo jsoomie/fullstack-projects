@@ -19,9 +19,9 @@ export const Home = () => {
           setError("No recipe to load...");
           setIsPending(false);
         } else {
-          let results: any[] = [];
+          let results: IRecipe[] = [];
           res.docs.forEach((doc) => {
-            results.push({ id: doc.id, ...doc.data() });
+            results.push({ id: doc.id, ...doc.data() } as IRecipe);
           });
           setData(results);
           setIsPending(false);
