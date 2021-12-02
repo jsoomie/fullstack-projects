@@ -15,3 +15,4 @@ firebase.initializeApp(firebaseConfig);
 
 // initialize services
 export const projectFirestore = firebase.firestore();
+export * from "./dbActions";

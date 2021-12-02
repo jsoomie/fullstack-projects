@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IRecipe } from "interfaces";
 import { projectFirestore } from "firebase";
 import { RecipeList } from "components";
+import { DB } from "firebase";
 import "./Home.css";
 
 export const Home = () => {
@@ -12,7 +13,7 @@ export const Home = () => {
   useEffect(() => {
     setIsPending(true);
 
-    const unsub = projectFirestore.collection("recipes").onSnapshot(
+    const unsub = projectFirestore.collection(DB.RECIPES).onSnapshot(
       (res) => {
         if (res.empty) {
           setError("No recipe to load...");

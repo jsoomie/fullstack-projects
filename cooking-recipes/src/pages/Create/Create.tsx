@@ -1,5 +1,5 @@
 import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from "react";
-import { projectFirestore } from "firebase";
+import { projectFirestore, DB } from "firebase";
 import { useNavigate } from "react-router-dom";
 import "./Create.css";
 
@@ -23,7 +23,7 @@ export const Create = () => {
     };
 
     try {
-      await projectFirestore.collection("recipes").add(doc);
+      await projectFirestore.collection(DB.RECIPES).add(doc);
       navigate("/");
     } catch (error: any) {
       console.log(error);

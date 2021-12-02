@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTheme } from "hooks";
 import { IRecipe } from "interfaces";
-import { projectFirestore } from "firebase";
+import { projectFirestore, DB } from "firebase";
 import "./Recipe.css";
 
 export const Recipe = () => {
@@ -16,7 +16,7 @@ export const Recipe = () => {
     setIsPending(true);
 
     const fetchData = async () => {
-      const res = await projectFirestore.collection("recipes").doc(id).get();
+      const res = await projectFirestore.collection(DB.RECIPES).doc(id).get();
       try {
         if (res.exists) {
           setData({ id: res.id, ...res.data() } as IRecipe);
@@ -34,6 +34,12 @@ export const Recipe = () => {
     fetchData();
   }, [id]);
 
+  const handleClick = () => {
+    projectFirestore.collection(DB.RECIPES).doc(id).update({
+      title: "Something Different",
+    });
+  };
+
   return (
     <div className={`recipe ${mode}`}>
       {error && <p className="error">{error}</p>}
@@ -48,6 +54,7 @@ export const Recipe = () => {
             ))}
           </ul>
           <p className="method">{data.method}</p>
+          <button onClick={handleClick}>Update Me</button>
         </Fragment>
       )}
     </div>
