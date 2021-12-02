@@ -15,28 +15,31 @@ export const Recipe = () => {
   useEffect(() => {
     setIsPending(true);
 
-    const fetchData = async () => {
-      const res = await projectFirestore.collection(DB.RECIPES).doc(id).get();
-      try {
-        if (res.exists) {
-          setData({ id: res.id, ...res.data() } as IRecipe);
-          setIsPending(false);
-        } else {
-          setError("Could not find that recipe");
+    const unsub = projectFirestore
+      .collection(DB.RECIPES)
+      .doc(id)
+      .onSnapshot(
+        (res) => {
+          if (res.exists) {
+            setData({ id: res.id, ...res.data() } as IRecipe);
+            setIsPending(false);
+          } else {
+            setError("Could not find that recipe");
+            setIsPending(false);
+          }
+        },
+        (error) => {
+          setError(error.message);
           setIsPending(false);
         }
-      } catch (err: any) {
-        setError(err.message);
-        setIsPending(false);
-      }
-    };
+      );
 
-    fetchData();
+    return () => unsub();
   }, [id]);
 
   const handleClick = () => {
     projectFirestore.collection(DB.RECIPES).doc(id).update({
-      title: "Something Different",
+      title: "Veggie Pie",
     });
   };
 
