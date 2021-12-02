@@ -1,12 +1,5 @@
-import {
-  useState,
-  useRef,
-  useEffect,
-  ChangeEvent,
-  FormEvent,
-  MouseEvent,
-} from "react";
-import { useFetch, Method } from "hooks";
+import { useState, useRef, ChangeEvent, FormEvent, MouseEvent } from "react";
+import { projectFirestore } from "firebase";
 import { useNavigate } from "react-router-dom";
 import "./Create.css";
 
@@ -20,27 +13,21 @@ export const Create = () => {
 
   const navigate = useNavigate();
 
-  const localURL = "http://localhost:8000/recipes";
-  const { postData, data, error } = useFetch(localURL, Method.POST);
-
-  useEffect(() => {
-    if (data && !error) {
-      navigate("/");
-    } else if (error) {
-      throw new Error(error);
-    } else {
-      return;
-    }
-  }, [data, navigate, error]);
-
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    postData({
+    const doc = {
       title,
       ingredients,
       method,
       cookingTime: `${cookingTime} minutes`,
-    });
+    };
+
+    try {
+      await projectFirestore.collection("recipes").add(doc);
+      navigate("/");
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {
