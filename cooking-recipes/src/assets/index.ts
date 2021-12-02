@@ -1,2 +1,4 @@
 import modeIcon from "./mode-icon.svg";
-export { modeIcon };
+import deleteIcon from "./delete-icon.svg";
+
+export { modeIcon, deleteIcon };
