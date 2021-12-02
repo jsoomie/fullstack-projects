@@ -13,6 +13,7 @@ export enum Mode {
   LIGHT = "light",
 }
 
+// initial state
 const initialTheme: IThemeState = {
   color: Theme.PRIMARY,
   mode: Mode.LIGHT,
@@ -20,8 +21,10 @@ const initialTheme: IThemeState = {
   changeMode: (mode: Mode) => {},
 };
 
+// context
 export const ThemeContext = createContext<typeof initialTheme>(initialTheme);
 
+// provider
 export const ThemeProvider = ({ children }: IChild) => {
   const [state, dispatch] = useReducer(themeReducer, initialTheme);
 
