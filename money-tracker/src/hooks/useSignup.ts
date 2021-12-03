@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { auth } from "firebase";
 
-interface Function<T> {
+interface IHook<T> {
   (): T;
 }
 
@@ -18,7 +18,7 @@ interface ISignup {
 type Error = string | null;
 type Pending = boolean;
 
-export const useSignup: Function<IUseSignup> = () => {
+export const useSignup: IHook<IUseSignup> = () => {
   const [error, setError] = useState<Error>(null);
   const [isPending, setIsPending] = useState<Pending>(false);
 
