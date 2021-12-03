@@ -11,7 +11,7 @@ A small collection of full stack projects from scratch to fully deployed.
 
 [![Magic Match](assets/magicmatch-splash.png)](https://serene-raman-79c0e2.netlify.app)
 
-[![Recipes & Cook](assets/recipes-splash.png)](#)
+[![Recipes & Cook](assets/recipes-splash.png)](https://cookingandrecipes.netlify.app)
 ---
 
 ## Projects
@@ -29,7 +29,7 @@ A small collection of full stack projects from scratch to fully deployed.
 
 <!-- Recipes & Cook -->
 [recipes-cook]: https://github.com/jsoomie/fullstack-projects/tree/main/cooking-recipes
-[recipes-cook-deployed]: #
+[recipes-cook-deployed]: https://cookingandrecipes.netlify.app
 
 1. [Github Finder Repo][github-finder] || [Deployed Link][github-finder-deployed]
    1. Create a github user finder application. Create fetch of github users with the use of a search bar. 
@@ -62,7 +62,7 @@ A small collection of full stack projects from scratch to fully deployed.
 ![Magic Match](assets/magicmatch-screen.gif)
 
 ### Cooking Recipes
-![Cooking Recipe](#)
+![Cooking Recipe](assets/recipes-screen.gif)
 
 ## Changelogs 
 [Github Finder Logs](https://github.com/jsoomie/fullstack-projects/blob/main/github-finder/README.md)
