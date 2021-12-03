@@ -1,13 +1,26 @@
 import { useState } from "react";
 import { auth } from "firebase";
 
+interface Function<T> {
+  (): T;
+}
+
+interface IUseSignup {
+  error: Error;
+  isPending: Pending;
+  signup: ISignup;
+}
+
 interface ISignup {
   (emal: string, password: string, displayName: string): void;
 }
 
-export const useSignup = () => {
-  const [error, setError] = useState<string | null>(null);
-  const [isPending, setIsPending] = useState<boolean>(false);
+type Error = string | null;
+type Pending = boolean;
+
+export const useSignup: Function<IUseSignup> = () => {
+  const [error, setError] = useState<Error>(null);
+  const [isPending, setIsPending] = useState<Pending>(false);
 
   const signup: ISignup = async (email, password, displayName) => {
     setError(null);
