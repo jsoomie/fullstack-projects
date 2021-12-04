@@ -1,4 +1,5 @@
 import { Actions } from "actions";
+import { DocumentData } from "@firebase/firestore";
 
 // Auth Context
 export interface IAuthState {
@@ -50,6 +51,13 @@ export type Error = string | null;
 export interface IUser extends ITransactionProps {
   displayName: string | null;
   email: string | null;
+}
+
+// firestore document
+export interface Document extends DocumentData {
+  id: string;
+  name: string;
+  amount: string;
 }
 
 // Auth Reducer
