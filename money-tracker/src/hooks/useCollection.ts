@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { db } from "firebase";
 import { DocumentData } from "@firebase/firestore";
 
-export const useCollection = <T extends string>(collection: T) => {
+export const useCollection = (collection: string) => {
   const [document, setDocument] = useState<DocumentData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
