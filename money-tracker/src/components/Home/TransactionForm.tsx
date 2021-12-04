@@ -1,13 +1,23 @@
-import { useState, Fragment, FormEvent } from "react";
+import { useState, Fragment, FormEvent, useEffect } from "react";
+import { useFirestore } from "hooks";
+import { ITransactionProps } from "interfaces";
 
-export const TransactionForm = () => {
+export const TransactionForm = ({ uid }: ITransactionProps) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
+  const { addDocument, response } = useFirestore("transaction");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log({ name, amount });
+    addDocument({ uid, name, amount });
   };
+
+  useEffect(() => {
+    if (response.success) {
+      setName("");
+      setAmount("");
+    }
+  }, [response.success]);
 
   return (
     <Fragment>
@@ -23,7 +33,7 @@ export const TransactionForm = () => {
           />
         </label>
         <label>
-          <span>Transaction amount: </span>
+          <span>Amount($): </span>
           <input
             type="number"
             required

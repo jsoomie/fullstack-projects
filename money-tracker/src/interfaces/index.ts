@@ -47,7 +47,7 @@ export interface IUseLogout extends IErrorPending {
 export type Error = string | null;
 
 // // Firebase
-export interface IUser {
+export interface IUser extends ITransactionProps {
   displayName: string | null;
   email: string | null;
 }
@@ -57,3 +57,8 @@ export type Action =
   | { type: Actions.LOGIN; payload: IUser | null }
   | { type: Actions.LOGOUT }
   | { type: Actions.AUTH_READY; payload: IUser | null };
+
+// Homp > Transaction Component
+export interface ITransactionProps {
+  uid: string | null;
+}

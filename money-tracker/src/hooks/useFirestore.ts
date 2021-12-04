@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useState } from "react";
-import { db } from "firebase";
+import { db, timestamp } from "firebase";
 import { DocumentData } from "firebase/firestore";
 
 ////
@@ -90,7 +90,8 @@ export const useFirestore = <T extends string>(collection: T) => {
     dispatch({ type: Actions.IS_PENDING });
 
     try {
-      const addedDocument = await ref.add(doc);
+      const createdAt = timestamp.fromDate(new Date());
+      const addedDocument = await ref.add({ ...doc, createdAt });
       dispatchIfNotCancelled({
         type: Actions.ADDED_DOCUMENT,
         payload: addedDocument,
