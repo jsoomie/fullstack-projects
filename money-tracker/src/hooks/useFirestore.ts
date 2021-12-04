@@ -71,7 +71,7 @@ const firestoreReducer = (state: IState, action: Action) => {
 
 ////
 // Hook
-export const useFirestore = <T extends string>(collection: T) => {
+export const useFirestore = (collection: string) => {
   const [response, dispatch] = useReducer(firestoreReducer, initState);
   const [isCancelled, setIsCancelled] = useState(false);
 

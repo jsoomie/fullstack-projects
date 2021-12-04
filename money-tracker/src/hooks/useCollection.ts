@@ -3,7 +3,7 @@ import { db } from "firebase";
 import { DocumentData } from "@firebase/firestore";
 
 export const useCollection = (collection: string) => {
-  const [document, setDocument] = useState<DocumentData | null>(null);
+  const [documents, setDocuments] = useState<DocumentData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const useCollection = (collection: string) => {
         });
 
         // update state
-        setDocument(results);
+        setDocuments(results);
         setError(null);
       },
       (error) => {
@@ -27,5 +27,5 @@ export const useCollection = (collection: string) => {
     return () => unsub();
   }, [collection]);
 
-  return { document, error };
+  return { documents, error };
 };
