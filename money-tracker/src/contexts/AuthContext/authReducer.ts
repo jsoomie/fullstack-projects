@@ -13,6 +13,12 @@ export const authReducer = (state: IAuthState, action: Action) => {
         ...state,
         user: null,
       };
+    case Actions.AUTH_READY:
+      return {
+        ...state,
+        authIsReady: true,
+        user: action.payload,
+      };
     default:
       return state;
   }

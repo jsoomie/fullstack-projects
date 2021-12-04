@@ -4,6 +4,7 @@ import { Actions } from "actions";
 export interface IAuthState {
   user: IUser | null;
   dispatch: React.Dispatch<Action> | undefined;
+  authIsReady: boolean;
 }
 
 // Children prop
@@ -54,4 +55,5 @@ export interface IUser {
 // Auth Reducer
 export type Action =
   | { type: Actions.LOGIN; payload: IUser | null }
-  | { type: Actions.LOGOUT };
+  | { type: Actions.LOGOUT }
+  | { type: Actions.AUTH_READY; payload: IUser | null };
