@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { auth } from "firebase";
 import { useAuthContext } from "hooks";
 import { Actions } from "actions";
-import { Error, Pending, IHook, IUseLogout } from "interfaces";
+import { Error, IHook, IUseLogout } from "interfaces";
 
 export const useLogout: IHook<IUseLogout> = () => {
-  const [isCanceled, setIsCanceled] = useState(false);
+  const [isCancelled, setIsCancelled] = useState<boolean>(false);
   const [error, setError] = useState<Error>(null);
-  const [isPending, setIsPending] = useState<Pending>(false);
+  const [isPending, setIsPending] = useState<boolean>(false);
   const { dispatch } = useAuthContext();
 
   const logout = async () => {
@@ -16,12 +16,12 @@ export const useLogout: IHook<IUseLogout> = () => {
     try {
       await auth.signOut();
       dispatch!({ type: Actions.LOGOUT });
-      if (!isCanceled) {
+      if (!isCancelled) {
         setIsPending(false);
         setError(null);
       }
     } catch (error: any) {
-      if (!isCanceled) {
+      if (!isCancelled) {
         console.log(error.message);
         setError(error.message);
         setIsPending(false);
@@ -30,7 +30,7 @@ export const useLogout: IHook<IUseLogout> = () => {
   };
 
   useEffect(() => {
-    return () => setIsCanceled(true);
+    return () => setIsCancelled(true);
   }, []);
 
   return { logout, error, isPending };

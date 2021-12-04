@@ -18,7 +18,7 @@ export interface IHook<T> {
 
 export interface IErrorPending {
   error: Error;
-  isPending: Pending;
+  isPending: boolean;
 }
 
 // Sign Up
@@ -27,7 +27,15 @@ export interface IUseSignup extends IErrorPending {
 }
 
 export interface ISignup {
-  (emal: string, password: string, displayName: string): void;
+  (email: string, password: string, displayName: string): void;
+}
+
+// Login
+export interface IUseLogin extends IErrorPending {
+  login: ILogin;
+}
+export interface ILogin {
+  (email: string, password: string): void;
 }
 
 // Logout
@@ -36,7 +44,6 @@ export interface IUseLogout extends IErrorPending {
 }
 
 export type Error = string | null;
-export type Pending = boolean;
 
 // // Firebase
 export interface IUser {
