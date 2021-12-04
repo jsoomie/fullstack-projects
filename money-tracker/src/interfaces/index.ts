@@ -38,7 +38,7 @@ export interface IUseLogout extends IErrorPending {
 export type Error = string | null;
 export type Pending = boolean;
 
-// Firebase
+// // Firebase
 export interface IUser {
   displayName: string | null;
   email: string | null;
