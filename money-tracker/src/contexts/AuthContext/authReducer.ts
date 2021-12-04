@@ -3,10 +3,10 @@ import { IAuthState, Action } from "interfaces";
 
 export const authReducer = (state: IAuthState, action: Action) => {
   switch (action.type) {
-    case Actions.TEST:
+    case Actions.LOGIN:
       return {
         ...state,
-        payload: "",
+        user: action.payload,
       };
     default:
       return state;
