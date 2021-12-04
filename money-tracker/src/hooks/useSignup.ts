@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "firebase";
 import { useAuthContext } from "hooks";
 import { Actions } from "actions";
 import { IHook, IUseSignup, Error, Pending, ISignup } from "interfaces";
 
 export const useSignup: IHook<IUseSignup> = () => {
+  const [isCanceled, setIsCanceled] = useState(false);
   const [error, setError] = useState<Error>(null);
   const [isPending, setIsPending] = useState<Pending>(false);
   const { dispatch } = useAuthContext();
@@ -22,15 +23,22 @@ export const useSignup: IHook<IUseSignup> = () => {
       if (!res) throw new Error("Could not complete signup");
 
       if (res.user) await res.user.updateProfile({ displayName });
-
-      setIsPending(false);
-      setError(null);
+      if (!isCanceled) {
+        setIsPending(false);
+        setError(null);
+      }
     } catch (error: any) {
-      console.log(error.message);
-      setError(error.message);
-      setIsPending(false);
+      if (!isCanceled) {
+        console.log(error.message);
+        setError(error.message);
+        setIsPending(false);
+      }
     }
   };
+
+  useEffect(() => {
+    return () => setIsCanceled(true);
+  }, []);
 
   return { error, isPending, signup };
 };
