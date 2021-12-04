@@ -1,11 +1,12 @@
 import { useState, Fragment, FormEvent, useEffect } from "react";
 import { useFirestore } from "hooks";
 import { ITransactionProps } from "interfaces";
+import { Collection } from "actions";
 
 export const TransactionForm = ({ uid }: ITransactionProps) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
-  const { addDocument, response } = useFirestore("transaction");
+  const { addDocument, response } = useFirestore(Collection.TRANSACTION);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

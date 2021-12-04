@@ -4,3 +4,7 @@ export enum Actions {
   LOGOUT = "LOGOUT",
   AUTH_READY = "AUTH_READY",
 }
+
+export enum Collection {
+  TRANSACTION = "transaction",
+}
