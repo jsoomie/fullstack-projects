@@ -2,23 +2,7 @@ import { useState } from "react";
 import { auth } from "firebase";
 import { useAuthContext } from "hooks";
 import { Actions } from "actions";
-
-interface IHook<T> {
-  (): T;
-}
-
-interface IUseSignup {
-  error: Error;
-  isPending: Pending;
-  signup: ISignup;
-}
-
-interface ISignup {
-  (emal: string, password: string, displayName: string): void;
-}
-
-type Error = string | null;
-type Pending = boolean;
+import { IHook, IUseSignup, Error, Pending, ISignup } from "interfaces";
 
 export const useSignup: IHook<IUseSignup> = () => {
   const [error, setError] = useState<Error>(null);
