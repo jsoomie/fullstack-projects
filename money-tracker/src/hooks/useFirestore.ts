@@ -11,15 +11,11 @@ interface IState {
   success: boolean | null;
 }
 
-// interface IDocument {
-//   name: string;
-//   amount: string;
-// }
-
 type Action =
   | { type: Actions.IS_PENDING }
-  | { type: Actions.ADDED_DOCUMENT; payload: DocumentData }
-  | { type: Actions.ERROR; payload: string };
+  | { type: Actions.ADDED_DOC; payload: DocumentData }
+  | { type: Actions.ERROR; payload: string }
+  | { type: Actions.DELETED_DOC };
 
 ////
 // Initial State
@@ -35,8 +31,9 @@ const initState: IState = {
 enum Actions {
   TEST = "TEST",
   IS_PENDING = "IS_PENDING",
-  ADDED_DOCUMENT = "ADDED_DOCUMENT",
+  ADDED_DOC = "ADDED_DOCUMENT",
   ERROR = "ERROR",
+  DELETED_DOC = "DELETED_DOCUMENT",
 }
 
 ////
@@ -50,7 +47,7 @@ const firestoreReducer = (state: IState, action: Action) => {
         success: false,
         error: null,
       };
-    case Actions.ADDED_DOCUMENT:
+    case Actions.ADDED_DOC:
       return {
         isPending: false,
         document: action.payload,
@@ -63,6 +60,13 @@ const firestoreReducer = (state: IState, action: Action) => {
         document: null,
         success: false,
         error: action.payload,
+      };
+    case Actions.DELETED_DOC:
+      return {
+        isPending: false,
+        document: null,
+        success: true,
+        error: null,
       };
     default:
       return state;
@@ -93,7 +97,7 @@ export const useFirestore = (collection: string) => {
       const createdAt = timestamp.fromDate(new Date());
       const addedDocument = await ref.add({ ...doc, createdAt });
       dispatchIfNotCancelled({
-        type: Actions.ADDED_DOCUMENT,
+        type: Actions.ADDED_DOC,
         payload: addedDocument,
       });
     } catch (error: any) {
@@ -102,7 +106,20 @@ export const useFirestore = (collection: string) => {
   };
 
   // delete document
-  const deleteDocument = async (id: string) => {};
+  const deleteDocument = async (id: string) => {
+    dispatch({ type: Actions.IS_PENDING });
+    try {
+      await ref.doc(id).delete();
+      dispatchIfNotCancelled({
+        type: Actions.DELETED_DOC,
+      });
+    } catch (error: any) {
+      dispatchIfNotCancelled({
+        type: Actions.ERROR,
+        payload: "Could not delete",
+      });
+    }
+  };
 
   useEffect(() => {
     return () => setIsCancelled(true);
