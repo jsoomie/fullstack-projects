@@ -7,6 +7,19 @@ export const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
+  const today = new Date();
+  const currentHour = today.getHours();
+
+  const greeting = () => {
+    if (currentHour < 12) {
+      return "Good morning";
+    } else if (currentHour < 18) {
+      return "Good afternoon";
+    } else {
+      return "Good evening";
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <ul>
@@ -25,7 +38,9 @@ export const Navbar = () => {
 
         {user && (
           <>
-            <li>Hello, {user.displayName}</li>
+            <li>
+              {greeting()}, {user.displayName ? user.displayName : "User"}
+            </li>
             <li>
               <button className="btn" onClick={logout}>
                 Logout
