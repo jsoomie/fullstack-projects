@@ -1,14 +1,25 @@
 import { TransactionForm, TransactionList } from "components";
-import { useAuthContext, useCollection } from "hooks";
+import {
+  useAuthContext,
+  useCollection,
+  QueryString,
+  OrderByString,
+} from "hooks";
 import { Collection } from "actions";
 import styles from "./Home.module.css";
 
+let queryArray: QueryString;
+let orderByArray: OrderByString;
+
 export const Home = () => {
   const { user } = useAuthContext();
+  if (user && user.uid) queryArray = ["uid", "==", user.uid];
+  orderByArray = ["createdAt", "desc"];
+
   const { documents, error } = useCollection(
     Collection.TRANSACTION,
-    ["uid", "==", user!.uid!],
-    ["createdAt", "desc"]
+    queryArray,
+    orderByArray
   );
 
   return (

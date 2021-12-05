@@ -6,8 +6,8 @@ import {
   OrderByDirection,
 } from "@firebase/firestore";
 
-type QueryString = [string, WhereFilterOp, string];
-type OrderByString = [string, OrderByDirection];
+export type QueryString = [string, WhereFilterOp, string];
+export type OrderByString = [string, OrderByDirection];
 export const useCollection = (
   collection: string,
   _query?: QueryString | null,
