@@ -12,6 +12,8 @@ A small collection of full stack projects from scratch to fully deployed.
 [![Magic Match](assets/magicmatch-splash.png)](https://serene-raman-79c0e2.netlify.app)
 
 [![Recipes & Cook](assets/recipes-splash.png)](https://cookingandrecipes.netlify.app)
+
+[![Money Tracker](assets/monetracker-splash.png)](https://money-tracker-10948.web.app/login)
 ---
 
 ## Projects
@@ -27,9 +29,13 @@ A small collection of full stack projects from scratch to fully deployed.
 [magic-match]: https://github.com/jsoomie/fullstack-projects/tree/main/magic-match
 [magic-match-deployed]: https://serene-raman-79c0e2.netlify.app
 
-<!-- Recipes & Cook -->
+<!-- RECIPES & COOK -->
 [recipes-cook]: https://github.com/jsoomie/fullstack-projects/tree/main/cooking-recipes
 [recipes-cook-deployed]: https://cookingandrecipes.netlify.app
+
+<!-- MONEY TRACKER -->
+[money-tracker]: https://github.com/jsoomie/fullstack-projects/tree/main/money-tracker
+[money-tracker-deployed]: https://money-tracker-10948.web.app/login
 
 1. [Github Finder Repo][github-finder] || [Deployed Link][github-finder-deployed]
    1. Create a github user finder application. Create fetch of github users with the use of a search bar. 
@@ -54,6 +60,15 @@ A small collection of full stack projects from scratch to fully deployed.
    3. Utilize REACT's context and reducers hooks
    4. Introduction to firebase firestore database!
 
+---
+
+5. [Money Tracker Repo][money-tracker] || [Deployed Link][money-tracker-deployed]
+   1. Use Firebase Authentication
+   2. Deployment on firebase and edit firestore rules for only auth users and login requirement
+   3. Create reuseable hooks in regards to firebase
+   4. Use style modules instead of regular CSS
+   5. Displays tree only after firestore load
+
 ## Screenshots
 ### Github Finder
 ![Github Finder](assets/githubfinder-screen.gif)
@@ -64,7 +79,11 @@ A small collection of full stack projects from scratch to fully deployed.
 ### Cooking Recipes
 ![Cooking Recipe](assets/recipes-screen.gif)
 
+### Cooking Recipes
+![Money Tracker](assets/moneytracker-screen.gif)
+
 ## Changelogs 
+
 [Github Finder Logs](https://github.com/jsoomie/fullstack-projects/blob/main/github-finder/README.md)
 
 [Contact Keeper Logs](https://github.com/jsoomie/fullstack-projects/blob/main/contact-keeper/README.md)
@@ -72,6 +91,9 @@ A small collection of full stack projects from scratch to fully deployed.
 [Magic Match Logs](https://github.com/jsoomie/fullstack-projects/blob/main/magic-match/README.md)
 
 [Cooking Recipes Logs](https://github.com/jsoomie/fullstack-projects/blob/main/cooking-recipes/README.md)
+
+[Money Tracker Logs](https://github.com/jsoomie/fullstack-projects/tree/main/money-tracker)
+
 
 ---
 ---
