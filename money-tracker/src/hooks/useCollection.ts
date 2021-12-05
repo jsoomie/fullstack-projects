@@ -1,11 +1,17 @@
 import { useEffect, useState, useRef } from "react";
 import { db } from "firebase";
-import { DocumentData, WhereFilterOp } from "@firebase/firestore";
+import {
+  DocumentData,
+  WhereFilterOp,
+  OrderByDirection,
+} from "@firebase/firestore";
 
 type QueryString = [string, WhereFilterOp, string];
+type OrderByString = [string, OrderByDirection];
 export const useCollection = (
   collection: string,
-  _query: QueryString | null
+  _query?: QueryString | null,
+  _orderBy?: OrderByString | null
 ) => {
   const [documents, setDocuments] = useState<DocumentData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -13,13 +19,20 @@ export const useCollection = (
   // if we dont use a ref --> infinite loop in useFfect
   // _query is an array is "different" on every function call
   const query = useRef(_query).current;
+  const orderBy = useRef(_orderBy).current;
 
   useEffect(() => {
     let ref: DocumentData;
-    if (query) {
+    ref = db.collection(collection);
+
+    if (query && !orderBy) {
       ref = db.collection(collection).where(...query);
-    } else {
-      ref = db.collection(collection);
+    }
+    if (orderBy && query) {
+      ref = db
+        .collection(collection)
+        .where(...query)
+        .orderBy(...orderBy);
     }
 
     const unsub = ref.onSnapshot(
@@ -39,7 +52,7 @@ export const useCollection = (
       }
     );
     return () => unsub();
-  }, [collection, query]);
+  }, [collection, query, orderBy]);
 
   return { documents, error };
 };

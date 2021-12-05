@@ -5,11 +5,11 @@ import styles from "./Home.module.css";
 
 export const Home = () => {
   const { user } = useAuthContext();
-  const { documents, error } = useCollection(Collection.TRANSACTION, [
-    "uid",
-    "==",
-    user!.uid!,
-  ]);
+  const { documents, error } = useCollection(
+    Collection.TRANSACTION,
+    ["uid", "==", user!.uid!],
+    ["createdAt", "desc"]
+  );
 
   return (
     <div className={styles.container}>
