@@ -1,47 +1,14 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "firebase";
+import { useAuthContext } from "hooks";
+import { Actions } from "actions";
+import { IHook, IUseSignup, Error, ISignup } from "interfaces";
 
-enum Actions {
-  LOGIN = "LOGIN",
-}
-
-export interface IHook<T> {
-  (): T;
-}
-
-export interface IErrorPending {
-  error: string | null;
-  isPending: boolean;
-}
-
-export interface IUseSignup extends IErrorPending {
-  signup: ISignup;
-}
-
-export interface ISignup {
-  (email: string, password: string, displayName: string): void;
-}
-
-export type Action = { type: Actions.LOGIN; payload: any };
-export const signUpReducer = (state: any, action: Action) => {
-  switch (action.type) {
-    case Actions.LOGIN:
-      return {
-        ...state,
-        user: action.payload,
-      };
-  }
-};
-
-const initState = {
-  data: null,
-};
-
-export const useSignup = () => {
-  const [dispatch] = useReducer(signUpReducer, initState);
+export const useSignup: IHook<IUseSignup> = () => {
   const [isCancelled, setIsCancelled] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<Error>(null);
   const [isPending, setIsPending] = useState<boolean>(false);
+  const { dispatch } = useAuthContext();
 
   const signup: ISignup = async (email, password, displayName) => {
     setError(null);
