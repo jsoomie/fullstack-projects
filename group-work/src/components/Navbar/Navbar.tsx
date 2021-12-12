@@ -4,10 +4,10 @@ import "./Navbar.css";
 
 export const Navbar = () => {
   return (
-    <div>
+    <div className="navbar">
       <ul>
         <li className="logo">
-          <img src={TempleIcon} alt="temple" />
+          <img src={TempleIcon} alt="dojo logo" />
           <span>The Dojo</span>
         </li>
         <li>
