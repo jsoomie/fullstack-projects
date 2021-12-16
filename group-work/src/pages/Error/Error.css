@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.errordiv h1 {
+  font-size: 10rem;
+}
+
+.errordiv .firstQuestion,
+.errordiv .secondQuestion {
+  font-size: 8.5rem;
+}
+
 .errordiv a {
   color: #333;
   margin: 1rem;
