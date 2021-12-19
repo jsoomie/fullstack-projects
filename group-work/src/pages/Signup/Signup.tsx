@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import "./Signup.css";
 
 export const Signup = () => {
@@ -7,6 +7,11 @@ export const Signup = () => {
   const [displayName, setDisplayName] = useState("");
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [thumbnailError, setThumbnailError] = useState<string | null>(null);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(email, password, displayName, thumbnail);
+  };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     let selected: File;
@@ -34,7 +39,7 @@ export const Signup = () => {
   };
 
   return (
-    <form className="auth-form">
+    <form className="auth-form" onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
       <label>
         <span>email: </span>
