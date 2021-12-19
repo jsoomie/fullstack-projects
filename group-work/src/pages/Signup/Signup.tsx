@@ -1,11 +1,37 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import "./Signup.css";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [thumbnail, setThumbnail] = useState<string | null>(null);
+  const [thumbnail, setThumbnail] = useState<File | null>(null);
+  const [thumbnailError, setThumbnailError] = useState<string | null>(null);
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let selected: File;
+    setThumbnail(null);
+    if (e.target.files) {
+      selected = e.target.files[0];
+      if (!selected) {
+        setThumbnailError("Please select an image file");
+        return;
+      }
+
+      if (!selected.type.includes("image")) {
+        setThumbnailError("Selected file must be an image");
+        return;
+      }
+
+      if (selected.size > 100000) {
+        setThumbnailError("Image file size must be less than 100kb");
+        return;
+      }
+
+      setThumbnailError(null);
+      setThumbnail(selected);
+    }
+  };
 
   return (
     <form className="auth-form">
@@ -39,7 +65,8 @@ export const Signup = () => {
       </label>
       <label>
         <span>profile thumbnail: </span>
-        <input type="file" required />
+        <input type="file" required onChange={handleFileChange} />
+        {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
       <button className="btn">Sign Up</button>
     </form>
