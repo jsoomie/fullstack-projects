@@ -8,6 +8,9 @@ export const Signup = () => {
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [thumbnailError, setThumbnailError] = useState<string | null>(null);
 
+  const maxFileSize = 100000;
+  const IMAGE = "image";
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(email, password, displayName, thumbnail);
@@ -23,12 +26,12 @@ export const Signup = () => {
         return;
       }
 
-      if (!selected.type.includes("image")) {
+      if (!selected.type.includes(IMAGE)) {
         setThumbnailError("Selected file must be an image");
         return;
       }
 
-      if (selected.size > 100000) {
+      if (selected.size > maxFileSize) {
         setThumbnailError("Image file size must be less than 100kb");
         return;
       }
